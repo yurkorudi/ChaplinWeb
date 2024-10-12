@@ -1,31 +1,33 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="home">
-      <div class="header-wrapper">
-        <header class="header">
-          <div class="overlap">
-            <img class="rectangle" src="img/rectangle-1.svg" />
-            <div class="logo">
-              <div class="overlap-group">
-                <div class="text-wrapper">Chaplin</div>
-                <div class="div">cinema</div>
-                <img class="blackhat" src="img/blackhat-1.png" />
-              </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <div class="home">
+    <div class="header-wrapper">
+      <header class="header">
+        <div class="overlap">
+          <img class="rectangle" src="/img/rectangle-1.svg" />
+          <div class="logo">
+            <div class="overlap-group">
+              <div class="text-wrapper">Chaplin</div>
+              <div class="div">cinema</div>
+              <img class="blackhat" src="/img/blackhat-1.png" />
             </div>
-            <div class="topbtn-s">
-              <div class="button-wrapper"><button class="button">All movies</button></div>
-              <div class="button-wrapper"><button class="button">About</button></div>
-            </div>
-            <img class="ico" src="img/ico.svg" />
           </div>
-        </header>
-      </div>
+          <div class="topbtn-s">
+            <div class="button-wrapper"><button class="button">All movies</button></div>
+            <div class="button-wrapper"><button class="button">About</button></div>
+          </div>
+          <img class="ico" src="/templates/img/ico.svg" />
+        </div>
+      </header>
     </div>
-  </body>
+  </div>
+</body>
 </html>

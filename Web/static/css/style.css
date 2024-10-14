@@ -53,7 +53,7 @@
 
 .home .text-wrapper {
   position: absolute;
-  top: 31px;
+  top: 48px;
   left: 51px;
   font-family: "Koulen", Helvetica;
   font-weight: 400;
@@ -63,6 +63,8 @@
   letter-spacing: 7.8px;
   line-height: normal;
 }
+
+
 
 .home .div {
   position: absolute;
@@ -80,11 +82,11 @@
 
 .home .blackhat {
   position: absolute;
-  width: 344px;
+  width: 330px;
   height: 131px;
   top: 0;
   left: 0;
-  object-fit: cover;
+  object-fit: scale-down;
 }
 
 .home .topbtn-s {
@@ -107,8 +109,14 @@
   padding: 10px;
   position: relative;
   flex: 0 0 auto;
-  border-radius: 20px;
-  background: linear-gradient(180deg, rgb(111, 13, 13) 0%, rgb(97, 11, 11) 100%);
+  border-radius: 15px;
+  background-color: linear-gradient(180deg, rgb(111, 13, 13) 0%, rgb(97, 11, 11) 100%);
+  transition: background-color 0.5s ease-in-out;
+}
+
+
+.home .button-wrapper:hover{
+  background: linear-gradient(180deg, rgb(000, 000, 000) 0%, rgb(000, 000, 000) 100%)
 }
 
 .home .button {
@@ -116,7 +124,12 @@
   box-sizing: border-box;
   position: relative;
   width: fit-content;
-  margin-top: -1px;
+  margin-top: 1px;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 3px 6px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #ffffff;
@@ -126,6 +139,10 @@
   line-height: normal;
   white-space: nowrap;
 }
+
+
+
+
 
 .home .ico {
   position: absolute;

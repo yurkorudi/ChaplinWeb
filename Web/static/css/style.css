@@ -37,6 +37,9 @@ body {
   background: linear-gradient(rgba(128,0,0, 1), rgba(0,0,0, 0))
   /* transparent */
   ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 15px;
 }
 
@@ -55,10 +58,11 @@ body {
 } */
 
 .home .logo {
-  position: absolute;
+  /* position: absolute; */
   width: 20vw;
   top: 0;
   left: 0;
+  display: flex;
 }
 
 /* .home .overlap-group {
@@ -71,7 +75,7 @@ body {
 
 .home .text-wrapper {
   position: absolute;
-  top: 48px;
+  top: 25px;
   left: 51px;
   font-family: "Koulen", Helvetica;
   font-weight: 400;
@@ -97,7 +101,7 @@ body {
 }
 
 .home .blackhat {
-  /* position: absolute; */
+  position: absolute;
   width: 330px;
   height: 131px;
   top: 0;
@@ -108,12 +112,11 @@ body {
 .home .header-menu {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;  
   top: 0;
-  left: 70vw;
-  width: 70%;
-  overflow: hidden;
+  right: 20px;
+  /* overflow: hidden; */
 }
 
 .home .topbtn-s {

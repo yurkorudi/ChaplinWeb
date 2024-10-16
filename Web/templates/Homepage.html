@@ -23,10 +23,19 @@
           </div>
           <div class="header-menu">
             <div class="topbtn-s">
+              <div class="dropdown">
+                <div class="button-wrapper"><button  class="button" class="button-wrapper" class="dropdown" >локація</button></div>
+                <div class="dropdown-content">
+                  <a href="#">Львів</a>
+                  <a href="#">Долина</a>
+                  <a href="#">Моршин</a>
+                  <a href="#">Оксанин кінотеатр</a>
+                </div>
+              </div>
               <form action="{{ url_for('movies')}}">
-                <div class="button-wrapper"><button class="button" type="submit">All movies</button></div>
+                <div class="button-wrapper"><button class="button" type="submit">Фільми</button></div>
               </form>
-              <div class="button-wrapper"><button class="button">About</button></div>
+              <div class="button-wrapper"><button class="button">Про нас</button></div>
             </div>
             <img class="ico" src="/static/img/ico.svg" />
           </div>

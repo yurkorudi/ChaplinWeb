@@ -111,12 +111,14 @@
   flex: 0 0 auto;
   border-radius: 15px;
   background-color: linear-gradient(180deg, rgb(111, 13, 13) 0%, rgb(97, 11, 11) 100%);
-  transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.5s ease;
+  transition: transform 0.5s ease-in-out;
 }
 
 
 .home .button-wrapper:hover{
-  background: linear-gradient(180deg, rgb(000, 000, 000) 0%, rgb(000, 000, 000) 100%)
+  background: linear-gradient(180deg, rgb(000, 000, 000) 0%, rgb(000, 000, 000) 100%);
+  transform: scale(1.1);
 }
 
 .home .button {
@@ -141,13 +143,16 @@
 }
 
 
-
-
-
 .home .ico {
   position: absolute;
   width: 75px;
   height: 75px;
   top: 247px;
   left: 1358px;
+  transition: transform 0.5s ease;
+}
+
+.home .ico:hover {
+  transform: scale(1.1);
+  content: url('/static/img/ico2.svg');
 }

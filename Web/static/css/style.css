@@ -117,7 +117,7 @@
 
 
 .home .button-wrapper:hover{
-  background: linear-gradient(180deg, rgb(000, 000, 000) 0%, rgb(000, 000, 000) 100%);
+  background: black;
   transform: scale(1.1);
 }
 

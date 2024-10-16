@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flask App</title>
-  <link rel="stylesheet" href="/static/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChaplinCinema</title>
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
 <body>
@@ -28,7 +28,14 @@
             </div>
             <img class="ico" src="/static/img/ico.svg" />
           </div>
-              <!-- </div> -->
+          <div class="topbtn-s">
+            <form action = "{{ url_for('homepage')}}">
+              <div class="button-wrapper"><button class="button" type="submit">Home</button></div>
+            </form>
+            <div class="button-wrapper"><button class="button">About</button></div>
+          </div>
+          <img class="ico" src="/static/img/photo.jpg" />
+        </div>
       </header>
     <!-- </div> -->
      <main class="main">

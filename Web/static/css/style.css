@@ -103,7 +103,7 @@ body {
   position: absolute;
   background-color: transparent;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
   z-index: 1;
   transition: background-color 0.3s ease;
 }
@@ -150,24 +150,9 @@ body {
   flex: 0 0 auto;
   border-radius: 15px;
   background-color: linear-gradient(180deg, rgb(111, 13, 13) 0%, rgb(97, 11, 11) 100%);
-  /* transition: background-color 0.5s ease; */
   transition: transform 0.5s ease-in-out;
-  /* transition: background-color 0.5s ease-in-out; */
-  animation: background-animation 5s infinite;
+  transition: background-color 0.5s ease-in-out;
 }
-
-@keyframes background-animation {
-  0% {
-      background-color: transparent;
-  }
-  50% {
-      background-color: rgba(0,0,0,0.5);
-  }
-  100% {
-      background-color: rgba(0,0,0,1);
-  }
-}
-
 
 .home .button-wrapper:hover{
   background: black;

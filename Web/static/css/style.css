@@ -13,12 +13,14 @@ body {
 }
 
 .home {
-  background-color: rgb(0, 0, 0);
+  /* background-color: rgb(0, 0, 0); */
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100vw;
   height: 100vw;
+  background: linear-gradient(180deg, rgba(128,0,0,1) 5%, rgba(0,0,0,0) 11%);
+  padding: 15px;
 }
 
 
@@ -27,11 +29,11 @@ body {
   position: relative;
   width: 100vw;
   height: 12vw;
-  background: linear-gradient(rgba(128,0,0, 1) 15%, rgba(0,0,0, 0) 75%);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
+  background: transparent;
 }
 
 .home .logo {
@@ -148,8 +150,22 @@ body {
   flex: 0 0 auto;
   border-radius: 15px;
   background-color: linear-gradient(180deg, rgb(111, 13, 13) 0%, rgb(97, 11, 11) 100%);
-  transition: background-color 0.5s ease;
+  /* transition: background-color 0.5s ease; */
   transition: transform 0.5s ease-in-out;
+  /* transition: background-color 0.5s ease-in-out; */
+  animation: background-animation 5s infinite;
+}
+
+@keyframes background-animation {
+  0% {
+      background-color: transparent;
+  }
+  50% {
+      background-color: rgba(0,0,0,0.5);
+  }
+  100% {
+      background-color: rgba(0,0,0,1);
+  }
 }
 
 

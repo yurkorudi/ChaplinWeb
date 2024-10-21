@@ -8,19 +8,18 @@
       opacity: 1;
   }
 }
-body {
+html, body{
   background-color: #000000;
+  overflow-x: hidden;
 }
 
 .home {
-  /* background-color: rgb(0, 0, 0); */
+  background-color: rgb(0, 0, 0);
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100vw;
   height: 100vw;
-  background: linear-gradient(180deg, rgba(128,0,0,1) 5%, rgba(0,0,0,0) 11%);
-  padding: 15px;
 }
 
 
@@ -29,11 +28,11 @@ body {
   position: relative;
   width: 100vw;
   height: 12vw;
+  background: linear-gradient(rgba(128,0,0, 1) 15%, rgba(0,0,0, 0) 75%);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  background: transparent;
 }
 
 .home .logo {
@@ -59,7 +58,7 @@ body {
 
 .home .div {
   position: absolute;
-  top: 104px;
+  top: 96px;
   left: 164px;
   font-family: "Josefin Slab", Helvetica;
   font-weight: 400;
@@ -99,13 +98,16 @@ body {
 }
 
 .home .dropdown-content {
+  opacity: 0;
+  max-height: 0;
   display: none;
   position: absolute;
   background-color: transparent;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  transition: background-color 0.3s ease;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s ease;
 }
 
 .home .dropdown-content a {
@@ -115,11 +117,13 @@ body {
   font-family: "Josefin Slab", Helvetica;
   font-size: 15px;
   display: block;
-  transition: transform 0.3s ease-in-out;
-
+  transition: transform 0.3s ease-in-out; 
 }
 
 .home .dropdown:hover .dropdown-content {
+  visibility: visible; 
+  opacity: 1;
+  transition-delay: 0s; 
   display: block;
 }
 
@@ -134,6 +138,8 @@ body {
 
 
 .home .topbtn-s {
+  position: relative;
+  left: -3vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,32 +151,18 @@ body {
 .home .button-wrapper {
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
   padding: 10px;
   flex: 0 0 auto;
   border-radius: 15px;
-  background-color: linear-gradient(180deg, rgb(111, 13, 13) 0%, rgb(97, 11, 11) 100%);
-  /* transition: background-color 0.5s ease; */
+  background-color: transparent;
   transition: transform 0.5s ease-in-out;
-  /* transition: background-color 0.5s ease-in-out; */
-  animation: background-animation 5s infinite;
-}
-
-@keyframes background-animation {
-  0% {
-      background-color: transparent;
-  }
-  50% {
-      background-color: rgba(0,0,0,0.5);
-  }
-  100% {
-      background-color: rgba(0,0,0,1);
-  }
+  transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
 
 .home .button-wrapper:hover{
-  background: black;
+  background-color: black;
   transform: scale(1.1);
 }
 
@@ -181,14 +173,14 @@ body {
   width: fit-content;
   margin-top: 1px;
   border: none;
-  padding: 10px 10px;
+  padding: 7px 7px;
   border-radius: 15px;
   overflow: hidden;
   padding: 3px 6px;
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
   letter-spacing: 2px;
   line-height: normal;
@@ -197,8 +189,10 @@ body {
 
 
 .home .ico {
-  width: 75px;
-  height: 75px;
+  position: relative;
+  left: -2vw;
+  width: 50px;
+  height: 50px;
   transition: transform 0.5s ease;
 }
 

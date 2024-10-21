@@ -1,4 +1,4 @@
-use ChapliCinema
+use Chaplin
 
 --Create user's table
 create table Users(
@@ -8,6 +8,7 @@ phone_number VARCHAR(15) NOT NULL primary key,
 email varchar(100) not null unique,
 user_login varchar(100) not null unique,
 user_password varchar(100),
+avatar image,
 CONSTRAINT valid_phone_number CHECK (phone_number NOT LIKE '%[^0-9]%')
 );
 
@@ -20,6 +21,7 @@ name VARCHAR(100) NOT NULL,
 location VARCHAR(100) NOT NULL,
 contact_phone_number varchar(100) not null unique,
 work_schedule varchar(100),
+pictures BLOB,
 CONSTRAINT valid_contact_phone_number CHECK (contact_phone_number NOT LIKE '%[^0-9]%')
 );
 
@@ -37,7 +39,9 @@ ganre VARCHAR(100) NOT NULL,
 director VARCHAR(50),
 actors VARCHAR(100),
 duration int NOT NULL,
-description varchar(100)
+description varchar(100),
+license_key varchar(30),
+pictures_path text
 );
 
 drop table Films;

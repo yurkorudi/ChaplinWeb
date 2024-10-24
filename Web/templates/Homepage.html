@@ -2,49 +2,69 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask App</title>
-    <link rel="stylesheet" href="/static/css/globals.css">
-    <link rel="stylesheet" href="/static/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flask App</title>
+  <link rel="stylesheet" href="/static/css/globals.css">
+  <link rel="stylesheet" href="/static/css/style.css">
 </head>
+
 <body class="fade-in">
   <div class="home">
     <!-- <div class="header-wrapper"> -->
-      <header class="header">
-        <!-- <div class="overlap"> -->
-          <!-- <img class="rectangle" src="/static/img/rectangle-1.svg"/> -->
-          <div class="logo">
-            <!-- <div class="overlap-group"> -->
-              <div class="text-wrapper">Chaplin</div>
-              <div class="div">cinema</div>
-              <img class="blackhat" src="/static/img/blackhat-1.png" />
-            <!-- </div> -->
-          </div>
-          <div class="header-menu">
-            <div class="topbtn-s">
-              <div class="dropdown">
-                <div class="button-wrapper"><button  class="button" class="button-wrapper" class="dropdown" >локація</button></div>
-                <div class="dropdown-content">
-                  <a href="#">Львів</a>
-                  <a href="#">Долина</a>
-                  <a href="#">Моршин</a>
-                  <a href="#">Оксанин кінотеатр</a>
-                </div>
-              </div>
-              <form action="{{ url_for('movies')}}">
-                <div class="button-wrapper"><button class="button" type="submit">Фільми</button></div>
-              </form>
-              <div class="button-wrapper"><button class="button">Про нас</button></div>
+    <header class="header">
+      <!-- <div class="overlap"> -->
+      <!-- <img class="rectangle" src="/static/img/rectangle-1.svg"/> -->
+      <div class="logo">
+        <!-- <div class="overlap-group"> -->
+        <div class="text-wrapper">Chaplin</div>
+        <div class="div">cinema</div>
+        <img class="blackhat" src="/static/img/blackhat-1.png" />
+        <!-- </div> -->
+      </div>
+      <div class="header-menu">
+        <div class="topbtn-s">
+          <div class="dropdown">
+            <div class="button-wrapper"><button class="button" class="button-wrapper" class="dropdown">локація</button>
             </div>
-            <img class="ico" src="/static/img/ico.svg" />
+            <div class="dropdown-content">
+              <a href="#">Львів</a>
+              <a href="#">Долина</a>
+              <a href="#">Моршин</a>
+              <a href="#">Оксанин кінотеатр</a>
+            </div>
           </div>
+          <form action="{{ url_for('movies')}}">
+            <div class="button-wrapper"><button class="button" type="submit">Фільми</button></div>
+          </form>
+          <div class="button-wrapper"><button class="button">Про нас</button></div>
         </div>
-      </header>
-    <!-- </div> -->
-     <main class="main">
+        <img class="ico" src="/static/img/ico.svg" />
+      </div>
+  </div>
+  </header>
+  <!-- </div> -->
+  <main class="main">
+    <!-- Home page's base 360 degris's slider -->
 
-     </main>
+    <section class="slider row">
+      <div class="slider-body">
+        <div class="slider-item" style="--j--:1"><img src="./testim_img/imag9.png" alt="1"></div>
+        <div class="slider-item" style="--j--:2"><img src="https://analoguewonderland.co.uk/cdn/shop/articles/the-best-35mm-film-camera-for-beginners-guest-blog-378288.jpg?v=1663789240" alt="2"></div>
+        <div class="slider-item" style="--j--:3"><img src="https://analoguewonderland.co.uk/cdn/shop/articles/the-best-35mm-film-camera-for-beginners-guest-blog-378288.jpg?v=1663789240" alt="3"></div>
+        <div class="slider-item" style="--j--:4"><img src="https://analoguewonderland.co.uk/cdn/shop/articles/the-best-35mm-film-camera-for-beginners-guest-blog-378288.jpg?v=1663789240" alt="4"></div>
+        <div class="slider-item" style="--j--:5"><img src="https://analoguewonderland.co.uk/cdn/shop/articles/the-best-35mm-film-camera-for-beginners-guest-blog-378288.jpg?v=1663789240"></div>
+        <div class="slider-item" style="--j--:6"><img src="https://analoguewonderland.co.uk/cdn/shop/articles/the-best-35mm-film-camera-for-beginners-guest-blog-378288.jpg?v=1663789240" alt="6"></div>
+        <div class="slider-item" style="--j--:7"><img src="https://analoguewonderland.co.uk/cdn/shop/articles/the-best-35mm-film-camera-for-beginners-guest-blog-378288.jpg?v=1663789240" alt="7"></div>
+        <div class="slider-item" style="--j--:8"><img src="https://analoguewonderland.co.uk/cdn/shop/articles/the-best-35mm-film-camera-for-beginners-guest-blog-378288.jpg?v=1663789240" alt="7"></div>
+      </div>
+    </section>
+
+    <!-- end home page's base 360 degris's slider -->
+  </main>
+  <footer class="footer">
+    <p>Some info</p>
+  </footer>
   </div>
 </body>
 

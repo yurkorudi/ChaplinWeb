@@ -165,7 +165,7 @@ body {
   padding: 10px;
   flex: 0 0 auto;
   border-radius: 15px;
-  top: -15px;
+  top: -50px;
   background-color: transparent;
   transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
@@ -197,18 +197,20 @@ body {
 }
 
 
+
+
 .home .ico {
   position: relative;
-  top: -15px;
   width: 50px;
   height: 50px;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease-in-out;
 }
 
 .home .ico:hover {
   transform: scale(1.1);
   content: url('/static/img/ico2.svg');
 }
+
 
 .main{
   margin: 15px 0;

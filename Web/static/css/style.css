@@ -13,7 +13,6 @@ body {
 }
 
 .home {
-  /* background-color: rgb(0, 0, 0); */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -103,7 +102,6 @@ body {
   position: absolute;
   background-color: transparent;
   min-width: 160px;
-  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
   z-index: 1;
   transition: background-color 0.3s ease;
 }
@@ -133,6 +131,10 @@ body {
 }
 
 
+
+
+
+
 .home .topbtn-s {
   display: flex;
   align-items: center;
@@ -144,11 +146,13 @@ body {
 
 .home .button-wrapper {
   align-items: center;
+  position: relative;
   justify-content: center;
   gap: 10px;
   padding: 10px;
   flex: 0 0 auto;
   border-radius: 15px;
+  top: -15px;
   background-color: linear-gradient(180deg, rgb(111, 13, 13) 0%, rgb(97, 11, 11) 100%);
   transition: transform 0.5s ease-in-out;
   transition: background-color 0.5s ease-in-out;
@@ -173,7 +177,7 @@ body {
   font-family: "Inter", Helvetica;
   font-weight: 400;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 17px;
   text-align: center;
   letter-spacing: 2px;
   line-height: normal;
@@ -182,8 +186,10 @@ body {
 
 
 .home .ico {
-  width: 75px;
-  height: 75px;
+  position: relative;
+  top: -15px;
+  width: 50px;
+  height: 50px;
   transition: transform 0.5s ease;
 }
 
@@ -218,24 +224,17 @@ body {
 }
 
 .slider{
-  /* position: relative; */
   width: 350px;
   margin: 15px auto;
-  /* justify-content: center;
-  align-items: center; */
   perspective: 1000px;
 }
 
 .slider-body{
-  /* position: absolute; */
   inset: 0;
   margin: 15px;
   width: 60%;
   height: 80%;
   transform-style: preserve-3d;
-  /* animation: rotate 30s linear infinite;
-  -webkit-animation: rotate 60s linear infinite; */
-
   --d: 60s;
   --s: 0.5;
   --_a: rotate linear infinite;
@@ -257,7 +256,6 @@ body {
 
 .slider-body:hover{
   animation-play-state: running;
-  /* animation: rotate 90s linear infinite; */
 }
 
 .slider-item{

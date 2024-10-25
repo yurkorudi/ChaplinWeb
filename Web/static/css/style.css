@@ -205,12 +205,56 @@ body {
 }
 
 .footer{
-  height: 50px;
+  height: 100px;
   width: 100vw;
+  padding: 15px;
+  margin: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer p{
   color: white;
+}
+
+.footer p,
+.footer a{
+  margin-bottom: 5px;
+}
+
+.footer p:nth-child(1),
+.footer a:nth-child(1){
+  margin-bottom: 15px;
+}
+
+.footer div{
+  text-align: center;
+}
+
+.footer .map{
+  display: flex;
+  flex-direction: column;
+}
+
+.footer .social_maedi a{
+  position: relative;
+}
+
+.footer .social_maedi a::before{
+  content: ""; /* This creates a pseudo-element */
+    background-image: url('./static/img/social.png'); /* Path to your icon */
+    background-color: white;
+    background-size: contain; /* Ensure the image fits */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    position: absolute; /* Position it absolutely */
+    left: 0; /* Align it to the left */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    width: 20px; /* Set the width of the icon */
+    height: 20px; /* Set the height of the icon */
 }
 
 /* Home page's base 360 degris's slider */

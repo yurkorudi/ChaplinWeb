@@ -1,10 +1,39 @@
-from flask import Flask, render_template
+from flask import *
 
 app = Flask(__name__)
 
+cities = {
+    "lviv":"Львів",
+    "mor":"Моршин",
+    "dol":"Долина",
+    "oks":"Оксана",
+}
+
 @app.route('/')
 def homepage():
-    return render_template('Homepage.html')
+
+    print("===", request.args)
+    # print("======", request.)
+    location = request.args.get('location')
+    print ("LocatioN: " + str(location))
+
+    return render_template('Homepage.html', city="", cities=cities)
+
+@app.route('/home')
+def location():
+    print("===222", request.args)
+
+    location = request.args.get('location')
+    city = ""
+    if location:
+        city = cities[location]
+
+    print ("----- LocatioN: " + str(location))
+
+    return render_template('Homepage.html', city=city, cities=cities)
+
+
+
 
 @app.route('/Movies.html')
 def movies():
@@ -13,6 +42,7 @@ def movies():
 @app.route('/About.html')
 def about():
     return render_template('About.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)     

@@ -24,6 +24,12 @@ body {
 
 
 
+
+
+
+
+
+
 .home .header {
   position: relative;
   width: 100vw;
@@ -41,7 +47,6 @@ body {
   left: 0;
   display: flex;
 }
-
 
 .home .text-wrapper {
   position: absolute;
@@ -79,6 +84,12 @@ body {
   object-fit: scale-down;
 }
 
+
+
+
+
+
+
 .home .header-menu li{
   position: relative;
   display: flex;
@@ -100,16 +111,14 @@ body {
 .home .dropdown-content {
   display: none;
   position: absolute;
+  top: 50px;
   background-color: transparent;
   min-width: 160px;
   z-index: 1;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   transition: visibility 0s, opacity 0.3s ease;
-  /* transition: background-color 0.3s ease; */
-  /* transition: visibility 0s, opacity 0.3s ease; */
 }
 
 .home .dropdown-content a {
@@ -117,7 +126,7 @@ body {
   padding: 12px 16px;
   text-decoration: none;
   font-family: "Josefin Slab", Helvetica;
-  font-size: 15px;
+  font-size: 13px;
   display: block;
   transform: translateY(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -165,7 +174,7 @@ body {
   padding: 10px;
   flex: 0 0 auto;
   border-radius: 15px;
-  top: -15px;
+  top: -70px;
   background-color: transparent;
   transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
@@ -197,18 +206,21 @@ body {
 }
 
 
+
+
 .home .ico {
   position: relative;
-  top: -15px;
   width: 50px;
   height: 50px;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease-in-out;
+  transition: opacity;
 }
 
 .home .ico:hover {
   transform: scale(1.1);
   content: url('/static/img/ico2.svg');
 }
+
 
 .main{
   margin: 15px 0;

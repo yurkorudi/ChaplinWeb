@@ -20,20 +20,21 @@
       <div class="header-menu">
         <div class="topbtn-s">
           <div class="dropdown">
-            <div class="button-wrapper"><button class="button" class="button-wrapper" class="dropdown">локація</button>
-            </div>
-            <div class="dropdown-content">
-              <a href="#" style="--delay: 0s;">Львів</a>
-              <a href="#" style="--delay: 0.1s;">Долина</a>
-              <a href="#" style="--delay: 0.2s;">Моршин</a>
-              <a href="#" style="--delay: 0.3s;">Оксанин кінотеатр</a>
+            <div class="button-wrapper"><button class="button" class="button-wrapper" class="dropdown">Ваше місто: {{ city }}</button>
+              <div class="dropdown-content">
+                {% for l, c in cities.items() %}
+                <a href="{{url_for('location')}}?location={{l}}" style="--delay: 0s;">{{c}}</a>
+                {% endfor %}
+              
+              </div>
             </div>
           </div>
+          
           <form action="{{ url_for('movies')}}">
             <div class="button-wrapper"><button class="button" type="submit">Фільми</button></div>
           </form>
           <div class="button-wrapper"><button class="button">Про нас</button></div>
-          <div class="button-wrapper"><img class="ico" scr="/static/img/ico.svg" /></div>
+          <div class="button-wrapper"><img class="ico" src="./static/img/ico.svg" /></div>
         </div>
       </div>
   </div>

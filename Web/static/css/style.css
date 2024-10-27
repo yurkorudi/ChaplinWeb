@@ -229,12 +229,42 @@ body {
 }
 
 .footer{
-  height: 50px;
+  height: 100px;
   width: 100vw;
+  padding: 15px;
+  margin: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer p{
   color: white;
+}
+
+.footer p,
+.footer a{
+  margin-bottom: 5px;
+}
+
+.footer p:nth-child(1),
+.footer a:nth-child(1){
+  margin-bottom: 15px;
+}
+
+.footer div{
+  text-align: center;
+}
+
+.footer .map{
+  display: flex;
+  flex-direction: column;
+}
+
+.footer .fa{
+  margin: 0 5px;
 }
 
 /* Home page's base 360 degris's slider */

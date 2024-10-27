@@ -11,26 +11,26 @@ cities = {
 
 @app.route('/')
 def homepage():
-
     print("===", request.args)
-    # print("======", request.)
     location = request.args.get('location')
     print ("LocatioN: " + str(location))
 
     return render_template('Homepage.html', city="", cities=cities)
 
+
 @app.route('/home')
 def location():
-    print("===222", request.args)
-
+    print("===", request.args)
     location = request.args.get('location')
     city = ""
     if location:
         city = cities[location]
-
     print ("----- LocatioN: " + str(location))
 
     return render_template('Homepage.html', city=city, cities=cities)
+
+
+
 
 
 

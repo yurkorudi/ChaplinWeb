@@ -37,7 +37,13 @@ def location():
 
 @app.route('/Movies.html')
 def movies():
-    return render_template('Movies.html')
+    location = request.args.get('location')
+    city = ""
+    if location:
+        city = cities[location]
+
+    print ("----- LocatioN: " + str(location))
+    return render_template('Movies.html', city=city, cities=cities)
 
 @app.route('/About.html')
 def about():

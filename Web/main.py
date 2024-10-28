@@ -21,7 +21,7 @@ def location():
 
     return render_template('Homepage.html', city=city, cities=cities)
 
-@app.route()
+@app.route('/')
 def homepage():
     print("===", request.args)
     location = request.args.get('location')

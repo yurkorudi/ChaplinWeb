@@ -320,6 +320,7 @@ body {
 }
 
 .slider-body:hover{
+  transform: rotateY(-60deg);
   animation-play-state: running;
 }
 
@@ -357,11 +358,11 @@ body {
   border: none;
   cursor: pointer;
 }
-.button-wrapper .prev:hover{
+.button-wrapper .prev.clicked{
   color: #04AA6D;
 }
 
-.prev:hover + .slider-body {
+.prev.clicked ~ .slider-body {
   --s: 1.5;
   animation-play-state: running;
 }

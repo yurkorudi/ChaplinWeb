@@ -285,6 +285,10 @@ body {
   perspective: 1000px;
 }
 
+:root {
+  --pos: 0deg;
+}
+
 .slider-body{
   inset: 0;
   margin: 15px;
@@ -303,24 +307,23 @@ body {
 
 @keyframes rotate{
   from {
-        transform: rotateY(0deg);
+        transform: rotateY(var(--pos));;
     }
     to {
-        transform: rotateY(360deg); 
+        transform: rotateY(360deg);  
     }
 }
 
-@keyframes rotateReverse {
+/* @keyframes rotateReverse {
   from {
     transform: rotateY(360deg);
   }
   to {
     transform: rotateY(0deg);
   }
-}
+} */
 
 .slider-body:hover{
-  transform: rotateY(-60deg);
   animation-play-state: running;
 }
 
@@ -358,12 +361,12 @@ body {
   border: none;
   cursor: pointer;
 }
-.button-wrapper .prev.clicked{
-  color: #04AA6D;
+
+.slider-body.prev{
+  transform: rotateY(calc(var(--pos) + 45deg));
 }
 
-.prev.clicked ~ .slider-body {
-  --s: 1.5;
-  animation-play-state: running;
+.slider-body.next{
+  transform: rotateY(calc(var(--pos) - 45deg));
 }
 /* end  home page's base 360 degris's slider*/

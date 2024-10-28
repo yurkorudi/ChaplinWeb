@@ -30,7 +30,7 @@
                 }}</button>
               <div class="dropdown-content">
                 {% for l, c in cities.items() %}
-                <a href="{{url_for('location')}}?location={{l}}" style="--delay: 0s;">{{c}}</a>
+                <a href="{{url_for('homepage')}}?location={{l}}" style="--delay: 0s;">{{c}}</a>
                 {% endfor %}
               </div>
             </div>

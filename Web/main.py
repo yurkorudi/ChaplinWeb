@@ -27,8 +27,6 @@ def location():
         print ("----- >>", user_location)
     return 
 
-
-
 @app.route('/home')
 def homepage():
     global user_location

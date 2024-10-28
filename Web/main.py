@@ -9,14 +9,6 @@ cities = {
     "oks":"Оксана",
 }
 
-@app.route('/')
-def homepage():
-    print("===", request.args)
-    location = request.args.get('location')
-    print ("LocatioN: " + str(location))
-
-    return render_template('Homepage.html', city="", cities=cities)
-
 
 @app.route('/home')
 def location():

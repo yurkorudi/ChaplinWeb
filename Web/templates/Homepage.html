@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/static/css/globals.css">
   <link rel="stylesheet" href="/static/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body class="fade-in">
@@ -25,7 +26,8 @@
           </form>
           <div class="button-wrapper"><button class="button">Про нас</button></div>
           <div class="dropdown">
-            <div class="button-wrapper"><button class="button" class="button-wrapper" class="dropdown">Локація: {{ city }}</button>
+            <div class="button-wrapper"><button class="button" class="button-wrapper" class="dropdown">Локація: {{ city
+                }}</button>
               <div class="dropdown-content">
                 {% for l, c in cities.items() %}
                 <a href="{{url_for('location')}}?location={{l}}" style="--delay: 0s;">{{c}}</a>
@@ -54,10 +56,10 @@
         <div class="slider-item" style="--j--:8"><img src="./static/img/hat.png" alt="7"></div>
       </div>
       <div class="button-wrapper">
-        <button class="prev" onclick="document.querySelector('.slider-body').classList.toggle('prev'); document.querySelector('.slider-body').classList.remove('next');">Prev</button>
-        <button class="next" onclick="document.querySelector('.slider-body').classList.toggle('next'); document.querySelector('.slider-body').classList.remove('prev');">Next</button>
+        <button class="prev">Prev</button>
+        <button class="next">Next</button>
       </div>
-      
+
     </section>
 
     <!-- end home page's base 360 degris's slider -->
@@ -76,9 +78,49 @@
       <p>Map</p>
       <a href="">Films</a>
       <a href="">About us</a>
-    </div>    
+    </div>
   </footer>
   </div>
+
+  <script>
+    var carousel = $(".slider-body"),
+      currdeg = 0,
+      autoplayInterval;
+
+    $(".next").on("click", { d: "n" }, rotate);
+    $(".prev").on("click", { d: "p" }, rotate);
+
+    function rotate(e) {
+      if (e.data.d == "n") {
+        currdeg = currdeg - 45;
+      }
+      if (e.data.d == "p") {
+        currdeg = currdeg + 45;
+      }
+      carousel.css({
+        "-webkit-transform": "rotateY(" + currdeg + "deg)",
+        "-moz-transform": "rotateY(" + currdeg + "deg)",
+        "-o-transform": "rotateY(" + currdeg + "deg)",
+        "transform": "rotateY(" + currdeg + "deg)"
+      });
+    }
+
+    // Autoplay function
+    function startAutoplay() {
+      autoplayInterval = setInterval(function () {
+        $(".next").trigger("click");
+      }, 3000);  // Change 2000 to the desired interval in milliseconds
+    }
+
+    startAutoplay();  // Start autoplay initially
+
+    // Stop autoplay on hover and resume on mouse leave
+    carousel.on("mouseenter", function () {
+      clearInterval(autoplayInterval);
+    }).on("mouseleave", startAutoplay);
+
+  </script>
+
 </body>
 
 </html>

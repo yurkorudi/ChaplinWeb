@@ -285,9 +285,9 @@ body {
   perspective: 1000px;
 }
 
-:root {
+/* :root {
   --pos: 0deg;
-}
+} */
 
 .slider-body{
   inset: 0;
@@ -295,36 +295,7 @@ body {
   width: 60%;
   height: 80%;
   transform-style: preserve-3d;
-  --d: 60s;
-  --s: 0.5;
-  --_a: rotate linear infinite;
-  animation: 
-    var(--_a) var(--d),
-    var(--_a) calc(var(--d)/var(--s)) 
-    reverse paused;
-  animation-composition: add;
-}
-
-@keyframes rotate{
-  from {
-        transform: rotateY(var(--pos));;
-    }
-    to {
-        transform: rotateY(360deg);  
-    }
-}
-
-/* @keyframes rotateReverse {
-  from {
-    transform: rotateY(360deg);
-  }
-  to {
-    transform: rotateY(0deg);
-  }
-} */
-
-.slider-body:hover{
-  animation-play-state: running;
+  transition: transform 1s;
 }
 
 .slider-item{
@@ -332,7 +303,6 @@ body {
   width: 100%;
   height: 100%;
   transform: rotateY(calc(45deg * var(--j--))) translateZ(300px);
-  transition: transform 0.3s ease-in-out;
 }
 
 .slider-item:hover{
@@ -360,13 +330,5 @@ body {
   color: white;
   border: none;
   cursor: pointer;
-}
-
-.slider-body.prev{
-  transform: rotateY(calc(var(--pos) + 45deg));
-}
-
-.slider-body.next{
-  transform: rotateY(calc(var(--pos) - 45deg));
 }
 /* end  home page's base 360 degris's slider*/

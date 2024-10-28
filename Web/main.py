@@ -21,13 +21,21 @@ def location():
 
     return render_template('Homepage.html', city=city, cities=cities)
 
+@app.route()
+def homepage():
+    print("===", request.args)
+    location = request.args.get('location')
+    city = ""
+    if location:
+        city = cities[location]
+    print ("----- LocatioN: " + str(location))
+
+    return render_template('Homepage.html', city=city, cities=cities)
 
 
 
 
-
-
-@app.route('/Movies.html')
+@app.route('/movies')
 def movies():
     location = request.args.get('location')
     city = ""
@@ -36,6 +44,9 @@ def movies():
 
     print ("----- LocatioN: " + str(location))
     return render_template('Movies.html', city=city, cities=cities)
+
+
+
 
 @app.route('/About.html')
 def about():

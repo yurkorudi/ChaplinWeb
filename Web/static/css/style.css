@@ -285,11 +285,6 @@ body {
   perspective: 1000px;
 }
 
-:root {
-  --d: {{ duration }}s; /* Dynamic duration */
-  --animation-name: {{ 'rotateReverse' if rotate_reverse else 'rotate' }}; /* Animation direction */
-}
-
 .slider-body{
   inset: 0;
   margin: 15px;
@@ -304,10 +299,6 @@ body {
     var(--_a) calc(var(--d)/var(--s)) 
     reverse paused;
   animation-composition: add;
-}
-
-:root {
-  --rotation-angle: 0deg; /* Starting angle */
 }
 
 @keyframes rotate{
@@ -370,27 +361,8 @@ body {
   color: #04AA6D;
 }
 
-.slider-body .slider-item:has(.button-wrapper .prev:hover) {
-  --d: 60s;
-  --s: 0.5;
-  --_a: rotate linear infinite;
-  animation: 
-    var(--_a) var(--d),
-    var(--_a) calc(var(--d)/var(--s)) 
-    reverse paused;
-  animation-composition: replace;
-}
-
-.slider-body:hover{
-  --d: 60s;
-  --s: 0.5;
-  --_a: rotateReverse linear infinite;
-  animation-duration: reverse;
-  animation: 
-    var(--_a) var(--d),
-    var(--_a) calc(var(--d)/var(--s)) 
-    reverse paused;
-  animation-composition: add;
-  /* animation-composition: add; */
+.prev:hover + .slider-body {
+  --s: 1.5;
+  animation-play-state: running;
 }
 /* end  home page's base 360 degris's slider*/

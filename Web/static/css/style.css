@@ -302,11 +302,20 @@ body {
 }
 
 @keyframes rotate{
-  from{
-    transform: rotateY(0deg);
-  }
-  to{
+  from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg); 
+    }
+}
+
+@keyframes rotateReverse {
+  from {
     transform: rotateY(360deg);
+  }
+  to {
+    transform: rotateY(0deg);
   }
 }
 
@@ -334,4 +343,26 @@ body {
   -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, rgba(0,0,0,0.4));
 }
 
+.row .button-wrapper{
+  position: absolute;
+  top: 50vh;
+  display: flex;
+  justify-content: space-between;
+  width: 60vw;
+}
+
+.row .button-wrapper button{
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.button-wrapper .prev:hover{
+  color: #04AA6D;
+}
+
+.prev:hover + .slider-body {
+  --s: 1.5;
+  animation-play-state: running;
+}
 /* end  home page's base 360 degris's slider*/

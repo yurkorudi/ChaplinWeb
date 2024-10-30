@@ -320,7 +320,7 @@ body {
 
 .row .button-wrapper{
   position: absolute;
-  top: 50vh;
+  top: 20vh;
   display: flex;
   justify-content: space-between;
   width: 60vw;
@@ -331,5 +331,17 @@ body {
   color: white;
   border: none;
   cursor: pointer;
+  border: #ffffff 2px solid;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 40px;
+}
+
+.row .button-wrapper button:hover{
+  background-color: rgba(128,0,0,1);
+  color: black;
+  border: #000000 2px solid;
+  transition: 0.5s ease-in-out;
 }
 /* end  home page's base 360 degris's slider*/

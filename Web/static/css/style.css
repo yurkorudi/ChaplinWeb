@@ -308,6 +308,7 @@ body {
 .slider-item:hover{
   cursor: pointer;
   transform: rotateY(calc(45deg * var(--j--))) translateZ(300px) scale(105%);
+  transition: transform 0.5s ease-in-out;
 }
 
 .slider-item img{

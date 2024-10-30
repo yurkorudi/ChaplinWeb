@@ -1,0 +1,14 @@
+/* Mobile menu */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+}
+
+.menu-toggle {
+    display: block;
+}
+
+/* Show menu on toggle (JavaScript required for this toggle action) */
+.mobile-menu.active {
+    display: flex;
+}

@@ -180,6 +180,12 @@ body {
   transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
+.home .button-wrapper.user{
+  margin: 10px;
+  padding: 0;
+  border-radius: 50%;
+}
+
 .home .button-wrapper:hover{
   background: black;
   transform: scale(1.1);

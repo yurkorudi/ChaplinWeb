@@ -177,18 +177,29 @@ body {
   border-radius: 15px;
   top: -60px;
   background-color: transparent;
-  transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
 }
 
 .home .button-wrapper.user{
   margin: 10px;
   padding: 0;
-  border-radius: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px;
 }
 
 .home .button-wrapper:hover{
   background: black;
   transform: scale(1.1);
+}
+
+.home .button-wrapper.user:hover .ico{
+  background-image: url('/static/img/ico2.svg');
+}
+
+.home .button-wrapper.user:hover{
+  border-radius: 15px 25px 25px 15px;
 }
 
 .home .button {
@@ -212,21 +223,20 @@ body {
   white-space: nowrap;
 }
 
-
-
-
 .home .ico {
   position: relative;
   width: 50px;
   height: 50px;
-  transition: transform 0.5s ease-in-out;
   transition: opacity;
+  background-image: url('/static/img/ico.svg');
+  background-size: cover;
+  transition: background-image 0.5s ease;
 }
 
-.home .ico:hover {
+/* .home .ico:hover {
   transform: scale(1.1);
   content: url('/static/img/ico2.svg');
-}
+} */
 
 
 .main{

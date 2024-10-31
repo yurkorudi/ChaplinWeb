@@ -250,40 +250,52 @@ body {
   height: 100px;
   width: 100vw;
   padding: 15px;
-  margin: 175px 15px 30px 15px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  margin: 175px 15px 0 0;
+  display: flex;
   gap: 10px;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-}
-
-.footer p{
-  color: white;
-}
-
-.footer p,
-.footer a{
-  margin-bottom: 3px;
-  font-family: "Helvetica", Helvetica;
-}
-
-.footer p:nth-child(1),
-.footer a:nth-child(1){
-  margin-bottom: 15px;
 }
 
 .footer div{
   text-align: center;
+  border: #ffffff 2px solid;
+  border-radius: 25px;
+  height: 40px;
+  width: 200px;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
-.footer .map{
-  display: flex;
-  flex-direction: column;
+.footer p{
+  color: white;
+  font-family: "Helvetica", Helvetica;
+  padding-top: 5%;
 }
 
-.footer .fa{
-  margin: 0 5px;
+.footer .footer_info{
+  display: none;
+  font-size: 18px;
+  padding: 7%;
+}
+
+.footer .map .footer_info{
+  display: none;
+  font-size: 18px;
+  padding: 2%;
+}
+
+.footer div:hover p{
+  display: none;
+}
+
+.footer div:hover .footer_info{
+  display: block;
+}
+
+.footer div:hover{
+  border: rgba(128,0,0,1) 3px solid;
+  height: 50px;
 }
 
 /* Home page's base 360 degris's slider */

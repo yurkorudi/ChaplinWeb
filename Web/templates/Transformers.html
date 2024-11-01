@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App</title>
+    <link rel="stylesheet" href="/static/css/globals.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="fade-in">
+    <div class="home">
+        <header class="header">
+            <div class="logo">
+                <div class="text-wrapper">Chaplin</div>
+                <div class="div">cinema</div>
+                <img class="blackhat" src="/static/img/hat.png" />
+            </div>
+            <div class="header-menu">
+                <div class="topbtn-s">
+                    <form action="{{ url_for('movies')}}">
+                        <div class="button-wrapper"><button class="button" type="submit">Фільми</button></div>
+                    </form>
+                    <div class="button-wrapper"><button class="button">Про нас</button></div>
+                    <div class="dropdown">
+                        <div class="button-wrapper"><button class="button" class="button-wrapper"
+                                class="dropdown">Локація: {{ city
+                                }}</button>
+                            <div class="dropdown-content">
+                                {% for l, c in cities.items() %}
+                                <a href="{{url_for('homepage')}}?location={{l}}" style="--delay: 0s;">{{c}}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-wrapper user">
+                        <button class="button">Увійти</button>
+                        <div class="ico"></div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </header>
+
+    <main class="main transformers">
+        <div class="left_menu">
+            <div class="movie_logo"></div>
+            <div class="movie_short_info">
+
+                <p class="category">Вік:</p>
+                <p class="value">0+</p>
+
+                <p class="category">Режисер</p>
+                <p class="value">Рідлі Скотт</p>
+
+                <p class="category">Рік</p>
+                <p class="value">2024</p>
+
+                <p class="category">Період прокату</p>
+                <p class="value">13.11.2024 - 20.11.2024</p>
+
+                <p class="category">Жанр</p>
+                <p class="value">Екшн, Пригоди, Фантастика</p>
+
+                <p class="category">Тривалість</p>
+                <p class="value">2:28</p>
+
+                <p class="category">Актори</p>
+                <p class="value">Шайа Лабаф, Меґан Фокс, Джош Дюамель, Тайріз Гібсон, Рейчел Тейлор, Ентоні Андерсон</p>
+
+            </div>
+        </div>
+
+        <div class="base_info">
+            <div class="movie_name">
+                <p>Трансформери: початок</p>
+            </div>
+            <div class="trailer">
+                <video class="treiler" controls poster="/static/img/photo3.jpg">
+                    <source src="/static/media/test.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="movie_description">
+                <h1>Опис Фільму:</h1>
+                <p>Фільм "Трансформери" розповідає про те, як багато століть ведеться війна між двома расами
+                    роботів-інопланетян - Автоботами і Десептиконами, ставка в якій - доля Всесвіту. До Землі теж дійшла
+                    черга, війна не минула її стороною. Ключ до верховної влади є останньою надією на порятунок. У той
+                    час як зло намагається його відшукати, ключ знаходиться в руках у юного землянина.
+                    Найпростіший хлопчина Сем Уітвіккі, як і всі підлітки його віку живе звичайним життям: ходить в
+                    школу, зустрічається з друзями, захоплюється машинами та дівчатками. Він не підозрює, що він
+                    насправді - єдиний шанс на порятунок всього людства. Разом зі своєю подружкою Мікаелою, Сем
+                    виявляється в центрі війни трансформерів і розуміє про що говорить сімейний девіз - "Без жертв
+                    перемоги немає!".</p>
+            </div>
+            <div class="movie_shelder">
+                <h1>Розклад Сеансів:</h1>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer movie">
+        <div class="social_media">
+            <p>Соцмережі</p>
+            <a href="https://www.instagram.com/chaplin_cinema_lviv?igsh=MzRlODBiNWFlZA=="
+                class="footer_info">Chaplin_cinema_lviv</a>
+        </div>
+        <div class="contacts">
+            <p>Контакти</p>
+            <p class="footer_info">+38(050)2984715</p>
+        </div>
+        <div class="map">
+            <p>Адрес</p>
+            <p class="footer_info">пр. Червоної Калини, 81, Львів</p>
+        </div>
+    </footer>
+    </div>
+
+    <script>
+        var carousel = $(".slider-body"),
+            currdeg = 0,
+            autoplayInterval;
+
+        $(".next").on("click", { d: "n" }, rotate);
+        $(".prev").on("click", { d: "p" }, rotate);
+
+        function rotate(e) {
+            if (e.data.d == "n") {
+                currdeg = currdeg - 45;
+            }
+            if (e.data.d == "p") {
+                currdeg = currdeg + 45;
+            }
+            carousel.css({
+                "-webkit-transform": "rotateY(" + currdeg + "deg)",
+                "-moz-transform": "rotateY(" + currdeg + "deg)",
+                "-o-transform": "rotateY(" + currdeg + "deg)",
+                "transform": "rotateY(" + currdeg + "deg)"
+            });
+        }
+
+        // Autoplay function
+        function startAutoplay() {
+            autoplayInterval = setInterval(function () {
+                $(".next").trigger("click");
+            }, 3000);  // Change 2000 to the desired interval in milliseconds
+        }
+
+        startAutoplay();  // Start autoplay initially
+
+        // Stop autoplay on hover and resume on mouse leave
+        carousel.on("mouseenter", function () {
+            clearInterval(autoplayInterval);
+        }).on("mouseleave", startAutoplay);
+
+    </script>
+
+</body>
+
+</html>

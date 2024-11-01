@@ -75,6 +75,19 @@ def movies():
     else: 
         print ('mobile version')
         return render_template('Movies.html', city = "", cities = cities)
+    
+@app.route('/transformers')
+def transformers():
+    global user_location
+    global user_device
+    if user_location == []:
+        a = location()
+    if user_device == 'desktop':
+        print ('desktop version')
+        return render_template('Transformers.html', city = "", cities = cities)
+    else: 
+        print ('mobile version')
+        return render_template('Transformers.html', city = "", cities = cities)
         
 
 

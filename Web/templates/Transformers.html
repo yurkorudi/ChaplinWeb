@@ -20,7 +20,10 @@
             </div>
             <div class="header-menu">
                 <div class="topbtn-s">
-                    <form action="{{ url_for('movies')}}">
+                    <form action="{{ url_for('homepage')}}">
+                        <div class="button-wrapper"><button class="button" type="submit">Головна</button></div>
+                      </form>
+                      <form action="{{ url_for('movies')}}">
                         <div class="button-wrapper"><button class="button" type="submit">Фільми</button></div>
                     </form>
                     <div class="button-wrapper"><button class="button">Про нас</button></div>

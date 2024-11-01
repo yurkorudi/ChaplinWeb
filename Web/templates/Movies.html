@@ -12,6 +12,7 @@
 
 <body class="fade-in">
   <div class="home">
+    
     <header class="header">
       <div class="logo">
         <div class="text-wrapper">Chaplin</div>
@@ -25,39 +26,62 @@
           </form>
           <div class="button-wrapper"><button class="button">Про нас</button></div>
           <div class="dropdown">
-            <div class="button-wrapper"><button class="button" class="button-wrapper" class="dropdown">Ваше місто: {{ city }}</button>
+            <div class="button-wrapper"><button class="button" class="button-wrapper" class="dropdown">Локація: {{ city
+                }}</button>
               <div class="dropdown-content">
                 {% for l, c in cities.items() %}
-                <a href="{{url_for('movies')}}?location={{l}}" style="--delay: 0s;">{{c}}</a>
+                <a href="{{url_for('homepage')}}?location={{l}}" style="--delay: 0s;">{{c}}</a>
                 {% endfor %}
-              
               </div>
             </div>
           </div>
-          <div class="button-wrapper"><img class="ico" src="./static/img/ico.svg" /></div>
+          <div class="button-wrapper user">
+            <button class="button">Увійти</button>
+            <div class="ico"></div>
+          </div>
         </div>
       </div>
   </div>
   </header>
-  <!-- </div> -->
-  <main class="main">
-   
+
+  <main class="main movies_catalog">
+   <div class="movie 1">
+    <div class="image"></div>
+    <div class="movie_short_description">Від легендарного режисера Рідлі Скотта, «Гладіатор II» продовжує епічну сагу про владу, помсту та інтриги, події якої відбуваються в Стародавньому Римі. Декілька років тому Луцій став свідком вбивства Максимуса від рук свого дядька. Тепер він змушений увійти в Колізей після того як його дім було зруйновано імператорами-тиранами, які тепер керують Римом. Оскільки на карту поставлено майбутнє імперії, Луцій повинен знайти у собі сили забути минуле та повернути Риму і його народу колишню славу.
+
+    </div>
+   </div>
+   <div class="movie 2">
+    <div class="image"></div>
+    <div class="movie_short_description">test</div>
+   </div>
+   <div class="movie 3">
+    <div class="image"></div>
+    <div class="movie_short_description">test</div>
+   </div>
+   <div class="movie 4">
+    <div class="image"></div>
+    <div class="movie_short_description">test</div>
+   </div>
+   <div class="movie 5">
+    <div class="image"></div>
+    <div class="movie_short_description">test</div>
+   </div>
   </main>
+
   <footer class="footer">
     <div class="social_media">
       <p>Соцмережі</p>
-      <a href="" class="fa fa-instagram">Chaplin_cinema_lviv</a>
+      <a href="https://www.instagram.com/chaplin_cinema_lviv?igsh=MzRlODBiNWFlZA==" class="footer_info">Chaplin_cinema_lviv</a>
     </div>
     <div class="contacts">
       <p>Контакти</p>
-      <p>Телефон: +38(050)2984715</p>
-      <p>Адрес: проспект Червоної Калини, 81, Львів, Львівська область, 79066</p>
+      <p class="footer_info">+38(050)2984715</p>
     </div>
     <div class="map">
-      <p>Map</p>
-      <a href="">Films</a>
-      <a href="">About us</a>
-    </div>    
+      <p>Адрес</p>      
+      <p class="footer_info">пр. Червоної Калини, 81, Львів</p>
+    </div>
   </footer>
   </div>
 </body>

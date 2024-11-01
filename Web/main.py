@@ -71,10 +71,10 @@ def movies():
         a = location()
     if user_device == 'desktop':
         print ('desktop version')
-        return render_template('Movies.html', city=user_location[0], cities=user_location[1])
+        return render_template('Movies.html', city = "", cities = cities)
     else: 
         print ('mobile version')
-        return render_template('Movies.html', city=user_location[0], cities=user_location[1])
+        return render_template('Movies.html', city = "", cities = cities)
         
 
 

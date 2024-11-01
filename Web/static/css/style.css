@@ -398,6 +398,7 @@ body {
   margin-right: 15px;
   background-size: cover;
   background-position: center;
+  transition: 0.5s ease-in;
 }
 
 .main.movies_catalog .movie .image{
@@ -409,8 +410,25 @@ body {
   display: none;
 }
 
+.main.movies_catalog .movie:hover .image{
+  width: 60%;
+  animation: fade_in_show 1s;
+}
+
 .main.movies_catalog .movie:hover .movie_short_description{
-  display: block;
+  display: flex;
+  align-items: center;
+  animation: fade_in_show 1s;
+}
+
+@keyframes fade_in_show {
+  0% {
+       transform: translateX(50px);
+  }
+
+  100% {
+       transform: translateX(0);
+  }
 }
 
 /* end movies page */

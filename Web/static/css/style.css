@@ -383,6 +383,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 15px;
+  height: 100vh;
 }
 
 .main.movies_catalog div{
@@ -394,7 +395,7 @@ body {
 }
 .main.movies_catalog  .movie .image{
   width: 70%;
-  height: 80%;
+  height: 100%;
   margin-right: 15px;
   background-size: cover;
   background-position: center;
@@ -429,6 +430,10 @@ body {
   100% {
        transform: translateX(0);
   }
+}
+
+.footer.movies_catalog{
+  margin-top: 100px;
 }
 
 /* end movies page */

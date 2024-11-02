@@ -22,8 +22,8 @@
                 <div class="topbtn-s">
                     <form action="{{ url_for('homepage')}}">
                         <div class="button-wrapper"><button class="button" type="submit">Головна</button></div>
-                      </form>
-                      <form action="{{ url_for('movies')}}">
+                    </form>
+                    <form action="{{ url_for('movies')}}">
                         <div class="button-wrapper"><button class="button" type="submit">Фільми</button></div>
                     </form>
                     <div class="button-wrapper"><button class="button">Про нас</button></div>
@@ -50,6 +50,16 @@
     <main class="main transformers">
         <div class="left_menu">
             <div class="movie_logo"></div>
+            <form action="{{ url_for('homepage')}}">
+                <div class="book_button"><button>Придбати квиток</button></div>
+            </form>
+        </div>
+
+        <div class="base_info">
+            <div class="movie_name">
+                <h1>Трансформери: початок</h1>
+            </div>
+
             <div class="movie_short_info">
 
                 <p class="category">Вік:</p>
@@ -74,18 +84,7 @@
                 <p class="value">Шайа Лабаф, Меґан Фокс, Джош Дюамель, Тайріз Гібсон, Рейчел Тейлор, Ентоні Андерсон</p>
 
             </div>
-        </div>
 
-        <div class="base_info">
-            <div class="movie_name">
-                <p>Трансформери: початок</p>
-            </div>
-            <div class="trailer">
-                <video class="treiler" controls poster="/static/img/photo3.jpg">
-                    <source src="/static/media/test.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
             <div class="movie_description">
                 <h1>Опис Фільму:</h1>
                 <p>Фільм "Трансформери" розповідає про те, як багато століть ведеться війна між двома расами
@@ -98,9 +97,20 @@
                     виявляється в центрі війни трансформерів і розуміє про що говорить сімейний девіз - "Без жертв
                     перемоги немає!".</p>
             </div>
+            <div class="trailer">
+                <video class="treiler" controls poster="/static/img/photo3.jpg">
+                    <source src="/static/media/test.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
             <div class="movie_shelder">
                 <h1>Розклад Сеансів:</h1>
-                
+                <p>test shelder</p>
+                <input type="week" id="weekPicker" class="week-picker">
+                <div class="week-info">
+                    <p id="selectedWeek">Content for the selected week will appear here.</p>
+                </div>
             </div>
         </div>
     </main>

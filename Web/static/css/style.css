@@ -461,11 +461,12 @@ body {
   display: flex; 
   justify-content: space-between;
   gap: 15px;
+  margin-left: 50px;
 }
 
 .main.transformers .left_menu{
   height: 100vh;
-  width: 30vw;
+  width: 40vw;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -479,50 +480,79 @@ body {
   width: 100%;
 }
 
-.main.transformers .left_menu .movie_short_info{
+.main.transformers .left_menu .book_button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main.transformers .left_menu .book_button button{
+  color: white;
+  font-size: 20px;
+  background-color: transparent;
+  border: rgba(128,0,0,1) 3px solid;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 10px;
+  transition: 0.5s;
+}
+
+.main.transformers .left_menu .book_button button:hover{
+  background-color: rgba(128,0,0,1);
+  border-color: #000000;
+  transform: scale(105%);
+}
+
+.main.transformers .base_info .movie_short_info{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 5px;
   color: white;
+  width: 50%;
 }
 
-.main.transformers .left_menu .movie_short_info p{
+.main.transformers .base_info .movie_short_info p{
   margin-bottom: 5px;
 }
 
 .main.transformers .base_info{
-  height: 100vh;
+  height: 100%;
   width: 100vw;
-}
-
-.main.transformers .base_info .movie_name{
-  font-size: 30px;
   color: white;
   margin-bottom: 15px;
 }
 
+.main.transformers .base_info div{
+  margin-bottom: 50px;
+  line-height: 25px;
+}
+
+.main.transformers .base_info div h1{
+  font-size: 30px;
+}
+
+.main.transformers .base_info .movie_description h1,
+.main.transformers .base_info .movie_shelder h1{
+  margin-bottom: 15px;
+}
+
 .main.transformers .base_info .treiler{
-  width: 100%;
+  width: 60%;
   height: 70vh;
   object-fit: cover;
   object-position: center;
-  margin-bottom: 15px;
+  margin-left: 15%;
 }
 
 .main.transformers .base_info .movie_description{
   color: white;
 }
 
-.main.transformers .base_info .movie_description h1{
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-.main.transformers .base_info .movie_description p{
-  font-size: 20px;
+.main.transformers .base_info div p{
+  font-size: 16px;
 }
 
 .footer.movie{
-  margin-top: 250px;
+  margin-top: 130vh;
 }
 /* end movie's page */

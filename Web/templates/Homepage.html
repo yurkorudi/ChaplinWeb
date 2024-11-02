@@ -48,18 +48,50 @@
 
     <section class="slider row">
       <div class="slider-body">
-        <div class="slider-item" style="--j--:1"><img src="./static/img/photo1.jpg" alt="1"></div>
-        <div class="slider-item" style="--j--:2"><img src="./static/img/photo2.jpg" alt="2"></div>
-        <div class="slider-item" style="--j--:3"><img src="./static/img/photo3.jpg" alt="3"></div>
-        <div class="slider-item" style="--j--:4"><img src="./static/img/photo4.jpg" alt="4"></div>
-        <div class="slider-item" style="--j--:5"><img src="./static/img/photo5.jpg"></div>
-        <div class="slider-item" style="--j--:6"><img src="./static/img/photo.jpg" alt="6"></div>
-        <div class="slider-item" style="--j--:7"><img src="./static/img/social.png" alt="7"></div>
-        <div class="slider-item" style="--j--:8"><img src="./static/img/hat.png" alt="7"></div>
+        <div id="slideshow-form" class="slider-item" style="--j--:1">
+          <a href="{{ url_for('movies')}}">
+            <img src="./static/img/photo1.jpg" alt="1">
+          </a>
+        </div>
+        <div class="slider-item" style="--j--:2">
+          <a href="{{ url_for('movies')}}">
+            <img src="./static/img/photo2.jpg" alt="2">
+          </a>
+        </div>
+        <div class="slider-item" style="--j--:3">
+          <a href="{{ url_for('movies')}}">
+            <img src="./static/img/photo3.jpg" alt="3">
+          </a>
+        </div>
+        <div class="slider-item" style="--j--:4">
+          <a href="{{ url_for('movies')}}">
+            <img src="./static/img/photo4.jpg" alt="4">
+          </a>
+        </div>
+        <div class="slider-item" style="--j--:5">
+          <a href="{{ url_for('movies')}}">
+            <img src="./static/img/photo5.jpg">
+          </a>
+        </div>
+        <div class="slider-item" style="--j--:6">
+          <a href="{{ url_for('movies')}}">
+            <img src="./static/img/photo.jpg" alt="6">
+          </a>
+        </div>
+        <div class="slider-item" style="--j--:7">
+          <a href="{{ url_for('movies')}}">
+            <img src="./static/img/social.png" alt="7">
+          </a>
+        </div>
+        <div class="slider-item" style="--j--:8">
+          <a href="{{ url_for('movies')}}">
+            <img src="./static/img/hat.png" alt="7">
+          </a>
+        </div>
       </div>
       <div class="button-wrapper">
-        <button class="prev"><</button>
-        <button class="next">></button>
+        <button class="prev"> < </button>
+            <button class="next">></button>
       </div>
 
     </section>
@@ -69,14 +101,15 @@
   <footer class="footer">
     <div class="social_media">
       <p>Соцмережі</p>
-      <a href="https://www.instagram.com/chaplin_cinema_lviv?igsh=MzRlODBiNWFlZA==" class="footer_info">Chaplin_cinema_lviv</a>
+      <a href="https://www.instagram.com/chaplin_cinema_lviv?igsh=MzRlODBiNWFlZA=="
+        class="footer_info">Chaplin_cinema_lviv</a>
     </div>
     <div class="contacts">
       <p>Контакти</p>
       <p class="footer_info">+38(050)2984715</p>
     </div>
     <div class="map">
-      <p>Адрес</p>      
+      <p>Адрес</p>
       <p class="footer_info">пр. Червоної Калини, 81, Львів</p>
     </div>
   </footer>

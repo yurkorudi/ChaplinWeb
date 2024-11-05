@@ -107,10 +107,8 @@
             <div class="movie_shelder">
                 <h1>Розклад Сеансів:</h1>
                 <p>test shelder</p>
-                <input type="week" id="weekPicker" class="week-picker">
-                <div class="week-info">
-                    <p id="selectedWeek">Content for the selected week will appear here.</p>
-                </div>
+                <input type="date" id="datePicker" class="calendar">
+
             </div>
         </div>
     </main>
@@ -133,42 +131,28 @@
     </div>
 
     <script>
-        var carousel = $(".slider-body"),
-            currdeg = 0,
-            autoplayInterval;
-
-        $(".next").on("click", { d: "n" }, rotate);
-        $(".prev").on("click", { d: "p" }, rotate);
-
-        function rotate(e) {
-            if (e.data.d == "n") {
-                currdeg = currdeg - 45;
-            }
-            if (e.data.d == "p") {
-                currdeg = currdeg + 45;
-            }
-            carousel.css({
-                "-webkit-transform": "rotateY(" + currdeg + "deg)",
-                "-moz-transform": "rotateY(" + currdeg + "deg)",
-                "-o-transform": "rotateY(" + currdeg + "deg)",
-                "transform": "rotateY(" + currdeg + "deg)"
-            });
+        // calendar
+        function getPreviousTuesday() {
+            const today = new Date();
+            const dayOfWeek = today.getDay();
+            const distanceToTuesday = (dayOfWeek - 5 + 7) % 7; // Calculate days to last Tuesday
+            const previousTuesday = new Date(today);
+            previousTuesday.setDate(today.getDate() - distanceToTuesday);
+            return previousTuesday.toISOString().split('T')[0]; // Format to YYYY-MM-DD
         }
 
-        // Autoplay function
-        function startAutoplay() {
-            autoplayInterval = setInterval(function () {
-                $(".next").trigger("click");
-            }, 3000);  // Change 2000 to the desired interval in milliseconds
+        function getNextTuesday() {
+            const today = new Date();
+            const dayOfWeek = today.getDay();
+            const distanceToTuesday = (11 - dayOfWeek) % 7; // Calculate days to next Tuesday
+            const nextTuesday = new Date(today);
+            nextTuesday.setDate(today.getDate() + distanceToTuesday);
+            return nextTuesday.toISOString().split('T')[0]; // Format to YYYY-MM-DD
         }
 
-        startAutoplay();  // Start autoplay initially
-
-        // Stop autoplay on hover and resume on mouse leave
-        carousel.on("mouseenter", function () {
-            clearInterval(autoplayInterval);
-        }).on("mouseleave", startAutoplay);
-
+        // Set the min and max attributes
+        document.getElementById('datePicker').min = getPreviousTuesday();
+        document.getElementById('datePicker').max = getNextTuesday();
     </script>
 
 </body>

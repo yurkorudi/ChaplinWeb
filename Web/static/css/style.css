@@ -555,4 +555,16 @@ body {
 .footer.movie{
   margin-top: 130vh;
 }
+
+/* shelder */
+.calendar{
+  background-color: rgba(128,0,0,1); /* Dark background color */
+    color: #FFFFFF; /* White text color */
+    padding: 10px;
+    border: 3px solid transparent; /* Custom border color */
+    border-radius: 25px; /* Rounded corners for the input */
+    font-size: 16px;
+    /* outline: none; */
+}
+
 /* end movie's page */

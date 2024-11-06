@@ -103,15 +103,39 @@
                     Your browser does not support the video tag.
                 </video>
             </div>
-
-            <div class="movie_shelder">
-                <h1>Розклад Сеансів:</h1>
-                <div class="calendar-wrapper">
-                    <div class="week-container" id="weekContainer"></div>
-                    <button class="calendar"
-                        onclick="document.querySelector('.week-container').style.display = 'flex'"></button>
-                </div>
-            </div>
+        </div>
+        <div class="right_menu">
+            <h1>Розклад Сеансів</h1>
+            <ul>
+                <li><time datetime="2022-02-01">1</time>09:00</li>
+                <li><time datetime="2022-02-02">2</time></li>
+                <li><time datetime="2022-02-03">3</time></li>
+                <li><time datetime="2022-02-04">4</time></li>
+                <li><time datetime="2022-02-05">5</time></li>
+                <li><time datetime="2022-02-06">6</time></li>
+                <li><time datetime="2022-02-07">7</time></li>
+                <li><time datetime="2022-02-08">8</time></li>
+                <li><time datetime="2022-02-09">9</time></li>
+                <li><time datetime="2022-02-10">10</time></li>
+                <li><time datetime="2022-02-11">11</time></li>
+                <li><time datetime="2022-02-12">12</time></li>
+                <li><time datetime="2022-02-13">13</time></li>
+                <li><time datetime="2022-02-14">14</time></li>
+                <li><time datetime="2022-02-15">15</time></li>
+                <li><time datetime="2022-02-16">16</time></li>
+                <li><time datetime="2022-02-17">17</time></li>
+                <li><time datetime="2022-02-18">18</time></li>
+                <li class="today"><time datetime="2022-02-19">19</time></li>
+                <li><time datetime="2022-02-20">20</time></li>
+                <li><time datetime="2022-02-21">21</time></li>
+                <li><time datetime="2022-02-22">22</time></li>
+                <li><time datetime="2022-02-23">23</time></li>
+                <li><time datetime="2022-02-24">24</time></li>
+                <li><time datetime="2022-02-25">25</time></li>
+                <li><time datetime="2022-02-26">26</time></li>
+                <li><time datetime="2022-02-27">27</time></li>
+                <li><time datetime="2022-02-28">28</time></li>
+            </ul>
         </div>
     </main>
 
@@ -163,7 +187,7 @@
                     calendarButton.textContent = dateButton.textContent;
 
                     // Toggle the display of dateButton
-                    dateButton.style.display = dateTextDiv.style.display ='none';
+                    dateButton.style.display = dateTextDiv.style.display = 'none';
                 };
 
                 // Append the button to the container

@@ -167,12 +167,13 @@
         if (day === today.getDate()) {
             listItem.classList.add("today");
         }
+        
+        listItem.appendChild(timeElement);
 
         if (hoursForDays.includes(day)) {
             listItem.innerHTML += ` ${specificHour}`;
         }
 
-        listItem.appendChild(timeElement);
         scheduleContainer.appendChild(listItem);
     }
     </script>

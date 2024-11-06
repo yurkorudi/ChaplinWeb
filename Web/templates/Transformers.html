@@ -103,15 +103,19 @@
                     Your browser does not support the video tag.
                 </video>
             </div>
-
-            <div class="movie_shelder">
-                <h1>Розклад Сеансів:</h1>
-                <div class="calendar-wrapper">
-                    <div class="week-container" id="weekContainer"></div>
-                    <button class="calendar"
-                        onclick="document.querySelector('.week-container').style.display = 'flex'"></button>
-                </div>
-            </div>
+        </div>
+        <div class="right_menu">
+            <h1>Розклад Сеансів</h1>
+            <ul class="weekdays">
+                <li>Sun</li>
+                <li>Mon</li>
+                <li>Tue</li>
+                <li>Wed</li>
+                <li>Thu</li>
+                <li>Fri</li>
+                <li>Sat</li>
+            </ul>
+            <ul id="schedule"></ul>
         </div>
     </main>
 
@@ -133,50 +137,45 @@
     </div>
 
     <script>
+        const scheduleContainer = document.getElementById("schedule");
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const currentMonth = today.getMonth();
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-        const today = new Date();
-        const options = { weekday: 'short', month: 'long', day: 'numeric' };
-        let dateText = today.toLocaleDateString('ua-UA', options);
-        // Display the formatted date in the button
-        document.querySelector(".calendar").textContent = dateText;
+    const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+    const hoursForDays = [1, 5, 10, 15, 20]; // Days with specific hours
+    const specificHour = "09:00";
 
-        // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-        function getDatesToNextThursday(today, options) {
-            const dateTextDiv = document.getElementById("weekContainer");
+    // Create empty slots for days before the first day of the month
+    for (let i = 0; i < firstDayOfMonth; i++) {
+        const emptyItem = document.createElement("li");
+        emptyItem.classList.add("empty");
+        scheduleContainer.appendChild(emptyItem);
+    }
 
-            let currentDate = new Date(today);
-            currentDate.setDate(currentDate.getDate() + 1);
-            let dateText = '';
+    // Create list items for each day of the month
+    for (let day = 1; day <= daysInMonth; day++) {
+        const date = new Date(currentYear, currentMonth, day);
+        const formattedDate = date.toISOString().split("T")[0];
+        
+        const listItem = document.createElement("li");
+        const timeElement = document.createElement("time");
+        timeElement.setAttribute("datetime", formattedDate);
+        timeElement.textContent = day;
 
-            do {
-                // Format the date as "Weekday, Month Day, Year"
-                const formattedDate = currentDate.toLocaleDateString('ua-UA', options);
+        if (day === today.getDate()) {
+            listItem.classList.add("today");
+        }
+        
+        listItem.appendChild(timeElement);
 
-                // Create a button for each date
-                const dateButton = document.createElement('button');
-                dateButton.className = 'day-button';
-                dateButton.textContent = formattedDate;
-
-                dateButton.onclick = () => {
-                    // Select the .calendar button and update its text
-                    const calendarButton = document.querySelector('.calendar');
-                    calendarButton.textContent = dateButton.textContent;
-
-                    // Toggle the display of dateButton
-                    dateButton.style.display = dateTextDiv.style.display ='none';
-                };
-
-                // Append the button to the container
-                weekContainer.appendChild(dateButton);
-
-                // Move to the next day
-                currentDate.setDate(currentDate.getDate() + 1);
-            } while (currentDate.getDay() !== 4); // Continue until next Thursday
-
+        if (hoursForDays.includes(day)) {
+            listItem.innerHTML += ` ${specificHour}`;
         }
 
-        // Generate the dates as text
-        getDatesToNextThursday(today, options);
+        scheduleContainer.appendChild(listItem);
+    }
     </script>
 
 </body>

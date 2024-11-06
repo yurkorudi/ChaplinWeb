@@ -106,6 +106,15 @@
         </div>
         <div class="right_menu">
             <h1>Розклад Сеансів</h1>
+            <ul class="">
+                <li>Sun</li>
+                <li>Mon</li>
+                <li>Tue</li>
+                <li>Wed</li>
+                <li>Thu</li>
+                <li>Fri</li>
+                <li>Sat</li>
+            </ul>
             <ul id="schedule"></ul>
         </div>
     </main>
@@ -128,40 +137,42 @@
     </div>
 
     <script>
- const scheduleContainer = document.getElementById("schedule");
+        const scheduleContainer = document.getElementById("schedule");
     const today = new Date();
     const currentYear = today.getFullYear();
     const currentMonth = today.getMonth();
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-    // Define days that need specific hours
-    const hoursForDays = [1, 5, 10, 15, 20]; // Customize this list for your days
+    const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+    const hoursForDays = [1, 5, 10, 15, 20]; // Days with specific hours
     const specificHour = "09:00";
 
-    for (let day = 1; day <= daysInMonth; day++) {
-        const listItem = document.createElement("li");
+    // Create empty slots for days before the first day of the month
+    for (let i = 0; i < firstDayOfMonth; i++) {
+        const emptyItem = document.createElement("li");
+        emptyItem.classList.add("empty");
+        scheduleContainer.appendChild(emptyItem);
+    }
 
-        // Format the date in YYYY-MM-DD format for datetime attribute
+    // Create list items for each day of the month
+    for (let day = 1; day <= daysInMonth; day++) {
         const date = new Date(currentYear, currentMonth, day);
         const formattedDate = date.toISOString().split("T")[0];
-
-        // Set up the time element with the correct date
+        
+        const listItem = document.createElement("li");
         const timeElement = document.createElement("time");
         timeElement.setAttribute("datetime", formattedDate);
         timeElement.textContent = day;
 
-        listItem.appendChild(timeElement);
-
-        // Highlight today
         if (day === today.getDate()) {
             listItem.classList.add("today");
         }
 
-        // Add the specific hour for the days in the hoursForDays list
         if (hoursForDays.includes(day)) {
             listItem.innerHTML += ` ${specificHour}`;
         }
 
+        listItem.appendChild(timeElement);
         scheduleContainer.appendChild(listItem);
     }
     </script>

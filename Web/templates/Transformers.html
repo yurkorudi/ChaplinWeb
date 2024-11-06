@@ -106,36 +106,7 @@
         </div>
         <div class="right_menu">
             <h1>Розклад Сеансів</h1>
-            <ul>
-                <li><time datetime="2022-02-01">1</time>09:00</li>
-                <li><time datetime="2022-02-02">2</time></li>
-                <li><time datetime="2022-02-03">3</time></li>
-                <li><time datetime="2022-02-04">4</time></li>
-                <li><time datetime="2022-02-05">5</time></li>
-                <li><time datetime="2022-02-06">6</time></li>
-                <li><time datetime="2022-02-07">7</time></li>
-                <li><time datetime="2022-02-08">8</time></li>
-                <li><time datetime="2022-02-09">9</time></li>
-                <li><time datetime="2022-02-10">10</time></li>
-                <li><time datetime="2022-02-11">11</time></li>
-                <li><time datetime="2022-02-12">12</time></li>
-                <li><time datetime="2022-02-13">13</time></li>
-                <li><time datetime="2022-02-14">14</time></li>
-                <li><time datetime="2022-02-15">15</time></li>
-                <li><time datetime="2022-02-16">16</time></li>
-                <li><time datetime="2022-02-17">17</time></li>
-                <li><time datetime="2022-02-18">18</time></li>
-                <li class="today"><time datetime="2022-02-19">19</time></li>
-                <li><time datetime="2022-02-20">20</time></li>
-                <li><time datetime="2022-02-21">21</time></li>
-                <li><time datetime="2022-02-22">22</time></li>
-                <li><time datetime="2022-02-23">23</time></li>
-                <li><time datetime="2022-02-24">24</time></li>
-                <li><time datetime="2022-02-25">25</time></li>
-                <li><time datetime="2022-02-26">26</time></li>
-                <li><time datetime="2022-02-27">27</time></li>
-                <li><time datetime="2022-02-28">28</time></li>
-            </ul>
+            <ul id="schedule"></ul>
         </div>
     </main>
 
@@ -157,50 +128,42 @@
     </div>
 
     <script>
+ const scheduleContainer = document.getElementById("schedule");
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const currentMonth = today.getMonth();
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-        const today = new Date();
-        const options = { weekday: 'short', month: 'long', day: 'numeric' };
-        let dateText = today.toLocaleDateString('ua-UA', options);
-        // Display the formatted date in the button
-        document.querySelector(".calendar").textContent = dateText;
+    // Define days that need specific hours
+    const hoursForDays = [1, 5, 10, 15, 20]; // Customize this list for your days
+    const specificHour = "09:00";
 
-        // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-        function getDatesToNextThursday(today, options) {
-            const dateTextDiv = document.getElementById("weekContainer");
+    for (let day = 1; day <= daysInMonth; day++) {
+        const listItem = document.createElement("li");
 
-            let currentDate = new Date(today);
-            currentDate.setDate(currentDate.getDate() + 1);
-            let dateText = '';
+        // Format the date in YYYY-MM-DD format for datetime attribute
+        const date = new Date(currentYear, currentMonth, day);
+        const formattedDate = date.toISOString().split("T")[0];
 
-            do {
-                // Format the date as "Weekday, Month Day, Year"
-                const formattedDate = currentDate.toLocaleDateString('ua-UA', options);
+        // Set up the time element with the correct date
+        const timeElement = document.createElement("time");
+        timeElement.setAttribute("datetime", formattedDate);
+        timeElement.textContent = day;
 
-                // Create a button for each date
-                const dateButton = document.createElement('button');
-                dateButton.className = 'day-button';
-                dateButton.textContent = formattedDate;
+        listItem.appendChild(timeElement);
 
-                dateButton.onclick = () => {
-                    // Select the .calendar button and update its text
-                    const calendarButton = document.querySelector('.calendar');
-                    calendarButton.textContent = dateButton.textContent;
-
-                    // Toggle the display of dateButton
-                    dateButton.style.display = dateTextDiv.style.display = 'none';
-                };
-
-                // Append the button to the container
-                weekContainer.appendChild(dateButton);
-
-                // Move to the next day
-                currentDate.setDate(currentDate.getDate() + 1);
-            } while (currentDate.getDay() !== 4); // Continue until next Thursday
-
+        // Highlight today
+        if (day === today.getDate()) {
+            listItem.classList.add("today");
         }
 
-        // Generate the dates as text
-        getDatesToNextThursday(today, options);
+        // Add the specific hour for the days in the hoursForDays list
+        if (hoursForDays.includes(day)) {
+            listItem.innerHTML += ` ${specificHour}`;
+        }
+
+        scheduleContainer.appendChild(listItem);
+    }
     </script>
 
 </body>

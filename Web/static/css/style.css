@@ -1,5 +1,5 @@
 .fade-in {
-  opacity: 0.4; 
+  opacity: 0.4;
   animation: fadeIn 1s forwards;
   font-family: "Helvetica", Helvetica;
 
@@ -7,9 +7,10 @@
 
 @keyframes fadeIn {
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
+
 body {
   background-color: #000000;
 }
@@ -20,7 +21,7 @@ body {
   justify-content: center;
   width: 100vw;
   height: 10vw;
-  background: linear-gradient(180deg, rgba(128,0,0,1) 5%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(180deg, rgba(128, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 100%);
   padding: 15px;
 }
 
@@ -93,10 +94,10 @@ body {
 
 
 
-.home .header-menu li{
+.home .header-menu li {
   position: relative;
   display: flex;
-  align-items: center;  
+  align-items: center;
   top: -40px;
   right: 20px;
 }
@@ -138,15 +139,15 @@ body {
 }
 
 .home .dropdown:hover .dropdown-content {
-  visibility: visible; 
+  visibility: visible;
   opacity: 1;
-  transition-delay: 0s; 
+  transition-delay: 0s;
   pointer-events: auto;
   transform: translateY(0);
   display: block;
 }
 
-.home .dropbtn:hover{
+.home .dropbtn:hover {
   background: black;
   transform: scale(1.1);
 }
@@ -182,7 +183,7 @@ body {
   transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
 }
 
-.home .button-wrapper.user{
+.home .button-wrapper.user {
   margin: 10px;
   padding: 0;
   display: flex;
@@ -191,16 +192,16 @@ body {
   gap: 0px;
 }
 
-.home .button-wrapper:hover{
+.home .button-wrapper:hover {
   background: black;
   transform: scale(1.1);
 }
 
-.home .button-wrapper.user:hover .ico{
+.home .button-wrapper.user:hover .ico {
   background-image: url('/static/img/ico2.svg');
 }
 
-.home .button-wrapper.user:hover{
+.home .button-wrapper.user:hover {
   border-radius: 15px 25px 25px 15px;
 }
 
@@ -235,20 +236,14 @@ body {
   transition: background-image 0.5s ease;
 }
 
-/* .home .ico:hover {
-  transform: scale(1.1);
-  content: url('/static/img/ico2.svg');
-} */
-
-
-.main{
+.main {
   margin: 15px 0;
   margin-top: 30px;
   padding: 15px;
   height: 80vh;
 }
 
-.footer{
+.footer {
   height: 100px;
   width: 100vw;
   padding: 15px;
@@ -259,7 +254,7 @@ body {
   align-items: center;
 }
 
-.footer div{
+.footer div {
   text-align: center;
   border: #ffffff 2px solid;
   border-radius: 25px;
@@ -269,58 +264,54 @@ body {
   transition: 0.5s;
 }
 
-.footer p{
+.footer p {
   color: white;
   font-family: "Helvetica", Helvetica;
   padding-top: 5%;
 }
 
-.footer .footer_info{
+.footer .footer_info {
   display: none;
   font-size: 18px;
   padding: 7%;
 }
 
-.footer .map .footer_info{
+.footer .map .footer_info {
   display: none;
   font-size: 18px;
   padding: 2%;
 }
 
-.footer div:hover p{
+.footer div:hover p {
   display: none;
 }
 
-.footer div:hover .footer_info{
+.footer div:hover .footer_info {
   display: block;
 }
 
-.footer div:hover{
-  border: rgba(128,0,0,1) 3px solid;
+.footer div:hover {
+  border: rgba(128, 0, 0, 1) 3px solid;
   height: 50px;
 }
 
 /* Home page's base 360 degris's slider */
 
-.row{
+.row {
   display: flex;
   justify-content: center;
   align-items: center;
-  height:75%;
+  height: 75%;
   width: 100vw;
 }
 
-.slider{
+.slider {
   width: 500px;
   margin: 15px auto;
   perspective: 1000px;
 }
 
-/* :root {
-  --pos: 0deg;
-} */
-
-.slider-body{
+.slider-body {
   inset: 0;
   margin: 15px;
   width: 65%;
@@ -329,27 +320,27 @@ body {
   transition: transform 1s;
 }
 
-.slider-item{
+.slider-item {
   position: absolute;
   width: 100%;
   height: 100%;
   transform: rotateY(calc(45deg * var(--j--))) translateZ(450px);
 }
 
-.slider-item:hover{
+.slider-item:hover {
   cursor: pointer;
   transform: rotateY(calc(45deg * var(--j--))) translateZ(450px) scale(105%);
   transition: transform 0.5s ease-in-out;
 }
 
-.slider-item img{
+.slider-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, rgba(0,0,0,0.4));
+  -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
 }
 
-.row .button-wrapper{
+.row .button-wrapper {
   position: absolute;
   top: 20vh;
   display: flex;
@@ -357,7 +348,7 @@ body {
   width: 90vw;
 }
 
-.row .button-wrapper button{
+.row .button-wrapper button {
   background-color: transparent;
   color: white;
   border: none;
@@ -369,31 +360,33 @@ body {
   font-size: 40px;
 }
 
-.row .button-wrapper button:hover{
-  background-color: rgba(128,0,0,1);
+.row .button-wrapper button:hover {
+  background-color: rgba(128, 0, 0, 1);
   color: black;
   border: #000000 2px solid;
   transition: 0.5s ease-in-out;
 }
+
 /* end  home page's base 360 degris's slider*/
 
 /* movies page */
 
-.main.movies_catalog{
+.main.movies_catalog {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 15px;
   height: 100vh;
 }
 
-.main.movies_catalog div{
+.main.movies_catalog div {
   width: 100%;
   height: 55vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.main.movies_catalog  .movie .image{
+
+.main.movies_catalog .movie .image {
   width: 70%;
   height: 100%;
   margin-right: 15px;
@@ -402,21 +395,21 @@ body {
   transition: 0.5s ease-in;
 }
 
-.main.movies_catalog .movie .image{
+.main.movies_catalog .movie .image {
   background-image: url("/static/img/photo1.jpg");
 }
 
-.main.movies_catalog .movie .movie_short_description{
+.main.movies_catalog .movie .movie_short_description {
   color: white;
   display: none;
 }
 
-.main.movies_catalog .movie:hover .image{
+.main.movies_catalog .movie:hover .image {
   width: 60%;
   animation: fade_in_show 1s;
 }
 
-.main.movies_catalog .movie:hover .movie_short_description{
+.main.movies_catalog .movie:hover .movie_short_description {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -425,31 +418,31 @@ body {
 
 @keyframes fade_in_show {
   0% {
-       transform: translateX(50px);
+    transform: translateX(50px);
   }
 
   100% {
-       transform: translateX(0);
+    transform: translateX(0);
   }
 }
 
-.main.movies_catalog .movie:hover .movie_short_description button{
+.main.movies_catalog .movie:hover .movie_short_description button {
   margin-top: 20px;
   background-color: transparent;
   color: white;
-  border: rgba(128,0,0,1) 2px solid;
+  border: rgba(128, 0, 0, 1) 2px solid;
   border-radius: 25px;
   font-size: 20PX;
   cursor: pointer;
 }
 
-.main.movies_catalog .movie:hover .movie_short_description button:hover{
-  background-color: rgba(128,0,0,1);
+.main.movies_catalog .movie:hover .movie_short_description button:hover {
+  background-color: rgba(128, 0, 0, 1);
   color: black;
   border: white 2px solid;
 }
 
-.footer.movies_catalog{
+.footer.movies_catalog {
   margin-top: 100px;
 }
 
@@ -457,14 +450,14 @@ body {
 
 /* movie's page */
 
-.main.transformers{
-  display: flex; 
+.main.transformers {
+  display: flex;
   justify-content: space-between;
   gap: 15px;
   margin-left: 50px;
 }
 
-.main.transformers .left_menu{
+.main.transformers .left_menu {
   height: 100vh;
   width: 40vw;
   display: flex;
@@ -472,7 +465,7 @@ body {
   gap: 15px;
 }
 
-.main.transformers .left_menu .movie_logo{
+.main.transformers .left_menu .movie_logo {
   background-image: url("/static/img/photo1.jpg");
   background-size: cover;
   background-position: center;
@@ -480,30 +473,30 @@ body {
   width: 100%;
 }
 
-.main.transformers .left_menu .book_button{
+.main.transformers .left_menu .book_button {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.main.transformers .left_menu .book_button button{
+.main.transformers .left_menu .book_button button {
   color: white;
   font-size: 20px;
   background-color: transparent;
-  border: rgba(128,0,0,1) 3px solid;
+  border: rgba(128, 0, 0, 1) 3px solid;
   border-radius: 25px;
   cursor: pointer;
   padding: 10px;
   transition: 0.5s;
 }
 
-.main.transformers .left_menu .book_button button:hover{
-  background-color: rgba(128,0,0,1);
+.main.transformers .left_menu .book_button button:hover {
+  background-color: rgba(128, 0, 0, 1);
   border-color: #000000;
   transform: scale(105%);
 }
 
-.main.transformers .base_info .movie_short_info{
+.main.transformers .base_info .movie_short_info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 5px;
@@ -511,32 +504,32 @@ body {
   width: 50%;
 }
 
-.main.transformers .base_info .movie_short_info p{
+.main.transformers .base_info .movie_short_info p {
   margin-bottom: 5px;
 }
 
-.main.transformers .base_info{
+.main.transformers .base_info {
   height: 100%;
   width: 100vw;
   color: white;
   margin-bottom: 15px;
 }
 
-.main.transformers .base_info div{
+.main.transformers .base_info div {
   margin-bottom: 50px;
   line-height: 25px;
 }
 
-.main.transformers .base_info div h1{
+.main.transformers .base_info div h1 {
   font-size: 30px;
 }
 
 .main.transformers .base_info .movie_description h1,
-.main.transformers .base_info .movie_shelder h1{
+.main.transformers .base_info .movie_shelder h1 {
   margin-bottom: 15px;
 }
 
-.main.transformers .base_info .treiler{
+.main.transformers .base_info .treiler {
   width: 60%;
   height: 70vh;
   object-fit: cover;
@@ -544,27 +537,65 @@ body {
   margin-left: 15%;
 }
 
-.main.transformers .base_info .movie_description{
+.main.transformers .base_info .movie_description {
   color: white;
 }
 
-.main.transformers .base_info div p{
+.main.transformers .base_info div p {
   font-size: 16px;
 }
 
-.footer.movie{
+.footer.movie {
   margin-top: 130vh;
 }
 
 /* shelder */
-.calendar{
-  background-color: rgba(128,0,0,1); /* Dark background color */
-    color: #FFFFFF; /* White text color */
-    padding: 10px;
-    border: 3px solid transparent; /* Custom border color */
-    border-radius: 25px; /* Rounded corners for the input */
-    font-size: 16px;
-    /* outline: none; */
+.main.transformers .base_info .movie_shelder .calendar-wrapper{
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
+.calendar-wrapper button{
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border: 3px solid transparent;
+  padding: 10px;
+  margin: 0;
+}
+
+.calendar {
+  background-color: rgba(128, 0, 0, 1);
+  border-radius: 25px;
+}
+
+.main.transformers .base_info .movie_shelder .week-container{
+  display: none;
+  /* flex-direction: row; */
+  justify-content: space-between;
+  width: 82%;
+  margin-bottom: 5px;
+  position: absolute;
+  /* top: -160%; */
+  /* bottom: -170%; */
+  right: 15px;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.main.transformers .base_info .movie_shelder .week-container .day-button{
+  background-color: transparent;
+  border: rgba(128, 0, 0, 1) 3px solid;
+  margin: 0 2px;
+  transition: 0.5s;
+}
+
+.main.transformers .base_info .movie_shelder .week-container .day-button:hover{
+  background-color: rgba(128, 0, 0, 1);
+  border: black 3px solid;
+}
+
+.main.transformers .base_info .movie_shelder .week-container:first-child button{
+  border-radius: 25px;
+}
 /* end movie's page */

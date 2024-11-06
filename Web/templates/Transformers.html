@@ -106,9 +106,11 @@
 
             <div class="movie_shelder">
                 <h1>Розклад Сеансів:</h1>
-                <p>test shelder</p>
-                <input type="date" id="datePicker" class="calendar">
-
+                <div class="calendar-wrapper">
+                    <div class="week-container" id="weekContainer"></div>
+                    <button class="calendar"
+                        onclick="document.querySelector('.week-container').style.display = 'flex'"></button>
+                </div>
             </div>
         </div>
     </main>
@@ -131,28 +133,50 @@
     </div>
 
     <script>
-        // calendar
-        function getPreviousTuesday() {
-            const today = new Date();
-            const dayOfWeek = today.getDay();
-            const distanceToTuesday = (dayOfWeek - 5 + 7) % 7; // Calculate days to last Tuesday
-            const previousTuesday = new Date(today);
-            previousTuesday.setDate(today.getDate() - distanceToTuesday);
-            return previousTuesday.toISOString().split('T')[0]; // Format to YYYY-MM-DD
+
+        const today = new Date();
+        const options = { weekday: 'short', month: 'long', day: 'numeric' };
+        let dateText = today.toLocaleDateString('ua-UA', options);
+        // Display the formatted date in the button
+        document.querySelector(".calendar").textContent = dateText;
+
+        // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        function getDatesToNextThursday(today, options) {
+            const dateTextDiv = document.getElementById("weekContainer");
+
+            let currentDate = new Date(today);
+            currentDate.setDate(currentDate.getDate() + 1);
+            let dateText = '';
+
+            do {
+                // Format the date as "Weekday, Month Day, Year"
+                const formattedDate = currentDate.toLocaleDateString('ua-UA', options);
+
+                // Create a button for each date
+                const dateButton = document.createElement('button');
+                dateButton.className = 'day-button';
+                dateButton.textContent = formattedDate;
+
+                dateButton.onclick = () => {
+                    // Select the .calendar button and update its text
+                    const calendarButton = document.querySelector('.calendar');
+                    calendarButton.textContent = dateButton.textContent;
+
+                    // Toggle the display of dateButton
+                    dateButton.style.display = dateTextDiv.style.display ='none';
+                };
+
+                // Append the button to the container
+                weekContainer.appendChild(dateButton);
+
+                // Move to the next day
+                currentDate.setDate(currentDate.getDate() + 1);
+            } while (currentDate.getDay() !== 4); // Continue until next Thursday
+
         }
 
-        function getNextTuesday() {
-            const today = new Date();
-            const dayOfWeek = today.getDay();
-            const distanceToTuesday = (11 - dayOfWeek) % 7; // Calculate days to next Tuesday
-            const nextTuesday = new Date(today);
-            nextTuesday.setDate(today.getDate() + distanceToTuesday);
-            return nextTuesday.toISOString().split('T')[0]; // Format to YYYY-MM-DD
-        }
-
-        // Set the min and max attributes
-        document.getElementById('datePicker').min = getPreviousTuesday();
-        document.getElementById('datePicker').max = getNextTuesday();
+        // Generate the dates as text
+        getDatesToNextThursday(today, options);
     </script>
 
 </body>

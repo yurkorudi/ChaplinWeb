@@ -2,6 +2,7 @@ from flask import *
 from user_agents import parse
 import json
 from modls import JSN
+from modls import Film
 
 
 app = Flask(__name__)
@@ -85,9 +86,10 @@ def transformers():
     global user_location
     global user_device
     global json
-    minifile = JSN(json=json, filepath='../Web/mdb.json', type="list")
+    minifile = JSN(json=json, filepath='Web/mdb.json', type="list")
+    data = minifile.return_json(type='0')
     films = minifile.city(cityname='lviv')
-    film = minifile.film(str(films[1]))
+    film = Film(filmname='bojevilni',json_file=data, city="lviv")
 
 
     if user_location == []:

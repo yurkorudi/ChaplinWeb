@@ -1,5 +1,7 @@
 from flask import *
 from user_agents import parse
+import json
+from modls import JSN
 
 
 app = Flask(__name__)
@@ -30,8 +32,6 @@ def early_start ():
 
 
 
-
-
 def location():
     global user_location
     global cities
@@ -47,6 +47,10 @@ def location():
 
         print ("----- >>", user_location)
     return 
+
+
+
+
 
 @app.route('/home')
 def homepage():
@@ -80,6 +84,10 @@ def movies():
 def transformers():
     global user_location
     global user_device
+    global json
+    minifile = JSN(json=json, filepath='Web/data.json', type="list")
+
+
     if user_location == []:
         a = location()
     if user_device == 'desktop':

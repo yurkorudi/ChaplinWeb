@@ -1,0 +1,49 @@
+{
+    "location":{
+        "lviv":{
+            "films":{
+                "trans":{
+                    "name":"Transformers",
+                    "poster":"path",
+                    "images":["path1", "path2"],
+                    "description":{
+                        "age":"0",
+                        "directot":"Рідлі Скотт",
+                        "year":"2024",
+                        "genre":"Екшн, Пригоди, Фантастика",
+                        "duration":"2:28",
+                        "actors":"Шайа Лабаф, Меґан Фокс, Джош Дюамель, Тайріз Гібсон, Рейчел Тейлор, Ентоні Андерсон"
+                    }
+                },
+                "venom":{
+                    "poster":"path",
+                    "images":["path1", "path2"],
+                    "description":{
+                        "age":"16+",
+                        "directot":"Келлі Марсел",
+                        "year":"2024",
+                        "genre":"фантастика, екшн, Marvel",
+                        "duration":"1:49",
+                        "actors":"Том Гарді, Чиветел Еджіофор, Джуно Темпл"
+                    }
+                },
+                "wild_rob":{
+                    "poster":"path",
+                    "images":["path1", "path2"],
+                    "description":{
+                        "age":"0+",
+                        "directot":"Кріс Сандерс",
+                        "year":"2024",
+                        "genre":"анімація, пригоди, Sci-Fi, сімейний",
+                        "duration":"1:42",
+                        "actors":"Педро Паскаль, Стефані Сюй, Лупіта Ньон'о, Марк Гемілл, Кетрін О'Хара"
+                    }
+                }
+            }
+        },
+        "strui":{},
+        "dolyna":{}
+    }
+
+
+}

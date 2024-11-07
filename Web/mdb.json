@@ -101,7 +101,106 @@
                 }
             }
         },
-        "strui":{},
+        "strui":{
+            "films":{
+                "conclave":{
+                    "poster":"path",
+                    "images":["path1", "path2"],
+                    "description":{
+                        "age":"16+",
+                        "directot":"Едвард Берґер",
+                        "year":"2024",
+                        "genre":"детектив, триле",
+                        "duration":"2:00",
+                        "actors":"Рейф Файнс, Джон Літгоу, Стенлі Туччі, Ізабелла Росселлін"
+                    }
+                },
+                "the_lord_of_the_rings:_the_war_of_the_rohirrim":{
+                    "poster":"path",
+                    "images":["path1", "path2"],
+                    "description":{
+                        "age":"12+",
+                        "directot":"Кенджі Каміяма",
+                        "year":"2024",
+                        "genre":"пригоди, анімація, фентезі",
+                        "duration":"2:00",
+                        "actors":"Браян Кокс, Ґая Вайс, Люк Паскуаліно, Міранда Отто, Лоррейн Ешборн"
+                    }
+                },
+                "woodwalkers":{
+                    "poster":"path",
+                    "images":["path1", "path2"],
+                    "description":{
+                        "age":"0+",
+                        "directot":"Даміан Джон Харпер",
+                        "year":"2024",
+                        "genre":"пригоди, фентезі",
+                        "duration":"1:30",
+                        "actors":"Олівер Масуччі, Еміль Шеріф, Мартіна Ґедек"
+                    }
+                },
+                "nosferatu":{
+                    "poster":"path",
+                    "images":["path1", "path2"],
+                    "description":{
+                        "age":"16+",
+                        "directot":"Роберт Еггерс",
+                        "year":"2025",
+                        "genre":"жахи",
+                        "duration":"2:00",
+                        "actors":"Білл Скашґорд, Лілі-Роуз Депп, Аарон Тейлор-Джонсон, Віллем Дефо"
+                    }
+                },
+                "dear_paris":{
+                    "poster":"path",
+                    "images":["path1", "path2"],
+                    "description":{
+                        "age":"16+",
+                        "directot":"Маржан Сатрапі",
+                        "year":"2024",
+                        "genre":"комедія",
+                        "duration":"1:49",
+                        "actors":"Моніка Беллуччі, Бен Елдрідж,  Россі де Пальма, Андре Дюссольє, Алекс Лутц, Гвендал Марімуту"
+                    }
+                },
+                "elevation":{
+                    "poster":"path",
+                    "images":["path1", "path2"],
+                    "description":{
+                        "age":"16+",
+                        "directot":"Джордж Нолфі",
+                        "year":"2024",
+                        "genre":"трилер, екшн",
+                        "duration":"1:32",
+                        "actors":"Ентоні Макі, Морена Баккарін,  Медді Гессон"
+                    }
+                },
+                "its_not_me":{
+                    "poster":"path",
+                    "images":["path1", "path2"],
+                    "description":{
+                        "age":"16+",
+                        "directot":"Леос Каракс",
+                        "year":"2024",
+                        "genre":"драма, біографічний",
+                        "duration":"0:41",
+                        "actors":"Дені Лаван, Леос Каракс, Катерина Юспіна, Настя Голубєва-Каракс"
+                    }
+                },
+                "christmas_in_alaska":{
+                    "poster":"path",
+                    "images":["path1", "path2"],
+                    "description":{
+                        "age":"0+",
+                        "directot":"Ділан Пірс",
+                        "year":"2024",
+                        "genre":"комедія, мелодрама, пригоди, романтика",
+                        "duration":"1:30",
+                        "actors":"Маркус Рознер, Емма Джонсон, Раян Норткотт, Ессек Мур, Стефані Вулф, Ешлі Пірс, Шарліз Аделін, Пол Баллін"
+                    }
+                }
+            }
+        },
         "dolyna":{}
     }
 

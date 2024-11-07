@@ -586,6 +586,14 @@ body {
   box-shadow: 0 8px 32px 0 rgba(128, 0, 0, 0.5);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.main.transformers .right_menu .schedule li:hover,
+.main.transformers .right_menu .schedule li:hover time{
+  color: rgba(128, 0, 0, 1);
+  transform: scale(1.2);
 }
 
 .main.transformers .right_menu time {

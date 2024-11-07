@@ -85,7 +85,7 @@ def transformers():
     global user_location
     global user_device
     global json
-    minifile = JSN(json=json, filepath='Web/mdb.json', type="list")
+    minifile = JSN(json=json, filepath='../Web/mdb.json', type="list")
     films = minifile.city(cityname='lviv')
     film = minifile.film(str(films[1]))
 

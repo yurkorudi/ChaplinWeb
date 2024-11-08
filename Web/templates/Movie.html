@@ -50,7 +50,7 @@
     <main class="main transformers">
         <div class="left_menu">
             <div class="movie_logo">
-                <img src="{{ movie_info['poster']}}">
+                <img src="{{movie_info['poster']}}" alt="{{movie_info['poster']}}">
             </div>
             <form action="{{ url_for('homepage')}}">
                 <div class="book_button"><button>Придбати квиток</button></div>
@@ -92,8 +92,8 @@
                 <p>{{movie_info['description']['descript']}}</p>
             </div>
             <div class="trailer">
-                <video class="treiler" controls poster="{{movie_info[images]}}">
-                    <source src="{{movie_info['trailer']}}" type="video/mp4">
+                <video class="treiler" controls poster="{{movie_info['treiler_poster']}}">
+                    <source src="{{movie_info['treiler']}}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>

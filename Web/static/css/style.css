@@ -472,6 +472,8 @@ body {
   position: relative;
   height: 500px;
   width: 120%;
+  /* background-image: url("/static/mini_db/Venom/poster/venomposter.jpg"); */
+  /* background-image: url("/static/img/venomposter.jpg"); */
 }
 .main.transformers .left_menu .movie_logo {
 

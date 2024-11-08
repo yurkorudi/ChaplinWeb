@@ -4,12 +4,13 @@
             "films": {
                 "trans": {
                     "fullname": "Трансформери: повернення",
-                    "poster": "Web/mini_db/Transformers/poster/poster.jpg",
-                    "treiler":"./Web/mini_db/Transformers/trailer/trailer.mp4",
+                    "poster": "static/mini_db/Transformers/poster/poster.jpg",
+                    "treiler":"static/mini_db/Transformers/trailer/trailer.mp4",
+                    "treiler_poster":"static/mini_db/Transformers/images/photo1.jpg",
                     "images": [
-                        "./Web/mini_db/Transformers/images/photo1.jpg",
-                        "./Web/mini_db/Transformers/images/photo2.jpg",
-                        "./Web/mini_db/Transformers/images/photo3.jpg"
+                        "static/mini_db/Transformers/images/photo1.jpg",
+                        "static/mini_db/Transformers/images/photo2.jpg",
+                        "static/mini_db/Transformers/images/photo3.jpg"
                     ],
                     "description": {
                         "age": "0+",
@@ -30,11 +31,11 @@
 
                 "venom_3": {
                     "fullname": "Веном 3",
-                    "poster": "Web/mini_db/Venom/poster/venom3-poster.jpg",
+                    "poster": "static/mini_db/Venom/poster/venomposter.jpg",
                     "images": [
-                        "Web/mini_db/Venom/images/photo1.jpg",
-                        "Web/mini_db/Venom/images/photo2.jpg",
-                        "Web/mini_db/Venom/images/photo3.jpg"
+                        "static/mini_db/Venom/images/photo1.jpg",
+                        "static/mini_db/Venom/images/photo2.jpg",
+                        "static/mini_db/Venom/images/photo3.jpg"
                     ],
                     "description": {
                         "age": "16+",

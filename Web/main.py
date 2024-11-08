@@ -2,11 +2,9 @@ from flask import *
 from user_agents import parse
 import json
 from modls import JSN
-
+from modls import Film
 
 app = Flask(__name__)
-
-
 
 cities = {
     "lviv":"Львів",
@@ -16,6 +14,11 @@ cities = {
 }
 user_location = []
 user_device = 'None'
+
+
+
+
+
 
 
 @app.route('/')
@@ -31,7 +34,6 @@ def early_start ():
 
 
 
-
 def location():
     global user_location
     global cities
@@ -41,14 +43,7 @@ def location():
         city = ""
         if location:
             city = cities[location]
-            print ("----- LocatioN: " + str(location))
-            #user_location.append(city)
-            #user_location.append(cities)
-
-        print ("----- >>", user_location)
     return 
-
-
 
 
 
@@ -66,7 +61,6 @@ def homepage():
 
 
 
-
 @app.route('/movies')
 def movies():
     global user_location
@@ -80,26 +74,26 @@ def movies():
         print ('mobile version')
         return render_template('Movies.html', city = "", cities = cities)
     
-@app.route('/transformers')
-def transformers():
+
+
+@app.route('/movie')
+def movie():
     global user_location
     global user_device
     global json
-    minifile = JSN(json=json, filepath='../Web/mdb.json', type="list")
-    films = minifile.city(cityname='lviv')
-    film = minifile.film(str(films[1]))
+    my_file = JSN(json=json, filepath='Web/mdb.json', type="0")
+    movie = Film()
 
 
     if user_location == []:
         a = location()
     if user_device == 'desktop':
         print ('desktop version')
-        return render_template('Transformers.html', city = "", cities = cities)
+        return render_template('Movie.html', city = "", cities = cities, )
     else: 
         print ('mobile version')
-        return render_template('Transformers.html', city = "", cities = cities)
+        return render_template('Movie.html', city = "", cities = cities)
         
-
 
 
 @app.route('/About.html')

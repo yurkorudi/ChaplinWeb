@@ -3,9 +3,8 @@
         "lviv":{
             "films":{
                 "trans":{
-                    "name":"Transformers",
-                    "poster":"path",
-                    "images":["path1", "path2"],
+                    "poster":"Web/mini_db/Transformers/poster/transformers-vend3.jpg",
+                    "images":["Web/mini_db/ransformers/images/photo1.jpg", "Web/mini_db/ransformers/images/photo2.jpg", "Web/mini_db/ransformers/images/photo3.jpg"],
                     "description":{
                         "age":"0",
                         "directot":"Рідлі Скотт",
@@ -13,11 +12,13 @@
                         "genre":"Екшн, Пригоди, Фантастика",
                         "duration":"2:28",
                         "actors":"Шайа Лабаф, Меґан Фокс, Джош Дюамель, Тайріз Гібсон, Рейчел Тейлор, Ентоні Андерсон"
-                    }
+
+                    },
+                    "filmsession":["trans 08.11.2024 14:00", "trans 10.11.2024 14:00", "trans 14.11.2024 16:00"]
                 },
                 "venom":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
+                    "poster":"Web/mini_db/Venom/poster/images.jpg",
+                    "images":["Web/mini_db/Venom/images/ven.jpg"],
                     "description":{
                         "age":"16+",
                         "directot":"Келлі Марсел",
@@ -99,6 +100,29 @@
                         "actors":"Аріана Ґранде, Синтія Еріво"
                     }
                 }
+            },
+            "SITS":{
+                "1":["wicked 07.11.2024 14:00", "bojevilni 09.11.2024 17:00"],
+                "2":["wicked 07.11.2024 14:00", "bojevilni 09.11.2024 17:00"],
+                "3":["wicked 07.11.2024 14:00", "bojevilni 09.11.2024 17:00"],
+                "4":[],
+                "5":[],
+                "6":["wicked 07.11.2024 14:00", "bojevilni 09.11.2024 17:00"],
+                "7":[],
+                "8":[],
+                "9":[],
+                "10":["bojevilni 09.11.2024 18:00"],
+                "11":[],
+                "12":["bojevilni 09.11.2024 20:00"],
+                "13":[],
+                "14":["wicked 07.11.2024 14:00", "bojevilni 09.11.2024 17:00"],
+                "15":["wicked 07.11.2024 14:00", "bojevilni 09.11.2024 17:00"],
+                "16":[],
+                "17":[],
+                "18":["bojevilni 09.11.2024 17:00"],
+                "19":["bojevilni 09.11.2024 17:00"],
+                "20":["bojevilni 09.11.2024 17:00"]
+            }
             }
         },
         "strui":{
@@ -304,4 +328,3 @@
     }
 
 
-}

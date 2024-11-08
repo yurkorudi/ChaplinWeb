@@ -27,15 +27,58 @@ class JSN:
         print (self.films)
         return self.films
     
-
-    def film (self, filmname):
-        self.filmname = filmname
-        if self.filmname in self.films:
-            self.FILM = self.filmname
+    def return_json (self, type):
+        if type == 'pretty':
+            return self.data
         else:
-            return
-        self.filmdict = self.dirty_data['location'][self.CITY]['films'][self.FILM]
-
-        print (self.filmdict)
+            return self.dirty_data
+    
 
 
+    # def film (self, filmname):
+    #     self.filmname = filmname
+    #     if self.filmname in self.films:
+    #         self.FILM = self.filmname
+    #     else:
+    #         return
+    #     self.filmdict = self.dirty_data['location'][self.CITY]['films'][self.FILM]
+
+    #     print (self.filmdict)
+
+
+
+
+
+
+
+
+class Film:
+    def __init__(self, filmname, json_file, city):
+        self.json_file = json_file
+        vidi = self.json_file["location"][city]["films"]
+        if filmname in list(self.json_file["location"][city]["films"].keys()):
+            self.name = filmname
+        self.poster_path = vidi[self.name]["poster"]
+        self.image_path = vidi[self.name]["images"]
+        self.description = vidi[self.name]["description"]
+        self.film_session = vidi[self.name]["filmsession"]
+
+
+
+
+    def sits (self, city):
+        self.occupied_sits = []
+        sits = self.json_file["location"][city]['SITS']
+        for i in sits:
+            if len(sits[i]) > 0:
+                for a in sits[i]:
+                    if self.name in a:
+                        for c in self.film_session:
+                            if c == a:
+                                self.occupied_sits.append(a)
+                            else:
+                                return "ERROR>> film sessions and sits are not the same!"
+            return self.occupied_sits
+
+
+        

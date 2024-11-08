@@ -49,7 +49,9 @@
 
     <main class="main transformers">
         <div class="left_menu">
-            <div class="movie_logo"></div>
+            <div class="movie_logo">
+                <img src="{{ movie_info['poster']}}">
+            </div>
             <form action="{{ url_for('homepage')}}">
                 <div class="book_button"><button>Придбати квиток</button></div>
             </form>
@@ -87,19 +89,11 @@
 
             <div class="movie_description">
                 <h1>Опис Фільму:</h1>
-                <p>Фільм "Трансформери" розповідає про те, як багато століть ведеться війна між двома расами
-                    роботів-інопланетян - Автоботами і Десептиконами, ставка в якій - доля Всесвіту. До Землі теж дійшла
-                    черга, війна не минула її стороною. Ключ до верховної влади є останньою надією на порятунок. У той
-                    час як зло намагається його відшукати, ключ знаходиться в руках у юного землянина.
-                    Найпростіший хлопчина Сем Уітвіккі, як і всі підлітки його віку живе звичайним життям: ходить в
-                    школу, зустрічається з друзями, захоплюється машинами та дівчатками. Він не підозрює, що він
-                    насправді - єдиний шанс на порятунок всього людства. Разом зі своєю подружкою Мікаелою, Сем
-                    виявляється в центрі війни трансформерів і розуміє про що говорить сімейний девіз - "Без жертв
-                    перемоги немає!".</p>
+                <p>{{movie_info['description']['descript']}}</p>
             </div>
             <div class="trailer">
-                <video class="treiler" controls poster="/static/img/photo3.jpg">
-                    <source src="/static/media/test.mp4" type="video/mp4">
+                <video class="treiler" controls poster="{{movie_info[images]}}">
+                    <source src="{{movie_info['trailer']}}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>

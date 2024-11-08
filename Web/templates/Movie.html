@@ -57,31 +57,31 @@
 
         <div class="base_info">
             <div class="movie_name">
-                <h1>{{Трансформери: початок}}</h1>
+                <h1>{{movie_info['fullname']}}</h1>
             </div>
 
             <div class="movie_short_info">
 
                 <p class="category">Вік:</p>
-                <p class="value">0+</p>
+                <p class="value">{{movie_info['description']['age']}}</p>
 
                 <p class="category">Режисер</p>
-                <p class="value">Рідлі Скотт</p>
+                <p class="value">{{movie_info['description']['directot']}}</p>
 
                 <p class="category">Рік</p>
-                <p class="value">2024</p>
+                <p class="value">{{movie_info['description']['year']}}</p>
 
                 <p class="category">Період прокату</p>
-                <p class="value">13.11.2024 - 20.11.2024</p>
+                <p class="value">missing</p>
 
                 <p class="category">Жанр</p>
-                <p class="value">Екшн, Пригоди, Фантастика</p>
+                <p class="value">{{movie_info['description']['genre']}}</p>
 
                 <p class="category">Тривалість</p>
-                <p class="value">2:28</p>
+                <p class="value">{{movie_info['description']['duration']}}</p>
 
                 <p class="category">Актори</p>
-                <p class="value">Шайа Лабаф, Меґан Фокс, Джош Дюамель, Тайріз Гібсон, Рейчел Тейлор, Ентоні Андерсон</p>
+                <p class="value">{{movie_info['description']['actors']}}</p>
 
             </div>
 

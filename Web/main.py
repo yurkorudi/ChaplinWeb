@@ -52,12 +52,9 @@ def homepage():
     global user_location
     global cities
     global user_device
-    if user_device == 'desktop':
-        print ('desktop version')
-        return render_template('Homepage.html', city = "", cities = cities)
-    else:
-        print ('mobile version')
-        return render_template('Homepage.html', city = "", cities = cities)
+
+
+    return render_template('Homepage.html', city = "", cities = cities, )
 
 
 
@@ -82,17 +79,13 @@ def movie():
     global user_device
     global json
     my_file = JSN(json=json, filepath='Web/mdb.json', type="0")
-    movie = Film()
+    movie = Film(filmname='trans', json_file=my_file.dirty_data, city='lviv')
 
 
     if user_location == []:
         a = location()
-    if user_device == 'desktop':
-        print ('desktop version')
-        return render_template('Movie.html', city = "", cities = cities, )
-    else: 
-        print ('mobile version')
-        return render_template('Movie.html', city = "", cities = cities)
+
+    return render_template('Movie.html', city = "", cities = cities, movie_info = movie.ret_filmfile())
         
 
 

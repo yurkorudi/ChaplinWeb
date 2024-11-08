@@ -7,7 +7,7 @@ class JSN:
         self.type = type 
         self.dirty_data = None
         print ("####################################################LALALAND##############################################################")
-        with open (self.filepath, 'r') as self.file:
+        with open (self.filepath, 'r', encoding='utf-8') as self.file:
             self.dirty_data = json.load(self.file)
             self.data = json.dumps(self.dirty_data, indent=4)
             print ("####################################################LALALAND##############################################################")
@@ -55,6 +55,7 @@ class JSN:
 class Film:
     def __init__(self, filmname, json_file, city):
         self.json_file = json_file
+        self.city = city
         vidi = self.json_file["location"][city]["films"]
         if filmname in list(self.json_file["location"][city]["films"].keys()):
             self.name = filmname
@@ -62,6 +63,10 @@ class Film:
         self.image_path = vidi[self.name]["images"]
         self.description = vidi[self.name]["description"]
         self.film_session = vidi[self.name]["filmsession"]
+
+
+    def ret_filmfile (self):
+        return self.json_file["location"][self.city]["films"][self.name]
 
 
 

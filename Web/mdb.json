@@ -3,6 +3,7 @@
         "lviv":{
             "films":{
                 "trans":{
+                    "fullname":"Transformers",
                     "poster":"Web/mini_db/Transformers/poster/transformers-vend3.jpg",
                     "images":["Web/mini_db/ransformers/images/photo1.jpg", "Web/mini_db/ransformers/images/photo2.jpg", "Web/mini_db/ransformers/images/photo3.jpg"],
                     "description":{

@@ -1,331 +1,505 @@
 {
-    "location":{
-        "lviv":{
-            "films":{
-                "trans":{
-                    "fullname":"Transformers",
-                    "poster":"Web/mini_db/Transformers/poster/transformers-vend3.jpg",
-                    "images":["Web/mini_db/ransformers/images/photo1.jpg", "Web/mini_db/ransformers/images/photo2.jpg", "Web/mini_db/ransformers/images/photo3.jpg"],
-                    "description":{
-                        "age":"0",
-                        "directot":"Рідлі Скотт",
-                        "year":"2024",
-                        "genre":"Екшн, Пригоди, Фантастика",
-                        "duration":"2:28",
-                        "actors":"Шайа Лабаф, Меґан Фокс, Джош Дюамель, Тайріз Гібсон, Рейчел Тейлор, Ентоні Андерсон"
-
+    "location": {
+        "lviv": {
+            "films": {
+                "trans": {
+                    "fullname": "Трансформери: повернення",
+                    "poster": "Web/mini_db/Transformers/poster/poster.jpg",
+                    "treiler":"./Web/mini_db/Transformers/trailer/trailer.mp4",
+                    "images": [
+                        "./Web/mini_db/Transformers/images/photo1.jpg",
+                        "./Web/mini_db/Transformers/images/photo2.jpg",
+                        "./Web/mini_db/Transformers/images/photo3.jpg"
+                    ],
+                    "description": {
+                        "age": "0+",
+                        "directot": "Рідлі Скотт",
+                        "year": "2024",
+                        "genre": "Екшн, Пригоди, Фантастика",
+                        "duration": "2:28",
+                        "actors": "Шайа Лабаф, Меґан Фокс, Джош Дюамель, Тайріз Гібсон, Рейчел Тейлор, Ентоні Андерсон",
+                        "descript": "Фільм 'Трансформери' розповідає про те, як багато століть ведеться війна між двома расами роботів-інопланетян - Автоботами і Десептиконами, ставка в якій - доля Всесвіту. До Землі теж дійшла черга, війна не минула її стороною. Ключ до верховної влади є останньою надією на порятунок. У той час як зло намагається його відшукати, ключ знаходиться в руках у юного землянина. Найпростіший хлопчина Сем Уітвіккі, як і всі підлітки його віку живе звичайним життям: ходить в школу, зустрічається з друзями, захоплюється машинами та дівчатками. Він не підозрює, що він насправді - єдиний шанс на порятунок всього людства. Разом зі своєю подружкою Мікаелою, Сем виявляється в центрі війни трансформерів і розуміє про що говорить сімейний девіз - 'Без жертв перемоги немає!'."
                     },
-                    "filmsession":["trans 08.11.2024 14:00", "trans 10.11.2024 14:00", "trans 14.11.2024 16:00"]
+                    "filmsession": [
+                        "trans 08.11.2024 14:00",
+                        "trans 10.11.2024 14:00",
+                        "trans 14.11.2024 16:00"
+                    ]
                 },
-                "venom":{
-                    "poster":"Web/mini_db/Venom/poster/images.jpg",
-                    "images":["Web/mini_db/Venom/images/ven.jpg"],
-                    "description":{
-                        "age":"16+",
-                        "directot":"Келлі Марсел",
-                        "year":"2024",
-                        "genre":"фантастика, екшн, Marvel",
-                        "duration":"1:49",
-                        "actors":"Том Гарді, Чиветел Еджіофор, Джуно Темпл"
-                    }
+
+
+                "venom_3": {
+                    "fullname": "Веном 3",
+                    "poster": "Web/mini_db/Venom/poster/venom3-poster.jpg",
+                    "images": [
+                        "Web/mini_db/Venom/images/photo1.jpg",
+                        "Web/mini_db/Venom/images/photo2.jpg",
+                        "Web/mini_db/Venom/images/photo3.jpg"
+                    ],
+                    "description": {
+                        "age": "16+",
+                        "directot": "Келлі Марсел",
+                        "year": "2024",
+                        "genre": "Фантастика, Екшн, Marvel",
+                        "duration": "1:49",
+                        "actors": "Том Харді, Чиветел Еджіофор, Джуно Темпл",
+                        "descript": "Фільм 'Веном 3' розповідає про повернення симбіота, який стикається з новими викликами та ворогами у світі Marvel."
+                    },
+                    "filmsession": [
+                        "venom 3 09.11.2024 18:00",
+                        "venom 3 12.11.2024 20:00",
+                        "venom 3 15.11.2024 21:00"
+                    ]
                 },
-                "wild_rob":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"0+",
-                        "directot":"Кріс Сандерс",
-                        "year":"2024",
-                        "genre":"анімація, пригоди, Sci-Fi, сімейний",
-                        "duration":"1:42",
-                        "actors":"Педро Паскаль, Стефані Сюй, Лупіта Ньон'о, Марк Гемілл, Кетрін О'Хара"
-                    }
+
+
+                "wild_robot": {
+                    "fullname": "The Wild Robot",
+                    "poster": "Web/mini_db/WildRobot/poster/wildrobot-poster.jpg",
+                    "images": [
+                        "Web/mini_db/WildRobot/images/photo1.jpg",
+                        "Web/mini_db/WildRobot/images/photo2.jpg",
+                        "Web/mini_db/WildRobot/images/photo3.jpg"
+                    ],
+                    "description": {
+                        "age": "6+",
+                        "director": "Chris Sanders",
+                        "year": "2024",
+                        "genre": "Animation, Family, Adventure",
+                        "duration": "1:40",
+                        "actors": "Lupita Nyong'o, Pedro Pascal, Bill Nighy",
+                        "descript": "In *The Wild Robot*, a robot named Roz is stranded on a deserted island and must learn to survive while forming bonds with the animals around her, all while facing a mysterious past."
+                    },
+                    "filmsession": [
+                        "wild robot 27.09.2024 10:00",
+                        "wild robot 27.09.2024 14:00",
+                        "wild robot 28.09.2024 16:00"
+                    ]
                 },
-                "red_one":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"12+",
-                        "directot":"Джейк Кездан",
-                        "year":"2024",
-                        "genre":"пригоди, екшин, бойовик, комедія",
-                        "duration":"2:03",
-                        "actors":"Двейн Джонсон, Кріс Еванс, Люсі Лю, Кірнан Шипка, Бонні Гант"
-                    }
+
+
+                "red_one": {
+                    "fullname": "Кодове ім'я: червоний",
+                    "poster": "Web/mini_db/RedOne/poster/red_one_poster.jpg",
+                    "images": [
+                        "Web/mini_db/RedOne/images/photo1.jpg",
+                        "Web/mini_db/RedOne/images/photo2.jpg",
+                        "Web/mini_db/RedOne/images/photo3.jpg"
+                    ],
+                    "description": {
+                        "age": "12+",
+                        "directot": "Джейк Кездан",
+                        "year": "2024",
+                        "genre": "Пригоди, Екшн, Комедія",
+                        "duration": "2:03",
+                        "actors": "Двейн Джонсон, Кріс Еванс, Люсі Лю, Кірнан Шипка, Бонні Хант",
+                        "descript": "Комедійний екшн-фільм 'Червоний Один', у якому група героїв вирушає на епічну місію."
+                    },
+                    "filmsession": [
+                        "red_one 10.11.2024 14:00",
+                        "red_one 13.11.2024 16:30",
+                        "red_one 17.11.2024 18:00"
+                    ]
                 },
-                "bycha":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"16+",
-                        "directot":"Станіслав Тіунов",
-                        "year":"2024",
-                        "genre":"історія на основі реальних подій, війна",
-                        "duration":"1:58",
-                        "actors":"Цезарій Лукашевич, Вячеслав Довженко, Анастасія Нестеренко, Артемій Єгоров, Олександр Печериця"
-                    }
+
+
+                "bycha": {
+                    "fullname": "Буча",
+                    "poster": "Web/mini_db/Bycha/poster/bycha_poster.jpg",
+                    "images": [
+                        "Web/mini_db/Bycha/images/photo1.jpg",
+                        "Web/mini_db/Bycha/images/photo2.jpg",
+                        "Web/mini_db/Bycha/images/photo3.jpg"
+                    ],
+                    "description": {
+                        "age": "16+",
+                        "directot": "Станіслав Тіунов",
+                        "year": "2024",
+                        "genre": "Історичний, Військовий, Драма",
+                        "duration": "1:58",
+                        "actors": "Цезарій Лукашевич, Вячеслав Довженко, Анастасія Нестеренко",
+                        "descript": "Фільм 'Буча' висвітлює героїчні події, засновані на реальних історичних подіях та життєвих драматичних поворотах."
+                    },
+                    "filmsession": [
+                        "bycha 08.11.2024 19:00",
+                        "bycha 11.11.2024 20:00",
+                        "bycha 14.11.2024 18:30"
+                    ]
                 },
-                "gladiator_II":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"16+",
-                        "directot":"Рідлі Скотт",
-                        "year":"2024",
-                        "genre":"історичний, епічна історія",
-                        "duration":"2:28",
-                        "actors":"Пол Мескаль, Педро Паскаль, Дензел Вашингтон"
-                    }
+
+
+                "gladiator_ii": {
+                    "fullname": "Gladiator II",
+                    "poster": "Web/mini_db/Gladiator/poster/gladiator2-poster.jpg",
+                    "images": [
+                        "Web/mini_db/Gladiator/images/photo1.jpg",
+                        "Web/mini_db/Gladiator/images/photo2.jpg",
+                        "Web/mini_db/Gladiator/images/photo3.jpg"
+                    ],
+                    "description": {
+                        "age": "16+",
+                        "director": "Ridley Scott",
+                        "year": "2024",
+                        "genre": "Action, Drama, Historical",
+                        "duration": "2:45",
+                        "actors": "Paul Mescal, Denzel Washington, Pedro Pascal",
+                        "descript": "*Gladiator II* continues the story of ancient Rome, following the son of Maximus as he navigates the dangerous political landscape to reclaim his family's legacy."
+                    },
+                    "filmsession": [
+                        "gladiator 2 15.11.2024 19:00",
+                        "gladiator 2 16.11.2024 21:00",
+                        "gladiator 2 20.11.2024 18:00"
+                    ]
                 },
-                "bojevilni":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"16+",
-                        "directot":"Денис Тарасов",
-                        "year":"2024",
-                        "genre":"трилер , драма",
-                        "duration":"2:00",
-                        "actors":"Костянтин Темляк, Ірма Вітовська, Сергій Калантай, Остап Ступка, Віталій Салій, Наталія Бабенко, Андрій Мостренко, Павло Костіцин"
-                    }
+
+
+                "bojevilni": {
+                    "fullname": "Божевільні",
+                    "poster": "Web/mini_db/Bojevilni/poster/bojevilni_poster.jpg",
+                    "images": [
+                        "Web/mini_db/Bojevilni/images/photo1.jpg",
+                        "Web/mini_db/Bojevilni/images/photo2.jpg",
+                        "Web/mini_db/Bojevilni/images/photo3.jpg"
+                    ],
+                    "description": {
+                        "age": "16+",
+                        "directot": "Денис Тарасов",
+                        "year": "2024",
+                        "genre": "Трилер, Драма",
+                        "duration": "2:00",
+                        "actors": "Костянтин Темляк, Ірма Вітовська, Сергій Калантай",
+                        "descript": "Напружений трилер 'Божевільні' розкриває драматичні події в житті головних героїв, занурюючи глядачів у світ психологічних випробувань."
+                    },
+                    "filmsession": [
+                        "bojevilni 09.11.2024 17:00",
+                        "bojevilni 12.11.2024 19:30",
+                        "bojevilni 16.11.2024 21:00"
+                    ]
                 },
-                "wicked":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"0+",
-                        "directot":"Джон М. Чу",
-                        "year":"2024",
-                        "genre":"пригоди, фентезі, фантастика, мюзикл",
-                        "duration":"2:41",
-                        "actors":"Аріана Ґранде, Синтія Еріво"
-                    }
+
+
+                 "wicked": {
+                    "fullname": "Wicked",
+                    "poster": "Web/mini_db/Wicked/poster/wicked-poster.jpg",
+                    "images": [
+                        "Web/mini_db/Wicked/images/photo1.jpg",
+                        "Web/mini_db/Wicked/images/photo2.jpg",
+                        "Web/mini_db/Wicked/images/photo3.jpg"
+                    ],
+                    "description": {
+                        "age": "12+",
+                        "director": "Jon M. Chu",
+                        "year": "2024",
+                        "genre": "Musical, Fantasy, Drama",
+                        "duration": "2:30",
+                        "actors": "Ariana Grande, Cynthia Erivo, Jeff Goldblum",
+                        "descript": "Based on the hit Broadway musical, *Wicked* tells the untold story of the witches of Oz, following the unlikely friendship between Elphaba and Glinda before Dorothy’s arrival."
+                    },
+                    "filmsession": [
+                        "wicked 27.11.2024 18:00",
+                        "wicked 27.11.2024 21:00",
+                        "wicked 29.11.2024 20:00"
+                    ]
                 }
             },
-            "SITS":{
-                "1":["wicked 07.11.2024 14:00", "bojevilni 09.11.2024 17:00"],
-                "2":["wicked 07.11.2024 14:00", "bojevilni 09.11.2024 17:00"],
-                "3":["wicked 07.11.2024 14:00", "bojevilni 09.11.2024 17:00"],
-                "4":[],
-                "5":[],
-                "6":["wicked 07.11.2024 14:00", "bojevilni 09.11.2024 17:00"],
-                "7":[],
-                "8":[],
-                "9":[],
-                "10":["bojevilni 09.11.2024 18:00"],
-                "11":[],
-                "12":["bojevilni 09.11.2024 20:00"],
-                "13":[],
-                "14":["wicked 07.11.2024 14:00", "bojevilni 09.11.2024 17:00"],
-                "15":["wicked 07.11.2024 14:00", "bojevilni 09.11.2024 17:00"],
-                "16":[],
-                "17":[],
-                "18":["bojevilni 09.11.2024 17:00"],
-                "19":["bojevilni 09.11.2024 17:00"],
-                "20":["bojevilni 09.11.2024 17:00"]
+            "SITS": {
+                "1": [
+                    "wicked 07.11.2024 14:00",
+                    "bojevilni 09.11.2024 17:00"
+                ],
+                "2": [
+                    "wicked 07.11.2024 14:00",
+                    "bojevilni 09.11.2024 17:00"
+                ],
+                "3": [
+                    "wicked 07.11.2024 14:00",
+                    "bojevilni 09.11.2024 17:00"
+                ],
+                "4": [],
+                "5": [],
+                "6": [
+                    "wicked 07.11.2024 14:00",
+                    "bojevilni 09.11.2024 17:00"
+                ],
+                "7": [],
+                "8": [],
+                "9": [],
+                "10": [
+                    "bojevilni 09.11.2024 18:00"
+                ],
+                "11": [],
+                "12": [
+                    "bojevilni 09.11.2024 20:00"
+                ],
+                "13": [],
+                "14": [
+                    "wicked 07.11.2024 14:00",
+                    "bojevilni 09.11.2024 17:00"
+                ],
+                "15": [
+                    "wicked 07.11.2024 14:00",
+                    "bojevilni 09.11.2024 17:00"
+                ],
+                "16": [],
+                "17": [],
+                "18": [
+                    "bojevilni 09.11.2024 17:00"
+                ],
+                "19": [
+                    "bojevilni 09.11.2024 17:00"
+                ],
+                "20": [
+                    "bojevilni 09.11.2024 17:00"
+                ]
             }
-            }
-        },
-        "strui":{
-            "films":{
-                "conclave":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"16+",
-                        "directot":"Едвард Берґер",
-                        "year":"2024",
-                        "genre":"детектив, триле",
-                        "duration":"2:00",
-                        "actors":"Рейф Файнс, Джон Літгоу, Стенлі Туччі, Ізабелла Росселлін"
-                    }
-                },
-                "the_lord_of_the_rings_the_war_of_the_rohirrim":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"12+",
-                        "directot":"Кенджі Каміяма",
-                        "year":"2024",
-                        "genre":"пригоди, анімація, фентезі",
-                        "duration":"2:00",
-                        "actors":"Браян Кокс, Ґая Вайс, Люк Паскуаліно, Міранда Отто, Лоррейн Ешборн"
-                    }
-                },
-                "woodwalkers":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"0+",
-                        "directot":"Даміан Джон Харпер",
-                        "year":"2024",
-                        "genre":"пригоди, фентезі",
-                        "duration":"1:30",
-                        "actors":"Олівер Масуччі, Еміль Шеріф, Мартіна Ґедек"
-                    }
-                },
-                "nosferatu":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"16+",
-                        "directot":"Роберт Еггерс",
-                        "year":"2025",
-                        "genre":"жахи",
-                        "duration":"2:00",
-                        "actors":"Білл Скашґорд, Лілі-Роуз Депп, Аарон Тейлор-Джонсон, Віллем Дефо"
-                    }
-                },
-                "dear_paris":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"16+",
-                        "directot":"Маржан Сатрапі",
-                        "year":"2024",
-                        "genre":"комедія",
-                        "duration":"1:49",
-                        "actors":"Моніка Беллуччі, Бен Елдрідж,  Россі де Пальма, Андре Дюссольє, Алекс Лутц, Гвендал Марімуту"
-                    }
-                },
-                "elevation":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"16+",
-                        "directot":"Джордж Нолфі",
-                        "year":"2024",
-                        "genre":"трилер, екшн",
-                        "duration":"1:32",
-                        "actors":"Ентоні Макі, Морена Баккарін,  Медді Гессон"
-                    }
-                },
-                "its_not_me":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"16+",
-                        "directot":"Леос Каракс",
-                        "year":"2024",
-                        "genre":"драма, біографічний",
-                        "duration":"0:41",
-                        "actors":"Дені Лаван, Леос Каракс, Катерина Юспіна, Настя Голубєва-Каракс"
-                    }
-                },
-                "christmas_in_alaska":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"0+",
-                        "directot":"Ділан Пірс",
-                        "year":"2024",
-                        "genre":"комедія, мелодрама, пригоди, романтика",
-                        "duration":"1:30",
-                        "actors":"Маркус Рознер, Емма Джонсон, Раян Норткотт, Ессек Мур, Стефані Вулф, Ешлі Пірс, Шарліз Аделін, Пол Баллін"
-                    }
+        }
+    },
+    "strui": {
+        "films": {
+            "conclave": {
+                "poster": "path",
+                "images": [
+                    "path1",
+                    "path2"
+                ],
+                "description": {
+                    "age": "16+",
+                    "directot": "Едвард Берґер",
+                    "year": "2024",
+                    "genre": "детектив, триле",
+                    "duration": "2:00",
+                    "actors": "Рейф Файнс, Джон Літгоу, Стенлі Туччі, Ізабелла Росселлін"
+                }
+            },
+            "the_lord_of_the_rings_the_war_of_the_rohirrim": {
+                "poster": "path",
+                "images": [
+                    "path1",
+                    "path2"
+                ],
+                "description": {
+                    "age": "12+",
+                    "directot": "Кенджі Каміяма",
+                    "year": "2024",
+                    "genre": "пригоди, анімація, фентезі",
+                    "duration": "2:00",
+                    "actors": "Браян Кокс, Ґая Вайс, Люк Паскуаліно, Міранда Отто, Лоррейн Ешборн"
+                }
+            },
+            "woodwalkers": {
+                "poster": "path",
+                "images": [
+                    "path1",
+                    "path2"
+                ],
+                "description": {
+                    "age": "0+",
+                    "directot": "Даміан Джон Харпер",
+                    "year": "2024",
+                    "genre": "пригоди, фентезі",
+                    "duration": "1:30",
+                    "actors": "Олівер Масуччі, Еміль Шеріф, Мартіна Ґедек"
+                }
+            },
+            "nosferatu": {
+                "poster": "path",
+                "images": [
+                    "path1",
+                    "path2"
+                ],
+                "description": {
+                    "age": "16+",
+                    "directot": "Роберт Еггерс",
+                    "year": "2025",
+                    "genre": "жахи",
+                    "duration": "2:00",
+                    "actors": "Білл Скашґорд, Лілі-Роуз Депп, Аарон Тейлор-Джонсон, Віллем Дефо"
+                }
+            },
+            "dear_paris": {
+                "poster": "path",
+                "images": [
+                    "path1",
+                    "path2"
+                ],
+                "description": {
+                    "age": "16+",
+                    "directot": "Маржан Сатрапі",
+                    "year": "2024",
+                    "genre": "комедія",
+                    "duration": "1:49",
+                    "actors": "Моніка Беллуччі, Бен Елдрідж,  Россі де Пальма, Андре Дюссольє, Алекс Лутц, Гвендал Марімуту"
+                }
+            },
+            "elevation": {
+                "poster": "path",
+                "images": [
+                    "path1",
+                    "path2"
+                ],
+                "description": {
+                    "age": "16+",
+                    "directot": "Джордж Нолфі",
+                    "year": "2024",
+                    "genre": "трилер, екшн",
+                    "duration": "1:32",
+                    "actors": "Ентоні Макі, Морена Баккарін,  Медді Гессон"
+                }
+            },
+            "its_not_me": {
+                "poster": "path",
+                "images": [
+                    "path1",
+                    "path2"
+                ],
+                "description": {
+                    "age": "16+",
+                    "directot": "Леос Каракс",
+                    "year": "2024",
+                    "genre": "драма, біографічний",
+                    "duration": "0:41",
+                    "actors": "Дені Лаван, Леос Каракс, Катерина Юспіна, Настя Голубєва-Каракс"
+                }
+            },
+            "christmas_in_alaska": {
+                "poster": "path",
+                "images": [
+                    "path1",
+                    "path2"
+                ],
+                "description": {
+                    "age": "0+",
+                    "directot": "Ділан Пірс",
+                    "year": "2024",
+                    "genre": "комедія, мелодрама, пригоди, романтика",
+                    "duration": "1:30",
+                    "actors": "Маркус Рознер, Емма Джонсон, Раян Норткотт, Ессек Мур, Стефані Вулф, Ешлі Пірс, Шарліз Аделін, Пол Баллін"
                 }
             }
-        },
-        "dolyna":{
-            "films":{
-                "snot_and_splash":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"12+",
-                        "directot":"Теему Ніккі",
-                        "year":"2024",
-                        "genre":"комедія, пригоди",
-                        "duration":"1:28",
-                        "actors":"Хуго Комаро, Урхо Кекконен, Пекка Странг, Каті Оутінен, Еліна Кніхтіля, Марія Паккален, Сампо Саркола, Петтері Пеннілья, Матті Оннісмаа"
-                    }
-                },
-                "moana_2":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"0+",
-                        "directot":"Дейв Деррік-молодший",
-                        "year":"2024",
-                        "genre":"пригоди, комедія, сімейний, мюзикл",
-                        "duration":"1:40",
-                        "actors":"Ауліі Кравальйо, Двейн Джонсон, Алан Тʼюдік"
-                    }
-                },
-                "goodrich":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"0+",
-                        "directot":"Холлі Меєрс-Шаєр",
-                        "year":"2024",
-                        "genre":"комедія, сімейний",
-                        "duration":"1:50",
-                        "actors":"Майкл Кітон, Міла Куніс, Енді МакДавелл"
-                    }
-                },
-                "the_train_of_death":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"18+",
-                        "directot":"Різал Мантовані",
-                        "year":"2024",
-                        "genre":"жахи, містика",
-                        "duration":"1:43",
-                        "actors":"Хана Маласан, Зара Леола, Кікі Нарендра, Путрі Аюдья, Яма Карлос, Фадлі Фейсал, Рут Маріні, Сахіра Анджані, Тотос Расіті, Агнес Наомі, Ільяс Бахтіяр, Едуард Маналу, Его Херіянто, Хайдар Саліш"
-                    }
-                },
-                "here":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"16+",
-                        "directot":"Роберт Земекіс",
-                        "year":"2024",
-                        "genre":"драма, фентезі, романтика",
-                        "duration":"2:00",
-                        "actors":"Том Генкс, Мішель Докері, Пол Беттані, Келлі Рійллі,  Робін Райт, Ґвілім Лі, Девід Фінн, Офелія Ловібонд"
-                    }
-                },
-                "mufasa_the_lion_king":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"0+",
-                        "directot":"Баррі Дженкінс",
-                        "year":"2024",
-                        "genre":"пригоди, анімація, сімейний",
-                        "duration":"2:00",
-                        "actors":"Аарон Пʼєрр, Келвін Гаррісон молодший, Тіффані Бун, Сет Роґен,  Джон Кані"
-                    }
-                },
-                "sonic_3":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"0+",
-                        "directot":"Джефф Фаулер",
-                        "year":"2024",
-                        "genre":"пригоди, фантастика",
-                        "duration":"1:43",
-                        "actors":"Бен Шварц, Коллін О'Шонессі, Ідріс Ельба"
-                    }
-                },
-                "black_cab":{
-                    "poster":"path",
-                    "images":["path1", "path2"],
-                    "description":{
-                        "age":"16+",
-                        "directot":"Брюс Гудісон",
-                        "year":"2024",
-                        "genre":"жахи, трилер",
-                        "duration":"2:00",
-                        "actors":"Нік Фрост, Сіннове Карлсен, Люк Норріс, Джордж Букарі, Тіллі Вудворд"
-                    }
+        }
+    },
+    "dolyna": {
+        "films": {
+            "snot_and_splash": {
+                "poster": "path",
+                "images": [
+                    "path1",
+                    "path2"
+                ],
+                "description": {
+                    "age": "12+",
+                    "directot": "Теему Ніккі",
+                    "year": "2024",
+                    "genre": "комедія, пригоди",
+                    "duration": "1:28",
+                    "actors": "Хуго Комаро, Урхо Кекконен, Пекка Странг, Каті Оутінен, Еліна Кніхтіля, Марія Паккален, Сампо Саркола, Петтері Пеннілья, Матті Оннісмаа"
+                }
+            },
+            "moana_2": {
+                "poster": "path",
+                "images": [
+                    "path1",
+                    "path2"
+                ],
+                "description": {
+                    "age": "0+",
+                    "directot": "Дейв Деррік-молодший",
+                    "year": "2024",
+                    "genre": "пригоди, комедія, сімейний, мюзикл",
+                    "duration": "1:40",
+                    "actors": "Ауліі Кравальйо, Двейн Джонсон, Алан Тʼюдік"
+                }
+            },
+            "goodrich": {
+                "poster": "path",
+                "images": [
+                    "path1",
+                    "path2"
+                ],
+                "description": {
+                    "age": "0+",
+                    "directot": "Холлі Меєрс-Шаєр",
+                    "year": "2024",
+                    "genre": "комедія, сімейний",
+                    "duration": "1:50",
+                    "actors": "Майкл Кітон, Міла Куніс, Енді МакДавелл"
+                }
+            },
+            "the_train_of_death": {
+                "poster": "path",
+                "images": [
+                    "path1",
+                    "path2"
+                ],
+                "description": {
+                    "age": "18+",
+                    "directot": "Різал Мантовані",
+                    "year": "2024",
+                    "genre": "жахи, містика",
+                    "duration": "1:43",
+                    "actors": "Хана Маласан, Зара Леола, Кікі Нарендра, Путрі Аюдья, Яма Карлос, Фадлі Фейсал, Рут Маріні, Сахіра Анджані, Тотос Расіті, Агнес Наомі, Ільяс Бахтіяр, Едуард Маналу, Его Херіянто, Хайдар Саліш"
+                }
+            },
+            "here": {
+                "poster": "path",
+                "images": [
+                    "path1",
+                    "path2"
+                ],
+                "description": {
+                    "age": "16+",
+                    "directot": "Роберт Земекіс",
+                    "year": "2024",
+                    "genre": "драма, фентезі, романтика",
+                    "duration": "2:00",
+                    "actors": "Том Генкс, Мішель Докері, Пол Беттані, Келлі Рійллі,  Робін Райт, Ґвілім Лі, Девід Фінн, Офелія Ловібонд"
+                }
+            },
+            "mufasa_the_lion_king": {
+                "poster": "path",
+                "images": [
+                    "path1",
+                    "path2"
+                ],
+                "description": {
+                    "age": "0+",
+                    "directot": "Баррі Дженкінс",
+                    "year": "2024",
+                    "genre": "пригоди, анімація, сімейний",
+                    "duration": "2:00",
+                    "actors": "Аарон Пʼєрр, Келвін Гаррісон молодший, Тіффані Бун, Сет Роґен,  Джон Кані"
+                }
+            },
+            "sonic_3": {
+                "poster": "path",
+                "images": [
+                    "path1",
+                    "path2"
+                ],
+                "description": {
+                    "age": "0+",
+                    "directot": "Джефф Фаулер",
+                    "year": "2024",
+                    "genre": "пригоди, фантастика",
+                    "duration": "1:43",
+                    "actors": "Бен Шварц, Коллін О'Шонессі, Ідріс Ельба"
+                }
+            },
+            "black_cab": {
+                "poster": "path",
+                "images": [
+                    "path1",
+                    "path2"
+                ],
+                "description": {
+                    "age": "16+",
+                    "directot": "Брюс Гудісон",
+                    "year": "2024",
+                    "genre": "жахи, трилер",
+                    "duration": "2:00",
+                    "actors": "Нік Фрост, Сіннове Карлсен, Люк Норріс, Джордж Букарі, Тіллі Вудворд"
                 }
             }
         }
     }
-
-
+}

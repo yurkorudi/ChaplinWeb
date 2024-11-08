@@ -329,8 +329,9 @@ body {
 
 .slider-item:hover {
   cursor: pointer;
-  transform: rotateY(calc(45deg * var(--j--))) translateZ(450px) scale(105%);
   transition: transform 0.5s ease-in-out;
+  transform: rotateY(calc(45deg * var(--j--))) translateZ(450px) scale(105%);
+
 }
 
 .slider-item img {
@@ -465,8 +466,15 @@ body {
   gap: 15px;
 }
 
+
+.main.transformers .left_menu .movie_logo img{
+  position: relative;
+  height: 500px;
+  width: 120%;
+}
 .main.transformers .left_menu .movie_logo {
-  background-image: url("/static/img/photo1.jpg");
+
+  overflow: hidden;
   background-size: cover;
   background-position: center;
   height: 500px;

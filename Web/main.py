@@ -54,7 +54,7 @@ def homepage():
     global user_device
 
 
-    return render_template('Homepage.html', city = "", cities = cities, )
+    return render_template('Homepage.html', city = "", cities = cities)
 
 
 

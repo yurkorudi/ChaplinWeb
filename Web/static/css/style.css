@@ -2,7 +2,8 @@
   opacity: 0.4;
   animation: fadeIn 1s forwards;
   font-family: "Helvetica", Helvetica;
-
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes fadeIn {
@@ -247,7 +248,7 @@ body {
   height: 100px;
   width: 100vw;
   padding: 15px;
-  margin: 175px 15px 0 0;
+  margin: 17% 15px 0 0;
   display: flex;
   gap: 10px;
   justify-content: space-around;
@@ -295,13 +296,14 @@ body {
   height: 50px;
 }
 
+
 /* Home page's base 360 degris's slider */
 
 .row {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 75%;
+  height: 55vh;
   width: 100vw;
 }
 
@@ -334,10 +336,11 @@ body {
 
 }
 
-.slider-item img {
+.slider-item input {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
   -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
 }
 
@@ -468,17 +471,21 @@ body {
 
 
 .main.transformers .left_menu .movie_logo img{
-  position: relative;
+  position: absolute;
+  left: -30px;
   height: 500px;
   width: 120%;
+  /* background-image: url("/static/mini_db/Venom/poster/venomposter.jpg"); */
+  /* background-image: url("/static/img/venomposter.jpg"); */
 }
-.main.transformers .left_menu .movie_logo {
 
+.main.transformers .left_menu .movie_logo {
   overflow: hidden;
   background-size: cover;
   background-position: center;
   height: 500px;
   width: 100%;
+  position: relative;
 }
 
 .main.transformers .left_menu .book_button {
@@ -621,6 +628,6 @@ body {
 
 
 .footer.movie {
-  margin-top: 110vh;
+  margin-top: 51%;
 }
 /* end movie's page */

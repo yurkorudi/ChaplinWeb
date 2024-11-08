@@ -61,16 +61,24 @@ class Film:
         self.poster_path = vidi[self.name]["poster"]
         self.image_path = vidi[self.name]["images"]
         self.description = vidi[self.name]["description"]
-        self.film_session = []
+        self.film_session = vidi[self.name]["filmsession"]
 
+
+
+
+    def sits (self, city):
+        self.occupied_sits = []
         sits = self.json_file["location"][city]['SITS']
         for i in sits:
             if len(sits[i]) > 0:
-                print("FILM FOUUUNDDD")
                 for a in sits[i]:
-                    print ("HERE's a >>", a)
                     if self.name in a:
-                        self.film_session.append(a)
-        print (self.film_session)
+                        for c in self.film_session:
+                            if c == a:
+                                self.occupied_sits.append(a)
+                            else:
+                                return "ERROR>> film sessions and sits are not the same!"
+            return self.occupied_sits
+
 
         

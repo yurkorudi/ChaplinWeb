@@ -78,8 +78,10 @@ def movie():
     global user_location
     global user_device
     global json
+    film_name = request.args.get('movie_name')
+    print(f"++++++++++++++++++++++++++++++++++ name: {film_name}")
     my_file = JSN(json=json, filepath='Web/mdb.json', type="0")
-    movie = Film(filmname='trans', json_file=my_file.dirty_data, city='lviv')
+    movie = Film(filmname=film_name, json_file=my_file.dirty_data, city='lviv')
 
 
     if user_location == []:

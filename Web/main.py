@@ -78,7 +78,7 @@ def movie():
     global user_location
     global user_device
     global json
-    my_file = JSN(json=json, filepath='mdb.json', type="0")
+    my_file = JSN(json=json, filepath='Web/mdb.json', type="0")
     movie = Film(filmname='trans', json_file=my_file.dirty_data, city='lviv')
 
 
@@ -95,4 +95,4 @@ def about():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host= '192.168.235.143')     
+    app.run(debug=True, host= '127.0.0.1')     

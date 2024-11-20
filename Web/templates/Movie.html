@@ -132,44 +132,49 @@
 
     <script>
         const scheduleContainer = document.getElementById("schedule");
-    const today = new Date();
-    const currentYear = today.getFullYear();
-    const currentMonth = today.getMonth();
-    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+        const today = new Date();
+        const currentYear = today.getFullYear();
+        const currentMonth = today.getMonth();
+        const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-    const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
-    const hoursForDays = [1, 5, 10, 15, 20]; // Days with specific hours
-    const specificHour = "09:00";
+        const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
 
-    // Create empty slots for days before the first day of the month
-    for (let i = 0; i < firstDayOfMonth; i++) {
-        const emptyItem = document.createElement("li");
-        emptyItem.classList.add("empty");
-        scheduleContainer.appendChild(emptyItem);
-    }
+        const urlParams = new URLSearchParams(window.location.search);
+        const movieName = urlParams.get('movie_name');
 
-    // Create list items for each day of the month
-    for (let day = 1; day <= daysInMonth; day++) {
-        const date = new Date(currentYear, currentMonth, day);
-        const formattedDate = date.toISOString().split("T")[0];
-        
-        const listItem = document.createElement("li");
-        const timeElement = document.createElement("time");
-        timeElement.setAttribute("datetime", formattedDate);
-        timeElement.textContent = day;
 
-        if (day === today.getDate()) {
-            listItem.classList.add("today");
-        }
-        
-        listItem.appendChild(timeElement);
+        // const hoursForDays = [1, 5, 10, 15, 20]; // Days with specific hours
+        // const specificHour = "09:00";
 
-        if (hoursForDays.includes(day)) {
-            listItem.innerHTML += ` ${specificHour}`;
+        // Create empty slots for days before the first day of the month
+        for (let i = 0; i < firstDayOfMonth; i++) {
+            const emptyItem = document.createElement("li");
+            emptyItem.classList.add("empty");
+            scheduleContainer.appendChild(emptyItem);
         }
 
-        scheduleContainer.appendChild(listItem);
-    }
+        // Create list items for each day of the month
+        for (let day = 1; day <= daysInMonth; day++) {
+            const date = new Date(currentYear, currentMonth, day);
+            const formattedDate = date.toISOString().split("T")[0];
+
+            const listItem = document.createElement("li");
+            const timeElement = document.createElement("time");
+            timeElement.setAttribute("datetime", formattedDate);
+            timeElement.textContent = day;
+
+            if (day === today.getDate()) {
+                listItem.classList.add("today");
+            }
+
+            listItem.appendChild(timeElement);
+
+            if (hoursForDays.includes(day)) {
+                listItem.innerHTML += ` ${specificHour}`;
+            }
+
+            scheduleContainer.appendChild(listItem);
+        }
     </script>
 
 </body>

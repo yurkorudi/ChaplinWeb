@@ -18,10 +18,9 @@ body {
 
 .home {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   width: 100vw;
-  height: 10vw;
   background: linear-gradient(180deg, rgba(128, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 100%);
   padding: 15px;
 }
@@ -37,25 +36,26 @@ body {
 .home .header {
   position: relative;
   width: 100vw;
-  height: 12vw;
+  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 25px;
   background: transparent;
+  z-index: 2;
 }
 
 .home .logo {
   width: 20vw;
-  top: 0;
-  left: 0;
-  display: flex;
+  margin-left: 15px;
+  position: relative;
+  top: -10px;
 }
 
 .home .text-wrapper {
   position: absolute;
-  top: 35px;
-  left: 51px;
+  top: 0px;
+  left: 0px;
   font-family: "Stencil Std", Helvetica;
   text-transform: uppercase;
   font-weight: 900;
@@ -68,8 +68,8 @@ body {
 
 .home .div {
   position: absolute;
-  top: 95px;
-  left: 220px;
+  top: 55px;
+  left: 170px;
   font-family: "Trebuchet MS", Helvetica;
   font-weight: 400;
   color: #ffffff;
@@ -84,8 +84,8 @@ body {
   position: absolute;
   width: 370px;
   height: 181px;
-  top: -65px;
-  left: -50px;
+  top: -105px;
+  left: -100px;
   object-fit: scale-down;
 }
 
@@ -94,13 +94,13 @@ body {
 
 
 
-
+ 
 .home .header-menu li {
   position: relative;
   display: flex;
   align-items: center;
-  top: -40px;
-  right: 20px;
+  /* top: -40px; */
+  /* right: 20px; */
 }
 
 .home .dropbtn {
@@ -119,7 +119,6 @@ body {
   top: 50px;
   background-color: transparent;
   min-width: 160px;
-  z-index: 1;
   z-index: 1;
   opacity: 0;
   transform: translateY(-5px);
@@ -179,7 +178,7 @@ body {
   padding: 10px;
   flex: 0 0 auto;
   border-radius: 15px;
-  top: -60px;
+  top: -30px;
   background-color: transparent;
   transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
 }
@@ -213,7 +212,6 @@ body {
   width: fit-content;
   margin-top: 1px;
   border: none;
-  padding: 10px 10px;
   border-radius: 15px;
   overflow: hidden;
   padding: 3px 6px;
@@ -248,7 +246,7 @@ body {
   height: 100px;
   width: 100vw;
   padding: 15px;
-  margin: 17% 15px 0 0;
+  margin: 35vh 15px 0 0;
   display: flex;
   gap: 10px;
   justify-content: space-around;
@@ -308,7 +306,7 @@ body {
 }
 
 .slider {
-  width: 500px;
+  width: 30vw;
   margin: 15px auto;
   perspective: 1000px;
 }
@@ -379,7 +377,8 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 15px;
-  height: 100vh;
+  height: auto;
+  margin-top: 0px;
 }
 
 .main.movies_catalog div {
@@ -447,7 +446,7 @@ body {
 }
 
 .footer.movies_catalog {
-  margin-top: 100px;
+  margin-top: 0px;
 }
 
 /* end movies page */
@@ -631,3 +630,98 @@ body {
   margin-top: 51%;
 }
 /* end movie's page */
+
+@media (max-width: 360px) {
+  .home .header {
+    margin-top: 20px;
+    padding: 15px;
+  }
+
+  .home .logo {
+    width: 20vw;
+    margin-left: 0px;
+    top: -35px;
+  }
+
+  .home .text-wrapper {
+    top: -3px;
+    left: -15px;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+
+  .home .div {
+    top: 20px;
+    left: 20px;
+    font-size: 14px;
+    letter-spacing: 0.35px;
+  }
+
+  .home .blackhat {
+    width: 200px;
+    height: 81px;
+    top: -50px;
+    left: -80px;
+  }
+
+  .home .topbtn-s {
+    gap: 0px;
+    padding: 0px 0px;
+  }
+
+  .home .button-wrapper {
+    gap: 0px;
+    padding: 0px;
+    border-radius: 15px;
+    top: -30px;
+  }
+
+  .home .button-wrapper.user {
+    margin: 0px;
+    padding: 0;
+    gap: 0px;
+  }
+
+  .home .ico {
+    width: 25px;
+    height: 25px;
+  }
+
+  .home .button {
+    margin-top: 1px;
+    padding: 5px 5px;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .home .dropdown-content {
+    top: 25px;
+    padding-top: 10px;
+  }
+  
+  .home .dropdown-content a {
+    padding: 6px 14px;
+    text-decoration: none;
+    font-family: "Josefin Slab", Helvetica;
+    font-size: 10px;
+    display: block;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition-delay: var(--delay);
+  
+  }
+
+  .slider {
+    width: 90vw;
+  }
+
+  .row .button-wrapper button:hover {
+    background-color: initial;
+    color: white;
+    border-color: white;
+  }
+
+  /* .footer.movies_catalog {
+    margin-top: 350%;
+  } */
+}

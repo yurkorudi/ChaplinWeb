@@ -1,6 +1,6 @@
 use Chaplin
 
---Create user's table
+-- Create user's table -- 
 create table Users(
 first_name VARCHAR(100) NOT NULL,
 last_name VARCHAR(100) NOT NULL,
@@ -14,7 +14,7 @@ CONSTRAINT valid_phone_number CHECK (phone_number NOT LIKE '%[^0-9]%')
 
 drop table Users;
 
---Create cinema's table
+-- Create cinema's table
 create table Cinema(
 id int NOT NULL primary key,
 name VARCHAR(100) NOT NULL,
@@ -27,7 +27,7 @@ CONSTRAINT valid_contact_phone_number CHECK (contact_phone_number NOT LIKE '%[^0
 
 drop table Cinema;
 
---Create film's table
+-- Create film's table
 create table Films(
 id int not null primary key,
 name VARCHAR(100) NOT NULL,
@@ -46,7 +46,7 @@ pictures_path text
 
 drop table Films;
 
---Create activities's table
+-- Create activities's table
 create table Activities(
 user_email VARCHAR(100) foreign key(user_email) references Users(email),
 date_of_account_creation date,
@@ -59,7 +59,7 @@ cinema_id int foreign key(cinema_id) references Cinema(id)
 
 drop table Activities;
 
---Create schedule's table
+-- Create schedule's table
 create table Schedule_of_sessions(
 id int primary key,
 session_datetime datetime,
@@ -69,7 +69,7 @@ film_id int foreign key(film_id) references Films(id)
 
 drop table Schedule_of_sessions;
 
---Create seat's table
+-- Create seat's table
 create table Seat(
 seat_number int primary key,
 book_datetime datetime,
@@ -78,7 +78,7 @@ cinema_id int foreign key(cinema_id) references Cinema(id)
 
 drop table Seat;
 
---Create ticket's table
+-- Create ticket's table
 create table Ticket(
 id int primary key,
 date_of_purchase date,

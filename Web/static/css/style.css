@@ -789,8 +789,7 @@ body {
     display: block;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
-    transition-delay: var(--delay);
-  
+    transition-delay: var(--delay);  
   }
 
   .slider {
@@ -860,4 +859,80 @@ body {
   .footer.movie {
     margin-top: -60px;
   }
+
+  .fade-in.about{
+    overflow-y: scroll;
+  }
+
+  .main.about{
+    overflow: unset;
+  }
+
+  .main.about .stici_picture{
+    display: none;
+  }
+
+  .main.about .company_info{
+    width: 100%;
+    height: 100vh;
+    overflow-y: visible;
+  }
+  
+  .main.about h1{
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .main.about p,
+  .main.about li{
+    font-size: 12px;
+  }
+  
+  .main.about li{
+    text-indent: -16px;
+    padding-left: 25px;
+  }
+  
+  .main.about .company_info div{
+    margin-bottom: 30px;
+    line-height: 15px;
+  }
+
+  .main.about .gallery{
+    height: 50vh;
+  }
+
+  .footer.about{
+    width: 100%;
+    margin-top: 180px;
+    z-index: 0;
+  }
+  
+  .footer div {
+    height: 30px;
+    width: 100px;
+  }
+  
+  .footer p {
+    padding-top: 5%;
+  }
+  
+  .footer .footer_info {
+    font-size: 10px;
+    padding: 7% 0;
+  }
+  
+  .footer .map .footer_info {
+    font-size: 12px;
+    padding: 2%;
+  }
+  
+  .footer div:hover {
+    height: 30px;
+  }
+
+  .footer .map:hover {
+    height: 50px;
+  }
+  
 }

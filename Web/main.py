@@ -90,10 +90,15 @@ def movie():
         
 
 
-@app.route('/About.html')
+@app.route('/about')
 def about():
-    return render_template('About.html')
+    global user_location
+    global cities
+    global user_device
+
+
+    return render_template('About.html', city = "", cities = cities)
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host= '192.168.0.58')     
+    app.run(debug=True, host= '127.0.0.1')     

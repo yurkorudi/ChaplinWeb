@@ -2,45 +2,69 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChaplinCinema</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/globals.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies</title>
+  <link rel="stylesheet" href="/static/css/globals.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body class="fade-in">
   <div class="home">
-    <!-- <div class="header-wrapper"> -->
-      <header class="header">
-        <!-- <div class="overlap"> -->
-          <!-- <img class="rectangle" src="/static/img/rectangle-1.svg"/> -->
-          <div class="logo">
-            <!-- <div class="overlap-group"> -->
-              <div class="text-wrapper">Chaplin</div>
-              <div class="div">cinema</div>
-              <img class="blackhat" src="/static/img/blackhat-1.png" />
-            <!-- </div> -->
-          </div>
-          <div class="header-menu">
-            <div class="topbtn-s">
-              <div class="button-wrapper"><button class="button">All movies</button></div>
-              <div class="button-wrapper"><button class="button">About</button></div>
-            </div>
-            <img class="ico" src="/static/img/ico.svg" />
-          </div>
-          <div class="topbtn-s">
-            <form action = "{{ url_for('homepage')}}">
-              <div class="button-wrapper"><button class="button" type="submit">Home</button></div>
-            </form>
-            <div class="button-wrapper"><button class="button">About</button></div>
-          </div>
-          <img class="ico" src="/static/img/photo.jpg" />
-        </div>
-      </header>
-    <!-- </div> -->
-     <main class="main">
 
-     </main>
+    <header class="header">
+      <div class="logo">
+        <div class="text-wrapper">Chaplin</div>
+        <div class="div">cinema</div>
+        <img class="blackhat" src="/static/img/hat.png" />
+      </div>
+      <div class="header-menu">
+        <div class="topbtn-s">
+          <form action="{{ url_for('homepage')}}">
+            <div class="button-wrapper"><button class="button" type="submit">Головна</button></div>
+          </form>
+          <form action="{{ url_for('movies')}}">
+            <div class="button-wrapper"><button class="button" type="submit">Фільми</button></div>
+          </form>
+          <div class="dropdown">
+            <div class="button-wrapper"><button class="button" class="button-wrapper" class="dropdown">Локація: {{ city
+                }}</button>
+              <div class="dropdown-content">
+                {% for l, c in cities.items() %}
+                <a href="{{url_for('homepage')}}?location={{l}}" style="--delay: 0s;">{{c}}</a>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="button-wrapper user">
+            <button class="button">Увійти</button>
+            <div class="ico"></div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </header>
+
+  <main class="main about">
+    
+  </main>
+
+  <footer class="footer movies_catalog">
+    <div class="social_media">
+      <p>Соцмережі</p>
+      <a href="https://www.instagram.com/chaplin_cinema_lviv?igsh=MzRlODBiNWFlZA=="
+        class="footer_info">Chaplin_cinema_lviv</a>
+    </div>
+    <div class="contacts">
+      <p>Контакти</p>
+      <p class="footer_info">+38(050)2984715</p>
+    </div>
+    <div class="map">
+      <p>Адрес</p>
+      <p class="footer_info">пр. Червоної Калини, 81, Львів</p>
+    </div>
+  </footer>
   </div>
 </body>
 

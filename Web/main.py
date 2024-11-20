@@ -1,4 +1,4 @@
-from flask import *
+from flask import * 
 from user_agents import parse
 import json
 from modls import JSN

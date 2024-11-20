@@ -1,0 +1,110 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App</title>
+    <link rel="stylesheet" href="/static/css/globals.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="fade-in">
+    <div class="home">
+        
+
+    <main class="main transformers">
+        <div class="left_menu">
+            <div class="movie_logo">
+                <img src="{{movie_info['poster']}}" alt="{{movie_info['poster']}}">
+            </div>
+            <form action="{{ url_for('homepage')}}">
+                <div class="book_button"><button>Придбати квиток</button></div>
+            </form>
+        </div>
+
+        <div class="base_info">
+            <div class="movie_name">
+                <h1>{{movie_info['fullname']}}</h1>
+            </div>
+
+            <div class="movie_short_info">
+
+                <p class="category">Локація:</p>
+                <p class="value">{{movie_info['description']['age']}}</p>
+
+                <p class="category">Дата:</p>
+                <p class="value">{{movie_info['description']['actors']}}</p>
+
+                <p class="category">Тривалість:</p>
+                <p class="value">{{movie_info['description']['duration']}}</p>
+
+            </div>            
+        </div>
+        <div class="right_menu">
+            <h1>Розклад Сеансів</h1>
+            <ul class="weekdays">
+                <li>Sun</li>
+                <li>Mon</li>
+                <li>Tue</li>
+                <li>Wed</li>
+                <li>Thu</li>
+                <li>Fri</li>
+                <li>Sat</li>
+            </ul>
+            <ul class="schedule" id="schedule"></ul>
+        </div>
+    </main>
+
+    </div>
+
+    <script>
+        const scheduleContainer = document.getElementById("schedule");
+        const today = new Date();
+        const currentYear = today.getFullYear();
+        const currentMonth = today.getMonth();
+        const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
+
+        const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const movieName = urlParams.get('movie_name');
+        
+        const hoursForDays = [1, 5, 10, 15, 20]; // Days with specific hours
+        const specificHour = "09:00";
+
+        // Create empty slots for days before the first day of the month
+        for (let i = 0; i < firstDayOfMonth; i++) {
+            const emptyItem = document.createElement("li");
+            emptyItem.classList.add("empty");
+            scheduleContainer.appendChild(emptyItem);
+        }
+
+        // Create list items for each day of the month
+        for (let day = 1; day <= daysInMonth; day++) {
+            const date = new Date(currentYear, currentMonth, day);
+            const formattedDate = date.toISOString().split("T")[0];
+
+            const listItem = document.createElement("li");
+            const timeElement = document.createElement("time");
+            timeElement.setAttribute("datetime", formattedDate);
+            timeElement.textContent = day;
+
+            if (day === today.getDate()) {
+                listItem.classList.add("today");
+            }
+
+            listItem.appendChild(timeElement);
+
+            if (hoursForDays.includes(day)) {
+                listItem.innerHTML += ` ${specificHour}`;
+            }
+
+            scheduleContainer.appendChild(listItem);
+        }
+    </script>
+
+</body>
+
+</html>

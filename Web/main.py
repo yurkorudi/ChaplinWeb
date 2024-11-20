@@ -95,10 +95,24 @@ def about():
     global user_location
     global cities
     global user_device
-
-
     return render_template('About.html', city = "", cities = cities)
 
 
+@app.route('/book', methods=['POST'])
+def book():
+    global user_location
+    global user_device
+    global json
+    film_name = request.args.get('movie_name')
+    my_file = JSN(json=json, filepath='Web/mdb.json', type="0")
+    movie = Film(filmname=film_name, json_file=my_file.dirty_data, city='lviv')
+
+
+    if user_location == []:
+        a = location()
+
+    return render_template('Booking.html', city = "", cities = cities, movie_info = movie.ret_filmfile())
+
+
 if __name__ == '__main__':
-    app.run(debug=True, host= '192.168.0.104')     
+    app.run(debug=True, host= '127.0.0.1')     

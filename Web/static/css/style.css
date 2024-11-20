@@ -458,10 +458,11 @@ body {
   justify-content: space-between;
   gap: 15px;
   margin-left: 50px;
+  height: auto;
 }
 
 .main.transformers .left_menu {
-  height: 100vh;
+  height: auto;
   width: 40vw;
   display: flex;
   flex-direction: column;
@@ -470,10 +471,11 @@ body {
 
 
 .main.transformers .left_menu .movie_logo img{
-  position: absolute;
-  left: -30px;
-  height: 500px;
-  width: 120%;
+  /* position: absolute; */
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
   /* background-image: url("/static/mini_db/Venom/poster/venomposter.jpg"); */
   /* background-image: url("/static/img/venomposter.jpg"); */
 }
@@ -482,7 +484,7 @@ body {
   overflow: hidden;
   background-size: cover;
   background-position: center;
-  height: 500px;
+  height: 450px;
   width: 100%;
   position: relative;
 }
@@ -512,7 +514,7 @@ body {
 
 .main.transformers .base_info .movie_short_info {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 30% 70%;
   gap: 5px;
   color: white;
   width: 100%;
@@ -523,7 +525,7 @@ body {
 }
 
 .main.transformers .base_info {
-  height: 100%;
+  height: auto;
   width: 100vw;
   color: white;
   margin-bottom: 15px;
@@ -627,7 +629,7 @@ body {
 
 
 .footer.movie {
-  margin-top: 51%;
+  margin-top: 30px;
 }
 /* end movie's page */
 
@@ -685,6 +687,8 @@ body {
   .home .ico {
     width: 25px;
     height: 25px;
+    padding: 0;
+    margin-right: 5px;
   }
 
   .home .button {
@@ -721,7 +725,61 @@ body {
     border-color: white;
   }
 
-  /* .footer.movies_catalog {
-    margin-top: 350%;
-  } */
+  .main.transformers {
+    flex-direction: column;
+    padding: 0 15px;
+    margin: 0;
+  }
+
+  .main.transformers .left_menu {
+    width: 100vw;;
+    padding: 0;
+    margin: 0;
+  }  
+  
+  .main.transformers .left_menu .movie_logo img{
+    width: 90vw;
+    padding: 0px 15px;
+  }
+  
+  .main.transformers .left_menu .movie_logo {
+    height: 75vh;
+    width: 100%;
+  }
+
+  .main.transformers .base_info {
+    margin-top: 30px;
+  }
+
+  .main.transformers .base_info div h1 {
+    font-size: 20px;
+  }
+
+  .main.transformers .base_info div p {
+    font-size: 12px;
+  }
+
+  .main.transformers .base_info div {
+    line-height: 15px;
+  }
+
+  .main.transformers .base_info .movie_short_info {
+    width: 95%;
+  }
+
+  .main.transformers .base_info .movie_description {
+    width: 95%;
+  }
+
+  .main.transformers .base_info .treiler {
+    width: 95%;
+  }
+
+  .main.transformers .right_menu{
+    display: none;
+  }
+
+  .footer.movie {
+    margin-top: -60px;
+  }
 }

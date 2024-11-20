@@ -135,7 +135,7 @@
         const today = new Date();
         const currentYear = today.getFullYear();
         const currentMonth = today.getMonth();
-        const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+        const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
 
         const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
 
@@ -143,8 +143,8 @@
         const movieName = urlParams.get('movie_name');
 
 
-        // const hoursForDays = [1, 5, 10, 15, 20]; // Days with specific hours
-        // const specificHour = "09:00";
+        const hoursForDays = [1, 5, 10, 15, 20]; // Days with specific hours
+        const specificHour = "09:00";
 
         // Create empty slots for days before the first day of the month
         for (let i = 0; i < firstDayOfMonth; i++) {

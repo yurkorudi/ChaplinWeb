@@ -632,6 +632,78 @@ body {
   margin-top: -100px;
 }
 /* end movie's page */
+/* about page */
+.fade-in.about{
+  overflow: hidden;
+}
+
+.main.about{
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 100vw;
+  margin: -15px 15px 0 -15px;
+  gap: 15px;
+  overflow: hidden;
+}
+
+.main.about .stici_picture{
+  height: 75vh;
+  width: 50%;
+  position: sticky;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.main.about .stici_picture img{
+  height: auto;
+  width: 100%;
+  background-size: cover;
+  filter: grayscale(50%);
+}
+
+.main.about .company_info{
+  width: 50%;
+  height: 75vh;
+  overflow-y: auto;
+  scrollbar-color: rgba(128, 0, 0, 0.5) #000000;
+  color: white;
+  padding: 0 15px;
+}
+
+.main.about h1{
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.main.about p,
+.main.about li{
+  font-size: 20px;
+}
+
+.main.about li{
+  text-indent: -30px;
+  padding-left: 50px;
+}
+
+.main.about .company_info div{
+  margin-bottom: 30px;
+  line-height: 35px;
+}
+
+.main.about .gallery{
+  width: 100%;
+  overflow: hidden;
+}
+
+.footer.about{
+  width: 45%;
+  margin-top: -15vh;
+  z-index: 1;
+}
+
+/* end apout page */
 
 @media (max-width: 360px) {
   .home .header {

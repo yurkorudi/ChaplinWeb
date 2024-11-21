@@ -877,6 +877,7 @@ body {
 
 .main.user .login .form button,
 .main.user .registration .form button{
+  width: 100%;
   margin: 25px 0 0 0;
   padding: 5px;
   font-size: 20px;
@@ -897,6 +898,7 @@ body {
 .main.user .login .form .chenge_form a,
 .main.user .registration .form .chenge_form a{
   color: black;
+  text-transform: capitalize;
 }
 
 .main.user .registration{

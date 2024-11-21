@@ -49,7 +49,7 @@
         <div class="inf_text">
           <h1>Login</h1>
           <p>pleace login</p>
-        </div>        
+        </div>
       </div>
       <div class="form">
         <h1>Login</h1>
@@ -58,13 +58,15 @@
         <p></p>
         <label for="">Password:</label>
         <input type="password">
-        <button type="submit">Login</button>
+        <form action="{{ url_for('button_click')}}">
+          <button type="submit">Login</button>
+        </form>
         <div class="chenge_form">
           <p>if you have don't have acaunt <a onclick="toggleBlocks()">regist</a></p>
         </div>
-      </div>      
+      </div>
     </div>
-    
+
     <div class="registration" id="registration">
       <div class="form">
         <h1>Singup</h1>
@@ -79,17 +81,19 @@
         <input type="text" name="log" id="">
         <label for="">Create password:</label>
         <input type="password">
-        <button type="submit">Singup</button>
+        <form action="{{ url_for('button_click')}}">
+          <button type="submit">Singup</button>
+        </form>
         <div class="chenge_form">
           <p>Do you hav acount <a onclick="toggleBlocks()">login</a></p>
         </div>
-      </div>      
+      </div>
       <div class="info">
         <img src="/static/img/photo2.jpg" alt="">
         <h1>Singup</h1>
-          <p>pleace singup</p>
-        </div>  
+        <p>pleace singup</p>
       </div>
+    </div>
     </div>
 
     <div class="profile">
@@ -125,17 +129,17 @@
 
   <script>
     function toggleBlocks() {
-  const block1 = document.getElementById("login");
-  const block2 = document.getElementById("registration");
+      const block1 = document.getElementById("login");
+      const block2 = document.getElementById("registration");
 
-  if (block1.style.display === "flex") {
-    block1.style.display = "none";
-    block2.style.display = "flex";
-  } else {
-    block1.style.display = "flex";
-    block2.style.display = "none";
-  }
-}
+      if (block1.style.display === "flex") {
+        block1.style.display = "none";
+        block2.style.display = "flex";
+      } else {
+        block1.style.display = "flex";
+        block2.style.display = "none";
+      }
+    }
   </script>
 </body>
 

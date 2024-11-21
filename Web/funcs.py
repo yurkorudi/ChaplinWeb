@@ -1,0 +1,194 @@
+from extensions import db
+from models import *
+from flask import jsonify, request
+
+def list_to_dict(data):
+    result = {}
+    for item in data:
+        name = item['name']
+        result[name] = {key: value for key, value in item.items() if key != 'name'}
+    return result
+
+
+
+def add_image(type, path):
+    try:
+        existing_image = Image.query.filter_by(path=path).first()
+        if existing_image:
+            return jsonify({"message": "Image already exists"}), 200
+
+        new_image = Image(type=type, path=path)
+        db.session.add(new_image)
+        db.session.commit()
+        return jsonify({"message": "Image added successfully"}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
+
+def get_images():
+    images = Image.query.all()
+    return [{"image_id": img.image_id, "type": img.type, "path": img.path} for img in images]
+
+
+def add_user(phone_number, first_name, last_name, email, login, password, bought_tickets_summary):
+    try:
+
+        existing_user = User.query.filter_by(phone_number=phone_number).first()
+        if existing_user:
+            return jsonify({"message": "User already exists"}), 200
+
+        new_user = User(
+            phone_number=phone_number,
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            login=login,
+            password=password,
+            bought_tickets_summary=bought_tickets_summary,
+            date_of_creation=datetime.now()
+        )
+        db.session.add(new_user)
+        db.session.commit()
+        return jsonify({"message": "User added successfully"}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
+
+
+def get_users():
+    users = User.query.all()
+    return [{"phone_number": u.phone_number, "name": f"{u.first_name} {u.last_name}", "tickets": u.bought_tickets_summary} for u in users]
+
+
+def add_cinema(name, location, contact_phone_number, work_schedule, instagram_link):
+    try:
+
+        existing_cinema = Cinema.query.filter_by(name=name, location=location).first()
+        if existing_cinema:
+            return jsonify({"message": f"Cinema '{name}' at '{location}' already exists"}), 200
+
+        new_cinema = Cinema(
+            name=name,
+            location=location,
+            contact_phone_number=contact_phone_number,
+            work_schedule=work_schedule,
+            instagram_link=instagram_link
+        )
+        db.session.add(new_cinema)
+        db.session.commit()
+        return jsonify({"message": "Cinema added successfully"}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
+
+
+def get_cinemas():
+    cinemas = Cinema.query.all()
+    return [{"cinema_id": c.cinema_id, "name": c.name, "location": c.location,
+             "contact_phone_number": c.contact_phone_number, "work_schedule": c.work_schedule,
+             "instagram_link": c.instagram_link} for c in cinemas]
+
+
+def add_session(film_id, cinema_id, session_datetime, session_duration):
+    try:
+        existing_session = Session.query.filter_by(film_id=film_id, cinema_id=cinema_id, session_datetime=session_datetime).first()
+        if existing_session:
+            return jsonify({"message": "Session already exists"}), 200
+
+        new_session = Session(
+            film_id=film_id,
+            cinema_id=cinema_id,
+            session_datetime=session_datetime,
+            session_duration=session_duration
+        )
+        db.session.add(new_session)
+        db.session.commit()
+        return jsonify({"message": "Session added successfully"}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
+
+
+
+def get_sessions():
+    sessions = Session.query.all()
+    return [{"session_id": s.session_id, "film_id": s.film_id, "cinema_id": s.cinema_id,
+             "session_datetime": s.session_datetime, "session_duration": s.session_duration} for s in sessions]
+
+def add_film(name, genre, description, release_start_date, release_end_date, director, actors, duration, image_id):
+    try:
+        existing_film = Film.query.filter_by(name=name).first()
+        if existing_film:
+            return jsonify({"message": "Film already exists"}), 200
+
+        new_film = Film(
+            name=name,
+            genre=genre,
+            description=description,
+            release_start_date=release_start_date,
+            release_end_date=release_end_date,
+            director=director,
+            actors=actors,
+            duration=duration,
+            image_id=image_id
+        )
+        db.session.add(new_film)
+        db.session.commit()
+        return jsonify({"message": "Film added successfully"}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
+
+def get_films():
+    films = Film.query.all()
+    return [{"film_id": f.film_id, "name": f.name, "genre": f.genre, "description": f.description,
+             "release_start_date": f.release_start_date, "release_end_date": f.release_end_date,
+             "director": f.director, "actors": f.actors, "duration": f.duration, "image_id": f.image_id} for f in films]
+
+
+def add_seat(session_id, row, busy):
+    try:
+        existing_seat = Seat.query.filter_by(session_id=session_id, row=row).first()
+        if existing_seat:
+            return jsonify({"message": "Seat already exists"}), 200
+
+        new_seat = Seat(session_id=session_id, row=row, busy=busy)
+        db.session.add(new_seat)
+        db.session.commit()
+        return jsonify({"message": "Seat added successfully"}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
+
+def get_seats():
+    seats = Seat.query.all()
+    return [{"seat_id": s.seat_id, "session_id": s.session_id, "row": s.row, "busy": s.busy} for s in seats]
+
+
+def add_ticket(user_phone_number, seat_id, session_id, date_of_purchase=None):
+    try:
+
+        existing_ticket = Ticket.query.filter_by(user_phone_number=user_phone_number, seat_id=seat_id, session_id=session_id).first()
+        if existing_ticket:
+            return jsonify({"message": "Ticket already exists"}), 200
+
+        new_ticket = Ticket(
+            user_phone_number=user_phone_number,
+            seat_id=seat_id,
+            session_id=session_id,
+            date_of_purchase=date_of_purchase or datetime.utcnow()
+        )
+        db.session.add(new_ticket)
+        db.session.commit()
+        return jsonify({"message": "Ticket added successfully"}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
+
+def get_tickets():
+    tickets = Ticket.query.all()
+    return [{"ticket_id": t.ticket_id, "user_phone_number": t.user_phone_number,
+             "seat_id": t.seat_id, "session_id": t.session_id,
+             "date_of_purchase": t.date_of_purchase} for t in tickets]
+
+

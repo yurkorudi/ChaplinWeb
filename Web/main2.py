@@ -1,31 +1,22 @@
-from flask import *
-from user_agents import *
+from flask import * 
+from user_agents import parse
+from flask_migrate import Migrate
+
+
 from flask_sqlalchemy import SQLAlchemy
-
-
-
-from extensions import db
-from models import Image, User, Cinema, Session, Film, Seat, Ticket
-from modules import *
-
-
 
 app = Flask(__name__)
 
-
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://zulu:zuludf345@64.225.100.209:3306/chaplin"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+db = SQLAlchemy(app)
 
 db.init_app(app)
-
-
+migrate = Migrate(app, db)
 
 with app.app_context():
-    add_user(phone_number='34', first_name="Yura", last_name="Walker", email="Walker@gmail.com", login="Walker", password="4fvh38d",bought_tickets_summary=149)
-    print(get_user())
-
-
-
+    db.drop_all()
+    db.create_all()
 
 cities = {
     "lviv":"Львів",
@@ -98,14 +89,12 @@ def movie():
     global user_device
     global json
     film_name = request.args.get('movie_name')
-    my_file = JSN(json=json, filepath='Web/mdb.json', type="0")
-    movie = Film(filmname=film_name, json_file=my_file.dirty_data, city='lviv')
 
 
     if user_location == []:
         a = location()
 
-    return render_template('Movie.html', city = "", cities = cities, movie_info = movie.ret_filmfile())
+    return render_template('Movie.html', city = "", cities = cities)
         
 
 
@@ -114,7 +103,5 @@ def about():
     return render_template('About.html')
 
 
-if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
-    app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True, host= '127.0.0.1')     

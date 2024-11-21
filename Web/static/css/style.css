@@ -750,11 +750,6 @@ body {
 
 .seat .seats .place.sofa{ 
   border: 2px solid rgb(180, 8, 248);
-  grid-column: span 1;
-}
-
-.seat .seats .place.sofa:first-child{ 
-  -ms-grid-column-span: 4;
 }
 
 .seat .seats .place::after{ 

@@ -97,16 +97,48 @@
     </div>
 
     <div class="profile">
-      <img src="" alt="logo">
+      <img src="/static/img/photo2.jpg" alt="logo">
       <div class="user_info">
-        <p>username:</p>
-        <p>visited ganres:</p>
-        <p>total visited:</p>
+        <div class="owner_info">
+          <p>username:</p>
+          <p>First name</p>
+
+          <p>visited ganres:</p>
+          <p>Horror, Sifi, Historical</p>
+
+          <p>total visited:</p>
+          <p>25</p>
+        </div>
+        <div class="history">
+          <h1 onclick="switchStatus()">History</h1>
+          <div class="history_info" id="history_info">
+            <div class="history_stack">
+              <p>film's name:</p>
+              <p>Venom 3</p>
+  
+              <p>visited date:</p>
+              <p>22.11.2024</p>
+            </div>
+            
+            <div class="history_stack">
+              <p>film's name:</p>
+              <p>Venom 3</p>
+  
+              <p>visited date:</p>
+              <p>21.11.2024</p>
+            </div>
+
+            <div class="history_stack">
+              <p>film's name:</p>
+              <p>Venom 3</p>
+  
+              <p>visited date:</p>
+              <p>20.11.2024</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="history">
-        <p>film's name:</p>
-        <p>visited date:</p>
-      </div>
+
     </div>
   </main>
 
@@ -138,6 +170,16 @@
       } else {
         block1.style.display = "flex";
         block2.style.display = "none";
+      }
+    }
+
+    function switchStatus() {
+      const block = document.getElementById("history_info");
+
+      if (block.style.display === "none") {
+        block.style.display = "block";
+      } else {
+        block.style.display = "none";
       }
     }
   </script>

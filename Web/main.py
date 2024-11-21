@@ -4,7 +4,17 @@ import json
 from modls import JSN
 from modls import Film
 
+from flask_sqlalchemy import SQLAlchemy
+
 app = Flask(__name__)
+
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://zulu:zuludf345@64.225.100.209:3306/chaplin"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+db = SQLAlchemy(app)
+
+with app.app_context():
+    db.drop_all()
+    db.create_all()
 
 cities = {
     "lviv":"Львів",
@@ -14,8 +24,6 @@ cities = {
 }
 user_location = []
 user_device = 'None'
-
-
 
 
 

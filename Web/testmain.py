@@ -1,42 +1,22 @@
 from flask import * 
-
-from models import db, User
-from config import Config
-
-
+from flask_sqlalchemy import SQLAlchemy
+from modules import *
 
 app = Flask(__name__)
-app.config.from_object(Config)
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://zulu:zuludf345@64.225.100.209:3306/chaplin"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+db = SQLAlchemy(app)
 
-# Initialize SQLAlchemy
-db.init_app(app)
 
-# Create the database tables
-if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
-    app.run(debug=True)
+class Employee(db.Model): 
+    id = db.Column(db.Integer, primary_key=True)
+    firstname = db.Column(db.String(100), nullable=False)
+    lastname = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+    hire_date = db.Column(db.Date, nullable=False)
+    active = db.Column(db.Boolean, nullable=False)
 
-# Route to add a new user
-@app.route("/add_user", methods=["POST"])
-def add_user():
-    data = request.json
-    new_user = User(name=data["name"], email=data["email"])
-    db.session.add(new_user)
-    db.session.commit()
-    return jsonify({"message": "User added successfully"}), 201
 
-# Route to fetch all users
-@app.route("/users", methods=["GET"])
-def get_users():
-    users = User.query.all()
-    return jsonify([{"id": user.id, "name": user.name, "email": user.email} for user in users])
-
-# Route to fetch a single user by ID
-@app.route("/user/<int:user_id>", methods=["GET"])
-def get_user(user_id):
-    user = User.query.get_or_404(user_id)
-    return jsonify({"id": user.id, "name": user.name, "email": user.email})
-
-if __name__ == "__main__":
-    app.run(debug=True)
+    def __repr__(self):
+        return f'<Employee {self.firstname} {self.lastname}>'

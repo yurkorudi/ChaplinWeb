@@ -43,7 +43,9 @@
             </div>  
             
             <div class="seat">
-                <div class="monitor"></div>
+                <div class="monitor">
+                    <p>Екран</p>
+                </div>
                 <div class="seats" id="seats"></div>
             </div>
         </div>
@@ -115,6 +117,13 @@
             const seatItem = document.createElement("div");
             seatItem.classList.add("place");
             seatContainer.appendChild(seatItem);
+
+            if (i > 112) {                
+                seatItem.classList.add("sofa");
+                if (i === 112){
+                    seatItem.style.backgroundColor = "green";
+                }
+            }
         }
     </script>
 

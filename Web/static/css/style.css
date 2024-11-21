@@ -710,7 +710,8 @@ body {
 }
 
 .seat{
-  width: 100%;
+  width: 80%;
+  margin-left: 10%;
 }
 
 .seat .monitor{
@@ -718,24 +719,68 @@ body {
   height: 5px;
   background: black;
   border-radius: 50% 50% 50% 50%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px !important;
+}
+
+.seat .monitor p{
+  text-transform: uppercase;
+  padding: 15px;
 }
 
 .seat .seats{
   width: 100%;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
+  grid-template-columns: repeat(14, 1fr);
   row-gap: 10px;
   column-gap: 0 ;
 }
 
 .seat .seats .place{ 
-  width: 15px;
-  height: 25px;
-  border: 2px solid #04AA6D;
-  margin: 0 !important; 
-  justify-content: center;
-  align-items: center;
+  width: 25px;
+  height: 35px;
+  border: 2px solid gray;
+  margin: 0 25% !important;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative;
+}
+
+.seat .seats .place.sofa{ 
+  border: 2px solid rgb(180, 8, 248);
+  grid-column: span 1;
+}
+
+.seat .seats .place.sofa:first-child{ 
+  -ms-grid-column-span: 4;
+}
+
+.seat .seats .place::after{ 
+  content: '100₴'; /* Текст підказки */
+  position: absolute;
+  bottom: 125%; /* Розташування над елементом */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.seat .seats .place.sofa::after{ 
+  content: '120₴';
+}
+
+.seat .seats .place:hover:after{
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* end apout page */

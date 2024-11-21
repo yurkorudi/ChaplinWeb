@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies</title>
+  <link rel="stylesheet" href="/static/css/globals.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="fade-in user">
+  <div class="home">
+
+    <header class="header">
+      <div class="logo">
+        <div class="text-wrapper">Chaplin</div>
+        <div class="div">cinema</div>
+        <img class="blackhat" src="/static/img/hat.png" />
+      </div>
+      <div class="header-menu">
+        <div class="topbtn-s">
+          <form action="{{ url_for('homepage')}}">
+            <div class="button-wrapper"><button class="button" type="submit">Головна</button></div>
+          </form>
+          <form action="{{ url_for('movies')}}">
+            <div class="button-wrapper"><button class="button" type="submit">Фільми</button></div>
+          </form>
+          <div class="dropdown">
+            <div class="button-wrapper"><button class="button" class="button-wrapper" class="dropdown">Локація: {{ city
+                }}</button>
+              <div class="dropdown-content">
+                {% for l, c in cities.items() %}
+                <a href="{{url_for('homepage')}}?location={{l}}" style="--delay: 0s;">{{c}}</a>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </header>
+
+  <main class="main user">
+    <div class="login" id="login">
+      <div class="info">
+        <img src="/static/img/photo1.jpg" alt="">
+        <div class="inf_text">
+          <h1>Login</h1>
+          <p>pleace login</p>
+        </div>
+      </div>
+      <div class="form">
+        <h1>Login</h1>
+        <label for="">Login:</label>
+        <input type="text">
+        <p></p>
+        <label for="">Password:</label>
+        <input type="password">
+        <form action="{{ url_for('button_click')}}">
+          <button type="submit">Login</button>
+        </form>
+        <div class="chenge_form">
+          <p>if you have don't have acaunt <a onclick="toggleBlocks()">regist</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="registration" id="registration">
+      <div class="form">
+        <h1>Singup</h1>
+        <label for="">Email:</label>
+        <input type="email">
+        <p></p>
+        <label for="">First name:</label>
+        <input type="text" name="first_name" id="">
+        <label for="">Last name:</label>
+        <input type="text" name="last_name" id="">
+        <label for="">Create login:</label>
+        <input type="text" name="log" id="">
+        <label for="">Create password:</label>
+        <input type="password">
+        <form action="{{ url_for('button_click')}}">
+          <button type="submit">Singup</button>
+        </form>
+        <div class="chenge_form">
+          <p>Do you hav acount <a onclick="toggleBlocks()">login</a></p>
+        </div>
+      </div>
+      <div class="info">
+        <img src="/static/img/photo2.jpg" alt="">
+        <h1>Singup</h1>
+        <p>pleace singup</p>
+      </div>
+    </div>
+    </div>
+
+    <div class="profile">
+      <img src="/static/img/photo2.jpg" alt="logo">
+      <div class="user_info">
+        <div class="owner_info">
+          <p>username:</p>
+          <p>First name</p>
+
+          <p>visited ganres:</p>
+          <p>Horror, Sifi, Historical</p>
+
+          <p>total visited:</p>
+          <p>25</p>
+        </div>
+        <div class="history">
+          <h1 onclick="switchStatus()">History</h1>
+          <div class="history_info" id="history_info">
+            <div class="history_stack">
+              <p>film's name:</p>
+              <p>Venom 3</p>
+  
+              <p>visited date:</p>
+              <p>22.11.2024</p>
+            </div>
+            
+            <div class="history_stack">
+              <p>film's name:</p>
+              <p>Venom 3</p>
+  
+              <p>visited date:</p>
+              <p>21.11.2024</p>
+            </div>
+
+            <div class="history_stack">
+              <p>film's name:</p>
+              <p>Venom 3</p>
+  
+              <p>visited date:</p>
+              <p>20.11.2024</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer user">
+    <div class="social_media">
+      <p>Соцмережі</p>
+      <a href="https://www.instagram.com/chaplin_cinema_lviv?igsh=MzRlODBiNWFlZA=="
+        class="footer_info">Chaplin_cinema_lviv</a>
+    </div>
+    <div class="contacts">
+      <p>Контакти</p>
+      <p class="footer_info">+38(050)2984715</p>
+    </div>
+    <div class="map">
+      <p>Адрес</p>
+      <p class="footer_info">пр. Червоної Калини, 81, Львів</p>
+    </div>
+  </footer>
+  </div>
+
+  <script>
+    function toggleBlocks() {
+      const block1 = document.getElementById("login");
+      const block2 = document.getElementById("registration");
+
+      if (block1.style.display === "flex") {
+        block1.style.display = "none";
+        block2.style.display = "flex";
+      } else {
+        block1.style.display = "flex";
+        block2.style.display = "none";
+      }
+    }
+
+    function switchStatus() {
+      const block = document.getElementById("history_info");
+
+      if (block.style.display === "none") {
+        block.style.display = "block";
+      } else {
+        block.style.display = "none";
+      }
+    }
+  </script>
+</body>
+
+</html>

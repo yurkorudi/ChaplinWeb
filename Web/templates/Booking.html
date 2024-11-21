@@ -40,7 +40,14 @@
                 <p class="category">Тривалість:</p>
                 <p class="value">{{movie_info['description']['duration']}}</p>
 
-            </div>            
+            </div>  
+            
+            <div class="seat">
+                <div class="monitor">
+                    <p>Екран</p>
+                </div>
+                <div class="seats" id="seats"></div>
+            </div>
         </div>
         <div class="right_menu">
             <h1>Розклад Сеансів</h1>
@@ -102,6 +109,21 @@
             }
 
             scheduleContainer.appendChild(listItem);
+        }
+
+        const seatContainer = document.getElementById("seats");
+        const seatPlaces = 120;
+        for (let i = 1; i <= seatPlaces; i++) {
+            const seatItem = document.createElement("div");
+            seatItem.classList.add("place");
+            seatContainer.appendChild(seatItem);
+
+            if (i > 112) {                
+                seatItem.classList.add("sofa");
+                if (i === 112){
+                    seatItem.style.backgroundColor = "green";
+                }
+            }
         }
     </script>
 

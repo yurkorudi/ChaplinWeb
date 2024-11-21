@@ -37,7 +37,9 @@
             </div>
           </div>
           <div class="button-wrapper user">
-            <button class="button">Увійти</button>
+            <form action="{{ url_for('user')}}">
+              <div class="button"><button class="button" type="submit">Увійти</button></div>
+          </form>
             <div class="ico"></div>
           </div>
         </div>

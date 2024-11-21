@@ -709,7 +709,247 @@ body {
   z-index: 1;
 }
 
+.seat{
+  width: 80%;
+  margin-left: 10%;
+}
+
+.seat .monitor{
+  width: 100%;
+  height: 5px;
+  background: black;
+  border-radius: 50% 50% 50% 50%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px !important;
+}
+
+.seat .monitor p{
+  text-transform: uppercase;
+  padding: 15px;
+}
+
+.seat .seats{
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  row-gap: 10px;
+  column-gap: 0 ;
+}
+
+.seat .seats .place{ 
+  width: 25px;
+  height: 35px;
+  border: 2px solid gray;
+  margin: 0 25% !important;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative;
+}
+
+.seat .seats .place.sofa{ 
+  border: 2px solid rgb(180, 8, 248);
+}
+
+.seat .seats .place::after{ 
+  content: '100₴'; /* Текст підказки */
+  position: absolute;
+  bottom: 125%; /* Розташування над елементом */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.seat .seats .place.sofa::after{ 
+  content: '120₴';
+}
+
+.seat .seats .place:hover:after{
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 /* end apout page */
+/* user page */
+
+.main.user{
+  color: black;
+  line-height: 25px;
+}
+
+.main.user h1{
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.main.user p{
+  font-size: 20px;
+}
+
+.main.user .login,
+.main.user .registration,
+.main.user .profile{
+  width: 50%;
+  padding: 5px;
+  margin: 0 25%;
+  background-color: white;
+}
+
+.main.user .login{
+  height: 50vh;
+}
+
+.main.user .login{
+  display: flex;
+}
+
+.main.user .registration{
+  display: none;
+}
+
+.main.user .profile{
+  display: none;
+}
+
+.main.user .login,
+.main.user .registration{
+  position: relative;
+  justify-content: space-between;
+}
+
+.main.user .login img,
+.main.user .registration img{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.main.user .login .info .inf_text,
+.main.user .registration .info .inf_text{
+  position: absolute;
+  color: white;
+  text-align: center;
+  display: flex;
+  width: 45%;
+  top: 35%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-text-stroke: 1px black;
+}
+
+.main.user .login .info .inf_text h1,
+.main.user .registration .info .inf_text h1{
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.main.user .login .info .inf_text p,
+.main.user .registration .info .inf_text p{
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.main.user .login .form,
+.main.user .registration .form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  padding-right: 30px;
+}
+
+.main.user .login .form input,
+.main.user .registration .form input{
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.main.user .login .form button,
+.main.user .registration .form button{
+  width: 100%;
+  margin: 25px 0 0 0;
+  padding: 5px;
+  font-size: 20px;
+  color: white;
+  text-transform: uppercase;
+  background-color: black;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.main.user .login .form .chenge_form p,
+.main.user .registration .form .chenge_form p{
+  font-size: 14px;
+  text-align: center;
+}
+
+.main.user .login .form .chenge_form a,
+.main.user .registration .form .chenge_form a{
+  color: black;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.main.user .registration{
+  height: 65vh;
+}
+
+.main.user .profile{
+  height: 50vh;
+  gap: 15px;
+}
+
+.main.user .profile img{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.main.user .profile .user_info .owner_info,
+.main.user .profile .user_info .history .history_info .history_stack{
+  display: grid;
+  grid-template-columns: 45% 100%;
+}
+
+.main.user .profile .user_info div{
+  margin-bottom: 30px;
+}
+
+.main.user .profile .user_info .history h1{
+  text-align: left;
+  font-size: 25px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.main.user .profile .user_info .history div{
+  margin-bottom: 15px;
+}
+
+.main.user .profile .user_info .history .history_info{
+  display: none;
+  width: 100%;
+  height: 150px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-color: black white;
+}
+
+.footer.user{
+  margin-top: 0;
+}
+/* end user page */
 
 @media (max-width: 360px) {
   .home .header {

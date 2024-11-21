@@ -113,6 +113,12 @@ def book():
 
     return render_template('Booking.html', city = "", cities = cities, movie_info = movie.ret_filmfile())
 
+@app.route('/user')
+def user():
+    global user_location
+    global cities
+    global user_device
+    return render_template('User.html', city = "", cities = cities)
 
 if __name__ == '__main__':
     app.run(debug=True, host= '127.0.0.1')     

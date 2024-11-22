@@ -7,4 +7,4 @@ class Film_obj:
         src = get_images(id=self.data['image_id'])['path']
         print("______________________________________ IMG PATH ______________________________________")
         print (src)
-        self.data['img_src'] : src        
+        self.data['img_src'] : src         # type: ignore

@@ -8,7 +8,8 @@ from extensions import db
 from models import Image, User, Cinema, Session, Film, Seat, Ticket
 from funcs import *
 
-
+import json
+from modls import JSN
 
 app = Flask(__name__)
 
@@ -30,6 +31,15 @@ def create_sample_data():
         add_image(type="Thumbnail", path="/images/thumb1.jpg")
         add_image(type="Thumbnail", path="/images/thumb2.jpg")
 
+        add_cinema(name="Grand Cinema", location="123 Main St, Cityville",
+                contact_phone_number="555-1234", work_schedule="10:00 AM - 11:00 PM", instagram_link="https://instagram.com/grandcinema")
+        add_cinema(name="Elite Theaters", location="456 Broadway Ave, Metropolis",
+                contact_phone_number="555-5678", work_schedule="9:00 AM - 12:00 AM", instagram_link="https://instagram.com/elitetheaters")
+        add_cinema(name="Movie Palace", location="789 Oak Lane, Smalltown",
+                contact_phone_number="555-9012", work_schedule="11:00 AM - 10:00 PM", instagram_link="https://instagram.com/moviepalace")
+        add_cinema(name="Galaxy Screens", location="101 Star Rd, Universe City",
+                contact_phone_number="555-3456", work_schedule="8:00 AM - 1:00 AM", instagram_link="https://instagram.com/galaxyscreens")
+
 
         add_user(phone_number="1234567890", first_name="John", last_name="Doe",
                 email="john.doe@example.com", login="johndoe", password="password123", bought_tickets_summary=3)
@@ -41,17 +51,7 @@ def create_sample_data():
                 email="bob.johnson@example.com", login="bobjohnson", password="password101", bought_tickets_summary=2)
 
 
-        add_cinema(name="Grand Cinema", location="123 Main St, Cityville",
-                contact_phone_number="555-1234", work_schedule="10:00 AM - 11:00 PM", instagram_link="https://instagram.com/grandcinema")
-        add_cinema(name="Elite Theaters", location="456 Broadway Ave, Metropolis",
-                contact_phone_number="555-5678", work_schedule="9:00 AM - 12:00 AM", instagram_link="https://instagram.com/elitetheaters")
-        add_cinema(name="Movie Palace", location="789 Oak Lane, Smalltown",
-                contact_phone_number="555-9012", work_schedule="11:00 AM - 10:00 PM", instagram_link="https://instagram.com/moviepalace")
-        add_cinema(name="Galaxy Screens", location="101 Star Rd, Universe City",
-                contact_phone_number="555-3456", work_schedule="8:00 AM - 1:00 AM", instagram_link="https://instagram.com/galaxyscreens")
-
-
-        add_film(name="Action Blast", genre="Action", description="An explosive action-packed adventure.",
+        add_film(name="trans", genre="Action", description="An explosive action-packed adventure.",
                 release_start_date=datetime(2023, 5, 1), release_end_date=datetime(2023, 7, 1), director="Michael Bay",
                 actors="Actor A, Actor B", duration=120, image_id=1)
         add_film(name="Romantic Escape", genre="Romance", description="A heartfelt love story.",
@@ -86,8 +86,9 @@ def create_sample_data():
 
 create_sample_data()
 
-
-
+with app.app_context():
+    print("LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    print(get_seats())
 
 cities = {
     "lviv":"Львів",

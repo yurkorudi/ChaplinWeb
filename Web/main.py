@@ -25,13 +25,14 @@ with app.app_context():
 
 def create_sample_data():
     with app.app_context():
-        add_image(type="Poster", path=".static/images/venomposter.jpg")
-        add_image(type="Poster", path="..static/images/robotposter.jpg")
-        add_image(type="Poster", path="Web/static/images/redposter.jpg")
-        add_image(type="Poster", path="./images/buchaposter.jpg")
-        add_image(type="Poster", path="../images/gladiatorposter.jpg")
-        add_image(type="Poster", path="/images/poster07.jpg")
-        add_image(type="Poster", path="/images/wickedposter.jpg")
+        add_image(type="Poster", path="D:/!_Chaplin/ChaplinWeb/Web/static/img/photo1.jpg")
+        add_image(type="Poster", path="D:/!_Chaplin/ChaplinWeb/Web/static/img/venomposter.jpg")
+        add_image(type="Poster", path="D:/!_Chaplin/ChaplinWeb/Web/static/img/robotposter.jpg")
+        add_image(type="Poster", path="./static/images/redposter.jpg")
+        add_image(type="Poster", path=".static/images/buchaposter.jpg")
+        add_image(type="Poster", path="./static/images/gladiatorposter.jpg")
+        add_image(type="Poster", path="./static/images/poster07.jpg")
+        add_image(type="Poster", path="./static/images/wickedposter.jpg")
 
         add_film(name="Трансформери: повернення", genre="Екшн, Пригоди, Фантастика", 
                  description="Фільм 'Трансформери' розповідає про те, як багато століть ведеться війна між двома расами роботів-інопланетян - Автоботами і Десептиконами, ставка в якій - доля Всесвіту. До Землі теж дійшла черга, війна не минула її стороною. Ключ до верховної влади є останньою надією на порятунок. У той час як зло намагається його відшукати, ключ знаходиться в руках у юного землянина. Найпростіший хлопчина Сем Уітвіккі, як і всі підлітки його віку живе звичайним життям: ходить в школу, зустрічається з друзями, захоплюється машинами та дівчатками. Він не підозрює, що він насправді - єдиний шанс на порятунок всього людства. Разом зі своєю подружкою Мікаелою, Сем виявляється в центрі війни трансформерів і розуміє про що говорить сімейний девіз - 'Без жертв перемоги немає!'.",

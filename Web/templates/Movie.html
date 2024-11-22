@@ -56,7 +56,7 @@
             <div class="movie_logo">
                 <img src="{{movie_info['img_src']}}">
             </div>
-            <form action="{{ url_for('book', movie_name='venom_3')}}" method="post">
+            <form action="{{ url_for('book', movie_name=movie_info['name'])}}" method="post">
                 <div class="book_button"><button>Придбати квиток</button></div>
             </form>
         </div>

@@ -36,7 +36,7 @@ def get_images(id=False):
         image = Image.query.filter_by(image_id=id).first()
         if image:
             return {
-                "id":image.image_id,
+                "image_id":id,
                 "type":image.type,
                 "path":image.path
             }

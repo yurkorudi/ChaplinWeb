@@ -150,6 +150,7 @@ def add_seat(session_id, row, busy):
     try:
         existing_seat = Seat.query.filter_by(session_id=session_id, row=row).first()
         if existing_seat:
+            print("EXIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIST")
             return jsonify({"message": "Seat already exists"}), 200
 
         new_seat = Seat(session_id=session_id, row=row, busy=busy)
@@ -157,6 +158,8 @@ def add_seat(session_id, row, busy):
         db.session.commit()
         return jsonify({"message": "Seat added successfully"}), 201
     except Exception as e:
+        print("EROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOR")
+        print(e)
         db.session.rollback()
         return jsonify({"error": str(e)}), 500
 

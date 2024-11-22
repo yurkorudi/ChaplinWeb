@@ -4,13 +4,12 @@ from sqlalchemy.sql import func
 
 
 
-
 #>>> Here suppose to be all models of tables, so we can write to database new value to tables
 
 
 class Image(db.Model):
     __tablename__ = 'images'
-    image_id = db.Column(db.Integer, primary_key=True)
+    image_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     type = db.Column(db.String(50), nullable=False)
     path = db.Column(db.String(255), nullable=False)
 

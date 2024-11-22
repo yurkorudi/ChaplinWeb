@@ -2,3 +2,4 @@
 Web/__pycache__/funcs.cpython-313.pyc
 .venv/Lib/site-packages/pip/__pycache__/__init__.cpython-37.pyc
 *.pyc
+Web/ignore test.txt

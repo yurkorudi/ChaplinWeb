@@ -28,9 +28,21 @@ def add_image(type, path):
         # print("ERROR>> ", e)
         return jsonify({"error": str(e)}), 500
 
-def get_images():
-    images = Image.query.all()
-    return [{"image_id": img.image_id, "type": img.type, "path": img.path} for img in images]
+def get_images(id=False):
+    if id == False:
+        images = Image.query.all()
+        return [{"image_id": img.image_id, "type": img.type, "path": img.path} for img in images]
+    else:
+        image = Image.query.filter_by(image_id=id).first()
+        if image:
+            return {
+                "id":image.image_id,
+                "type":image.type,
+                "path":image.path
+            }
+        else:
+            return {"error": f"Film with name '{image.image_id}' not found."}
+
 
 
 def add_user(phone_number, first_name, last_name, email, login, password, bought_tickets_summary):
@@ -157,11 +169,29 @@ def add_film(name, genre, description, release_start_date, release_end_date, dir
 
 
 
-def get_films():
-    films = Film.query.all()
-    return [{"film_id": f.film_id, "name": f.name, "genre": f.genre, "description": f.description,
-             "release_start_date": f.release_start_date, "release_end_date": f.release_end_date,
-             "director": f.director, "actors": f.actors, "duration": f.duration, "image_id": f.image_id} for f in films]
+def get_films(name=False):
+    if name == False:
+        films = Film.query.all()
+        return [{"film_id": f.film_id, "name": f.name, "genre": f.genre, "description": f.description,
+                "release_start_date": f.release_start_date, "release_end_date": f.release_end_date,
+                "director": f.director, "actors": f.actors, "duration": f.duration, "image_id": f.image_id} for f in films]
+    else:
+        film = Film.query.filter_by(name=name).first()
+        if film:
+            return {
+                "film_id": film.film_id,
+                "name": film.name,
+                "genre": film.genre,
+                "description": film.description,
+                "release_start_date": film.release_start_date,
+                "release_end_date": film.release_end_date,
+                "director": film.director,
+                "actors": film.actors,
+                "duration": film.duration,
+                "image_id": film.image_id
+            }
+        else:
+            return {"error": f"Film with name '{name}' not found."}
 
 
 def add_seat(session_id, row, busy):

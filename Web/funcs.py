@@ -15,6 +15,7 @@ def add_image(type, path):
     try:
         existing_image = Image.query.filter_by(path=path).first()
         if existing_image:
+            # print("###########################################>> IMAGE ALREADY EXIST <<###########################################")
             return jsonify({"message": "Image already exists"}), 200
 
         new_image = Image(type=type, path=path)
@@ -23,6 +24,8 @@ def add_image(type, path):
         return jsonify({"message": "Image added successfully"}), 201
     except Exception as e:
         db.session.rollback()
+        # print("###########################################>> IMAGE NOT EXISTING CAPTURED - FAILED ADDING IMAGE <<###########################################")
+        # print("ERROR>> ", e)
         return jsonify({"error": str(e)}), 500
 
 def get_images():
@@ -106,6 +109,8 @@ def add_session(film_id, cinema_id, session_datetime, session_duration):
         return jsonify({"message": "Session added successfully"}), 201
     except Exception as e:
         db.session.rollback()
+        print("###########################################>> SESSION NOT EXISTING CAPTURED - FAILED ADDING SESSIONS <<###########################################")
+        print("ERROR>> ", e)
         return jsonify({"error": str(e)}), 500
 
 
@@ -117,9 +122,19 @@ def get_sessions():
 
 def add_film(name, genre, description, release_start_date, release_end_date, director, actors, duration, image_id):
     try:
-        existing_film = Film.query.filter_by(name=name).first()
+
+        existing_image = Image.query.filter_by(image_id=image_id).first()
+        if not existing_image:
+            # print("###########################################>> FILMS IMAGE NOT EXISTING CAPTURED <<###########################################")
+            print({"error": f"Image with id {image_id} does not exist"})
+            return jsonify({"error": f"Image with id {image_id} does not exist"}), 400
+
+ 
+        existing_film = Film.query.filter_by(name=name, release_start_date=release_start_date).first()
         if existing_film:
-            return jsonify({"message": "Film already exists"}), 200
+            # print("###########################################>> FILMS NAME CAPTURED <<###########################################")
+            # print({"message": f"Film '{name}' with release start date '{release_start_date}' already exists"})
+            return jsonify({"message": f"Film '{name}' with release start date '{release_start_date}' already exists"}), 200
 
         new_film = Film(
             name=name,
@@ -136,8 +151,11 @@ def add_film(name, genre, description, release_start_date, release_end_date, dir
         db.session.commit()
         return jsonify({"message": "Film added successfully"}), 201
     except Exception as e:
+        print(e)
         db.session.rollback()
         return jsonify({"error": str(e)}), 500
+
+
 
 def get_films():
     films = Film.query.all()
@@ -148,9 +166,14 @@ def get_films():
 
 def add_seat(session_id, row, busy):
     try:
+        # Check if the session exists
+        existing_session = Session.query.filter_by(session_id=session_id).first()
+        if not existing_session:
+            return jsonify({"error": f"Session with id {session_id} does not exist"}), 400
+
+        # Check if the seat already exists
         existing_seat = Seat.query.filter_by(session_id=session_id, row=row).first()
         if existing_seat:
-            print("EXIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIST")
             return jsonify({"message": "Seat already exists"}), 200
 
         new_seat = Seat(session_id=session_id, row=row, busy=busy)
@@ -158,8 +181,6 @@ def add_seat(session_id, row, busy):
         db.session.commit()
         return jsonify({"message": "Seat added successfully"}), 201
     except Exception as e:
-        print("EROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOR")
-        print(e)
         db.session.rollback()
         return jsonify({"error": str(e)}), 500
 

@@ -31,6 +31,19 @@ def create_sample_data():
         add_image(type="Thumbnail", path="/images/thumb1.jpg")
         add_image(type="Thumbnail", path="/images/thumb2.jpg")
 
+        add_film(name="trans", genre="Action", description="An explosive action-packed adventure.",
+                release_start_date=datetime(2023, 5, 1), release_end_date=datetime(2023, 7, 1), director="Michael Bay",
+                actors="Actor A, Actor B", duration=120, image_id=1)
+        add_film(name="Romantic Escape", genre="Romance", description="A heartfelt love story.",
+                release_start_date=datetime(2023, 6, 1), release_end_date=datetime(2023, 8, 1), director="Nancy Meyers",
+                actors="Actor C, Actor D", duration=110, image_id=2)
+        add_film(name="Comedy Night", genre="Comedy", description="A laugh-out-loud comedy.",
+                release_start_date=datetime(2023, 7, 1), release_end_date=datetime(2023, 9, 1), director="Judd Apatow",
+                actors="Actor E, Actor F", duration=100, image_id=3)
+        add_film(name="Thriller Time", genre="Thriller", description="An edge-of-your-seat thriller.",
+                release_start_date=datetime(2023, 8, 1), release_end_date=datetime(2023, 10, 1), director="David Fincher",
+                actors="Actor G, Actor H", duration=130, image_id=4)
+
         add_cinema(name="Grand Cinema", location="123 Main St, Cityville",
                 contact_phone_number="555-1234", work_schedule="10:00 AM - 11:00 PM", instagram_link="https://instagram.com/grandcinema")
         add_cinema(name="Elite Theaters", location="456 Broadway Ave, Metropolis",
@@ -49,20 +62,6 @@ def create_sample_data():
                 email="alice.brown@example.com", login="alicebrown", password="password789", bought_tickets_summary=1)
         add_user(phone_number="5566778899", first_name="Bob", last_name="Johnson",
                 email="bob.johnson@example.com", login="bobjohnson", password="password101", bought_tickets_summary=2)
-
-
-        add_film(name="trans", genre="Action", description="An explosive action-packed adventure.",
-                release_start_date=datetime(2023, 5, 1), release_end_date=datetime(2023, 7, 1), director="Michael Bay",
-                actors="Actor A, Actor B", duration=120, image_id=1)
-        add_film(name="Romantic Escape", genre="Romance", description="A heartfelt love story.",
-                release_start_date=datetime(2023, 6, 1), release_end_date=datetime(2023, 8, 1), director="Nancy Meyers",
-                actors="Actor C, Actor D", duration=110, image_id=2)
-        add_film(name="Comedy Night", genre="Comedy", description="A laugh-out-loud comedy.",
-                release_start_date=datetime(2023, 7, 1), release_end_date=datetime(2023, 9, 1), director="Judd Apatow",
-                actors="Actor E, Actor F", duration=100, image_id=3)
-        add_film(name="Thriller Time", genre="Thriller", description="An edge-of-your-seat thriller.",
-                release_start_date=datetime(2023, 8, 1), release_end_date=datetime(2023, 10, 1), director="David Fincher",
-                actors="Actor G, Actor H", duration=130, image_id=4)
 
 
         add_session(film_id=1, cinema_id=1, session_datetime=datetime(2023, 5, 10, 18, 0), session_duration=120)
@@ -87,7 +86,6 @@ def create_sample_data():
 create_sample_data()
 
 with app.app_context():
-    print("LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
     print(get_seats())
 
 cities = {

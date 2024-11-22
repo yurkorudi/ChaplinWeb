@@ -7,9 +7,8 @@ from flask_sqlalchemy import SQLAlchemy
 from extensions import db
 from models import Image, User, Cinema, Session, Film, Seat, Ticket
 from funcs import *
+from modls import *
 
-import json
-from modls import JSN
 
 app = Flask(__name__)
 
@@ -31,7 +30,7 @@ def create_sample_data():
         add_image(type="Thumbnail", path="/images/thumb1.jpg")
         add_image(type="Thumbnail", path="/images/thumb2.jpg")
 
-        add_film(name="trans", genre="Action", description="An explosive action-packed adventure.",
+        add_film(name="Трансформери: повернення", genre="Action", description="Фільм 'Трансформери' розповідає про те, як багато століть ведеться війна між двома расами роботів-інопланетян - Автоботами і Десептиконами, ставка в якій - доля Всесвіту. До Землі теж дійшла черга, війна не минула її стороною. Ключ до верховної влади є останньою надією на порятунок. У той час як зло намагається його відшукати, ключ знаходиться в руках у юного землянина. Найпростіший хлопчина Сем Уітвіккі, як і всі підлітки його віку живе звичайним життям: ходить в школу, зустрічається з друзями, захоплюється машинами та дівчатками. Він не підозрює, що він насправді - єдиний шанс на порятунок всього людства. Разом зі своєю подружкою Мікаелою, Сем виявляється в центрі війни трансформерів і розуміє про що говорить сімейний девіз - 'Без жертв перемоги немає!'.",
                 release_start_date=datetime(2023, 5, 1), release_end_date=datetime(2023, 7, 1), director="Michael Bay",
                 actors="Actor A, Actor B", duration=120, image_id=1)
         add_film(name="Romantic Escape", genre="Romance", description="A heartfelt love story.",
@@ -88,6 +87,7 @@ create_sample_data()
 with app.app_context():
     print(get_seats())
 
+
 cities = {
     "lviv":"Львів",
     "mor":"Моршин",
@@ -96,7 +96,6 @@ cities = {
 }
 user_location = []
 user_device = 'None'
-
 
 
 
@@ -159,14 +158,14 @@ def movie():
     global user_device
     global json
     film_name = request.args.get('movie_name')
-    my_file = JSN(json=json, filepath='Web/mdb.json', type="0")
-    movie = Film(filmname=film_name, json_file=my_file.dirty_data, city='lviv')
+    with app.app_context():
+        film = Film_obj(film_name)
 
 
     if user_location == []:
         a = location()
 
-    return render_template('Movie.html', city = "", cities = cities, movie_info = movie.ret_filmfile())
+    return render_template('Movie.html', city = "", cities = cities, movie_info = film.data)
         
 
 
@@ -184,8 +183,7 @@ def book():
     global user_device
     global json
     film_name = request.args.get('movie_name')
-    my_file = JSN(json=json, filepath='Web/mdb.json', type="0")
-    movie = Film(filmname=film_name, json_file=my_file.dirty_data, city='lviv')
+
 
 
     if user_location == []:

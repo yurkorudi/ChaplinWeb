@@ -54,7 +54,7 @@
     <main class="main transformers">
         <div class="left_menu">
             <div class="movie_logo">
-                <img src="{{movie_info['poster']}}" alt="{{movie_info['poster']}}">
+                <img src="{{movie_info['img_src']}}">
             </div>
             <form action="{{ url_for('book', movie_name='venom_3')}}" method="post">
                 <div class="book_button"><button>Придбати квиток</button></div>
@@ -63,37 +63,37 @@
 
         <div class="base_info">
             <div class="movie_name">
-                <h1>{{movie_info['fullname']}}</h1>
+                <h1>{{movie_info['name']}}</h1>
             </div>
 
             <div class="movie_short_info">
 
                 <p class="category">Вік:</p>
-                <p class="value">{{movie_info['description']['age']}}</p>
+                <p class="value">3+</p>
 
                 <p class="category">Режисер</p>
-                <p class="value">{{movie_info['description']['directot']}}</p>
+                <p class="value">{{movie_info['director']}}</p>
 
                 <p class="category">Рік</p>
-                <p class="value">{{movie_info['description']['year']}}</p>
+                <p class="value">2000</p>
 
                 <p class="category">Період прокату</p>
-                <p class="value">missing</p>
+                <p class="value">{{movie_info['release_start_date']}}  -  {{movie_info['release_end_date']}}</p>
 
                 <p class="category">Жанр</p>
                 <p class="value">{{movie_info['description']['genre']}}</p>
 
                 <p class="category">Тривалість</p>
-                <p class="value">{{movie_info['description']['duration']}}</p>
+                <p class="value">{{movie_info['duration']}}</p>
 
                 <p class="category">Актори</p>
-                <p class="value">{{movie_info['description']['actors']}}</p>
+                <p class="value">{{movie_info['actors']}}</p>
 
             </div>
 
             <div class="movie_description">
                 <h1>Опис Фільму:</h1>
-                <p>{{movie_info['description']['descript']}}</p>
+                <p>{{movie_info['description']}}</p>
             </div>
             <div class="trailer">
                 <video class="treiler" controls poster="{{movie_info['treiler_poster']}}">

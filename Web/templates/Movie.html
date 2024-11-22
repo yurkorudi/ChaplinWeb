@@ -54,9 +54,9 @@
     <main class="main transformers">
         <div class="left_menu">
             <div class="movie_logo">
-                <img src="{{movie_info['img_src']}}">
+                <img src="{{movie_info['src']}}" alt="{{movie_info['src']}}">
             </div>
-            <form action="{{ url_for('book', movie_name='venom_3')}}" method="post">
+            <form action="{{ url_for('book', movie_name=movie_info['name'])}}" method="post">
                 <div class="book_button"><button>Придбати квиток</button></div>
             </form>
         </div>
@@ -81,7 +81,7 @@
                 <p class="value">{{movie_info['release_start_date']}}  -  {{movie_info['release_end_date']}}</p>
 
                 <p class="category">Жанр</p>
-                <p class="value">{{movie_info['description']['genre']}}</p>
+                <p class="value">{{movie_info['genre']}}</p>
 
                 <p class="category">Тривалість</p>
                 <p class="value">{{movie_info['duration']}}</p>

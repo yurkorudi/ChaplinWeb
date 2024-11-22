@@ -27,22 +27,58 @@ with app.app_context():
 def create_sample_data():
     with app.app_context():
         add_image(type="Poster", path="/images/poster1.jpg")
-        add_image(type="Poster", path="/images/poster2.jpg")
-        add_image(type="Thumbnail", path="/images/thumb1.jpg")
-        add_image(type="Thumbnail", path="/images/thumb2.jpg")
+        add_image(type="Poster", path="/images/venomposter.jpg")
+        add_image(type="Poster", path="/images/robotposter.jpg")
+        add_image(type="Poster", path="/images/redposter.jpg")
+        add_image(type="Poster", path="/images/buchaposter.jpg")
+        add_image(type="Poster", path="/images/gladiatorposter.jpg")
+        add_image(type="Poster", path="/images/poster07.jpg")
+        add_image(type="Poster", path="/images/wickedposter.jpg")
 
-        add_film(name="trans", genre="Action", description="An explosive action-packed adventure.",
-                release_start_date=datetime(2023, 5, 1), release_end_date=datetime(2023, 7, 1), director="Michael Bay",
-                actors="Actor A, Actor B", duration=120, image_id=1)
-        add_film(name="Romantic Escape", genre="Romance", description="A heartfelt love story.",
-                release_start_date=datetime(2023, 6, 1), release_end_date=datetime(2023, 8, 1), director="Nancy Meyers",
-                actors="Actor C, Actor D", duration=110, image_id=2)
-        add_film(name="Comedy Night", genre="Comedy", description="A laugh-out-loud comedy.",
-                release_start_date=datetime(2023, 7, 1), release_end_date=datetime(2023, 9, 1), director="Judd Apatow",
-                actors="Actor E, Actor F", duration=100, image_id=3)
-        add_film(name="Thriller Time", genre="Thriller", description="An edge-of-your-seat thriller.",
-                release_start_date=datetime(2023, 8, 1), release_end_date=datetime(2023, 10, 1), director="David Fincher",
-                actors="Actor G, Actor H", duration=130, image_id=4)
+        add_film(name="Трансформери: повернення", genre="Екшн, Пригоди, Фантастика", 
+                 description="Фільм 'Трансформери' розповідає про те, як багато століть ведеться війна між двома расами роботів-інопланетян - Автоботами і Десептиконами, ставка в якій - доля Всесвіту. До Землі теж дійшла черга, війна не минула її стороною. Ключ до верховної влади є останньою надією на порятунок. У той час як зло намагається його відшукати, ключ знаходиться в руках у юного землянина. Найпростіший хлопчина Сем Уітвіккі, як і всі підлітки його віку живе звичайним життям: ходить в школу, зустрічається з друзями, захоплюється машинами та дівчатками. Він не підозрює, що він насправді - єдиний шанс на порятунок всього людства. Разом зі своєю подружкою Мікаелою, Сем виявляється в центрі війни трансформерів і розуміє про що говорить сімейний девіз - 'Без жертв перемоги немає!'.",
+                release_start_date=datetime(2023, 5, 1), release_end_date=datetime(2023, 7, 1), 
+                director="Рідлі Скотт",
+                actors="Шайа Лабаф, Меґан Фокс, Джош Дюамель, Тайріз Гібсон, Рейчел Тейлор, Ентоні Андерсон", 
+                duration=148, image_id=1)
+        add_film(name="Веном 3", genre="Фантастика, Екшн, Marvel", 
+                 description="Фільм 'Веном 3' розповідає про повернення симбіота, який стикається з новими викликами та ворогами у світі Marvel.",
+                release_start_date=datetime(2023, 6, 1), release_end_date=datetime(2023, 8, 1), 
+                director="Келлі Марсел",
+                actors="Том Харді, Чиветел Еджіофор, Джуно Темпл", duration=109, image_id=2)
+        add_film(name="Дикий робот", genre="Пригоди, Анімація", 
+                 description="DreamWorks Animation представляє нову захопливу анімаційну пригоду за мотивами літературного бестселера! Епічна пригода про мандрівку робота ROZZUM 7134, скорочено «Роз», що зазнала корабельної аварії на безлюдному острові. Тепер їй доведеться пристосуватися до суворих умов навколишнього середовища, поступово налагодити стосунки з тваринами на острові та навіть замінити батьків осиротілому гусеняті.",
+                release_start_date=datetime(2023, 7, 1), release_end_date=datetime(2023, 9, 1), 
+                director="Кріс Сандерс",
+                actors="Лупіта Ніонго, Педро Паскаль, Кетрін О'Хара, Біл Найї, Стефані Сюй", 
+                duration=100, image_id=3)
+        add_film(name="Кодове ім'я: червоний", genre="Пригоди, Екшн, Комедія", 
+                 description="Комедійний екшн-фільм 'Червоний Один', у якому група героїв вирушає на епічну місію.",
+                release_start_date=datetime(2023, 8, 1), release_end_date=datetime(2023, 10, 1), 
+                director="Джейк Кездан",
+                actors="Двейн Джонсон, Кріс Еванс, Люсі Лю, Кірнан Шипка, Бонні Хант", duration=123, image_id=4)
+        add_film(name="Буча", genre="Історичний, Військовий, Драма", 
+                 description="Фільм 'Буча' висвітлює героїчні події, засновані на реальних історичних подіях та життєвих драматичних поворотах.",
+                release_start_date=datetime(2023, 5, 1), release_end_date=datetime(2023, 7, 1), 
+                director="Станіслав Тіунов",
+                actors="Цезарій Лукашевич, Вячеслав Довженко, Анастасія Нестеренко", 
+                duration=118, image_id=5)
+        add_film(name="Гладіатор ІІ", genre="Історичний, Епічна історія", 
+                 description="Від легендарного режисера Рідлі Скотта, «Гладіатор II» продовжує епічну сагу про владу, помсту та інтриги, події якої відбуваються в Стародавньому Римі. Декілька років тому Луцій став свідком вбивства Максимуса від рук свого дядька. Тепер він змушений увійти в Колізей після того як його дім було зруйновано імператорами-тиранами, які тепер керують Римом. Оскільки на карту поставлено майбутнє імперії, Луцій повинен знайти у собі сили забути минуле та повернути Риму і його народу колишню славу.",
+                release_start_date=datetime(2023, 6, 1), release_end_date=datetime(2023, 8, 1), 
+                director="Рідлі Скотт",
+                actors="Пол Мескаль, Педро Паскаль, Дензел Вашингтон", duration=165, image_id=6)
+        add_film(name="Божевільні", genre="Трилер, Драма", 
+                 description="Напружений трилер 'Божевільні' розкриває драматичні події в житті головних героїв, занурюючи глядачів у світ психологічних випробувань.",
+                release_start_date=datetime(2023, 7, 1), release_end_date=datetime(2023, 9, 1), 
+                director="Денис Тарасов",
+                actors="Костянтин Темляк, Ірма Вітовська, Сергій Калантай", duration=120, image_id=7)
+        add_film(name="Чародійка", genre="Пригоди, Фентезі, Фантастика, Мюзикл", 
+                 description="Нерозказана історія про відьом країни Оз у фільмі 'Wicked' зіграла лауреатка премій 'Еммі', 'Греммі' та 'Тоні' Синтія Еріво (Гаррієт, бродвейський мюзикл 'Пурпурний колір') у ролі Ельфаби - молодої жінки, яку не розуміють через її незвичний зелений колір шкіри, але якій ще належить відкрити свою справжню силу, та володарка 'Греммі', мультиплатинова артистка, світова суперзірка Аріана Гранде у ролі Глінди - популярної молодої дівчини, окутаної позолотою привілеїв і амбіцій, яка ще не відкрила свого істинного серця. Вони зустрічаються як студенти університету Шиз у фантастичній Країні Оз і зав'язують несподівану, але глибоку дружбу. Після зустрічі з Чудовим Чарівником Країни Оз їхня дружба виходить на перехрестя, і їхні життя розходяться в різні боки. Непохитне прагнення Глінди до популярності спокушає її владою, тоді як рішучість Ельфаби залишатися вірною собі та тим, хто її оточує, матиме несподівані й шокуючі наслідки для її майбутнього. Їхні надзвичайні пригоди в Країні Оз врешті-решт призведуть до того, що вони виконають свої долі Глінди Доброї та Злої Відьми Заходу.",
+                release_start_date=datetime(2023, 8, 1), release_end_date=datetime(2023, 10, 1), 
+                director="Джон М. Чу",
+                actors="Cynthia Erivo, Ariana Grande, Jonathan Bailey, Marissa Bode, Ethan Slater, Michelle Yeoh, Jeff Goldblum, Keala Settle", 
+                duration=150, image_id=8)
 
         add_cinema(name="Grand Cinema", location="123 Main St, Cityville",
                 contact_phone_number="555-1234", work_schedule="10:00 AM - 11:00 PM", instagram_link="https://instagram.com/grandcinema")

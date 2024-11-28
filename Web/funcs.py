@@ -132,20 +132,17 @@ def get_sessions():
     return [{"session_id": s.session_id, "film_id": s.film_id, "cinema_id": s.cinema_id,
              "session_datetime": s.session_datetime, "session_duration": s.session_duration} for s in sessions]
 
-def add_film(name, genre, description, release_start_date, release_end_date, director, actors, duration, image_id):
+def add_film(name, genre, description, release_start_date, release_end_date, director, actors, duration, age, image_id):
     try:
 
         existing_image = Image.query.filter_by(image_id=image_id).first()
         if not existing_image:
-            # print("###########################################>> FILMS IMAGE NOT EXISTING CAPTURED <<###########################################")
             print({"error": f"Image with id {image_id} does not exist"})
             return jsonify({"error": f"Image with id {image_id} does not exist"}), 400
 
  
         existing_film = Film.query.filter_by(name=name, release_start_date=release_start_date).first()
         if existing_film:
-            # print("###########################################>> FILMS NAME CAPTURED <<###########################################")
-            # print({"message": f"Film '{name}' with release start date '{release_start_date}' already exists"})
             return jsonify({"message": f"Film '{name}' with release start date '{release_start_date}' already exists"}), 200
 
         new_film = Film(
@@ -157,6 +154,7 @@ def add_film(name, genre, description, release_start_date, release_end_date, dir
             director=director,
             actors=actors,
             duration=duration,
+            age=age,
             image_id=image_id
         )
         db.session.add(new_film)

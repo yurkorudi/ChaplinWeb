@@ -3,7 +3,6 @@ from datetime import datetime
 from sqlalchemy.sql import func 
 
 
-
 #>>> Here suppose to be all models of tables, so we can write to database new value to tables
 
 
@@ -36,7 +35,7 @@ class User(db.Model):
 
 class Cinema(db.Model):
     __tablename__ = 'cinemas'
-    cinema_id = db.Column(db.Integer, primary_key=True)
+    cinema_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(100), nullable=False)
     location = db.Column(db.String(200), nullable=False)
     contact_phone_number = db.Column(db.String(20))
@@ -50,7 +49,7 @@ class Cinema(db.Model):
 
 class Session(db.Model):
     __tablename__ = 'sessions'
-    session_id = db.Column(db.Integer, primary_key=True)
+    session_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     film_id = db.Column(db.Integer, db.ForeignKey('films.film_id'), nullable=False)
     cinema_id = db.Column(db.Integer, db.ForeignKey('cinemas.cinema_id'), nullable=False)
     session_datetime = db.Column(db.DateTime, nullable=False)
@@ -65,8 +64,8 @@ class Session(db.Model):
 
 class Film(db.Model):
     __tablename__ = 'films'
-    film_id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
+    film_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(300), nullable=False)
     genre = db.Column(db.String(50))
     description = db.Column(db.Text)
     release_start_date = db.Column(db.Date)
@@ -74,6 +73,7 @@ class Film(db.Model):
     director = db.Column(db.String(100))
     actors = db.Column(db.Text)
     duration = db.Column(db.Integer, nullable=False)
+    age = db.Column(db.String(100))
     image_id = db.Column(db.Integer, db.ForeignKey('images.image_id'), nullable=True)
 
     image = db.relationship('Image')
@@ -83,7 +83,7 @@ class Film(db.Model):
 
 class Seat(db.Model):
     __tablename__ = 'seats'
-    seat_id = db.Column(db.Integer, primary_key=True)
+    seat_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     session_id = db.Column(db.Integer, db.ForeignKey('sessions.session_id'), nullable=False)
     row = db.Column(db.Integer, nullable=False)
     busy = db.Column(db.Boolean, default=False)
@@ -94,7 +94,7 @@ class Seat(db.Model):
 
 class Ticket(db.Model):
     __tablename__ = 'tickets'
-    ticket_id = db.Column(db.Integer, primary_key=True)
+    ticket_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     date_of_purchase = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     user_phone_number = db.Column(db.String(15), db.ForeignKey('users.phone_number'), nullable=False)
     seat_id = db.Column(db.Integer, db.ForeignKey('seats.seat_id'), nullable=False)
@@ -103,4 +103,4 @@ class Ticket(db.Model):
     user = db.relationship('User')
     seat = db.relationship('Seat')
     session = db.relationship('Session', back_populates='tickets')
-                      
+

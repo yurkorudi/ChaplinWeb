@@ -117,7 +117,7 @@ def create_sample_data():
         add_ticket(user_phone_number="5566778899", seat_id=4, session_id=2)
     print("created!")
 
-create_sample_data()
+# create_sample_data()
 
 
 with app.app_context():

@@ -213,17 +213,28 @@ def about():
     return render_template('About.html', city = "", cities = cities)
 
 
-@app.route('/book', methods=['POST'])
+@app.route('/book', methods=['GET', 'POST'])
 def book():
     global user_location
     global user_device
     global json
-    film_name = request.args.get('movie_name')
-    with app.app_context():
-        film = Film_obj(film_name)
-        
-    if user_location == []:
-        a = location()
+
+    if request.method == 'POST':
+        film_name = request.args.get('movie_name')
+        with app.app_context():
+            film = Film_obj(film_name)
+
+        if user_location == []:
+            a = location()
+
+
+    if request.method == 'GET':
+        selected_date = request.args.get('date')
+        selected_hour = request.args.get('hour')
+        film_name = request.args.get('film')
+        print('___________________________________________________________________________________', film_name)
+        with app.app_context():
+            film = Film_obj(film_name)
 
 
     return render_template('Booking.html', city = "", cities = cities, movie_info = film.data)

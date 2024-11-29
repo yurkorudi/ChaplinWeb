@@ -31,12 +31,12 @@ def add_image(type, path):
 def get_images(id=False):
     if id == False:
         images = Image.query.all()
-        return [{"image_id": img.image_id, "type": img.type, "path": img.path} for img in images]
+        return [{"id": img.image_id, "type": img.type, "path": img.path} for img in images]
     else:
         image = Image.query.filter_by(image_id=id).first()
         if image:
             return {
-                "image_id":id,
+                "id":image.image_id,
                 "type":image.type,
                 "path":image.path
             }

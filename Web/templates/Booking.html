@@ -35,10 +35,10 @@
                 <p class="value">Львів, пр. Червоної Калини, 81</p>
 
                 <p class="category">Дата:</p>
-                <p class="value">{{movie_info['release_start_date']}}  -  {{movie_info['release_end_date']}}</p>
+                <p class="value">тут буде Дата</p>
 
                 <p class="category">Тривалість:</p>
-                <p class="value">{{movie_info['duration']}}</p>
+                <p class="value">{{movie_info['duration']}}  хв</p>
 
             </div>  
             
@@ -60,7 +60,8 @@
                 <li>Fri</li>
                 <li>Sat</li>
             </ul>
-            <ul class="schedule" id="schedule"></ul>
+            <ul class="schedule" id="schedule">
+            </ul>
         </div>
     </main>
 
@@ -72,26 +73,21 @@
         const currentYear = today.getFullYear();
         const currentMonth = today.getMonth();
         const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
-
         const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const movieName = urlParams.get('movie_name');
-
-        const hoursForDays = [1, 5, 10, 15, 20]; // Days with specific hours
+        const hoursForDays = [1, 5, 10, 15, 20];
         const specificHour = "09:00";
+        const filmName = "{{ movie_info['name'] }}";
 
-        // Create empty slots for days before the first day of the month
         for (let i = 0; i < firstDayOfMonth; i++) {
             const emptyItem = document.createElement("li");
             emptyItem.classList.add("empty");
             scheduleContainer.appendChild(emptyItem);
         }
 
-        // Variable to keep track of the last clicked item
+
         let lastClickedItem = null;
 
-        // Create list items for each day of the month
         for (let day = 1; day <= daysInMonth; day++) {
             const date = new Date(currentYear, currentMonth, day);
             const formattedDate = date.toISOString().split("T")[0];
@@ -101,8 +97,7 @@
             timeElement.setAttribute("datetime", formattedDate);
             timeElement.textContent = day;
 
-            // Default color is transparent, but can be customized
-            listItem.style.backgroundColor = "transparent";  // Default color when not clicked
+            listItem.style.backgroundColor = "";  
 
             if (day === today.getDate()) {
                 listItem.classList.add("today");
@@ -110,26 +105,26 @@
 
             listItem.appendChild(timeElement);
 
-            // Check if the day has specific hours
             if (hoursForDays.includes(day)) {
                 listItem.innerHTML += ` ${specificHour}`;
             }
 
-            // Add event listener for click
+
             listItem.addEventListener("click", function () {
-                // If there was a previously clicked item, reset its background to transparent
                 if (lastClickedItem) {
-                    lastClickedItem.style.backgroundColor = "transparent";  // Reset background to the initial transparent state
+                    lastClickedItem.style.backgroundColor = ""; 
                 }
-
-                // Set the background color of the clicked item to blue
-                listItem.style.backgroundColor = "blue";  // Change color to blue on click
-
-                // Update the lastClickedItem to the currently clicked item
+           
+                listItem.style.backgroundColor = "blue"; 
+        
                 lastClickedItem = listItem;
+
+           
+                const selectedDate = formattedDate;
+                const selectedHour = specificHour;
+                const url = `/book?date=${selectedDate}&hour=${selectedHour}&film=${filmName}`;
             });
 
-            // Append the item to the schedule container
             scheduleContainer.appendChild(listItem);
         }
 

@@ -587,6 +587,20 @@ body {
   box-shadow: none;
 }
 
+li {
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+}
+
+li.today {
+  font-weight: bold;
+}
+
+li:active {
+  opacity: 0.7;
+}
+
 .main.transformers .right_menu li {
   display: flex;
   width: 50px;
@@ -604,6 +618,14 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.18);
   cursor: pointer;
   transition: 0.5s;
+}
+
+.main.transformers .right_menu li.today {
+  font-weight: bold;
+}
+
+.main.transformers .right_menu  li:active {
+  opacity: 0.7;
 }
 
 .main.transformers .right_menu .schedule li:hover,

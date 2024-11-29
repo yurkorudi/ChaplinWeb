@@ -221,9 +221,10 @@ def book():
     film_name = request.args.get('movie_name')
     with app.app_context():
         film = Film_obj(film_name)
-
+        
     if user_location == []:
         a = location()
+
 
     return render_template('Booking.html', city = "", cities = cities, movie_info = film.data)
 

@@ -221,6 +221,18 @@ def book():
 
     if request.method == 'POST':
         film_name = request.args.get('movie_name')
+        try:
+            data = request.form.get("selectedSeats")  # Retrieve the hidden input data
+            seat_details = json.loads(data)  # Convert JSON string to Python list/dict
+
+            # Example: Process the seat data
+            for seat in seat_details:
+                seat_number = seat.get("seatNumber")
+                row = seat.get("row")
+                cost = seat.get("cost")
+                print(f"Seat ____!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! {seat_number} in row {row} costs {cost}.")
+        except:
+            pass
         with app.app_context():
             film = Film_obj(film_name)
 
@@ -229,12 +241,17 @@ def book():
 
 
     if request.method == 'GET':
-        selected_date = request.args.get('date')
-        selected_hour = request.args.get('hour')
-        film_name = request.args.get('film')
+        try:
+            selected_date = request.args.get('date')
+            selected_hour = request.args.get('hour')
+            film_name = request.args.get('film')
+        except:
+            pass
         print('___________________________________________________________________________________', film_name)
         with app.app_context():
             film = Film_obj(film_name)
+        print (selected_date, selected_hour)
+        return render_template('Booking.html', city = "", cities = cities, movie_info = film.data, date=selected_date, time=selected_hour)
 
 
     return render_template('Booking.html', city = "", cities = cities, movie_info = film.data)

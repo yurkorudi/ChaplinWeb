@@ -681,8 +681,35 @@ li:active {
   height: auto;
   width: 100%;
   background-size: cover;
+  justify-content: center;
   filter: grayscale(50%);
 }
+
+
+
+.place {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.sold {
+  background-color: gray;
+}
+
+.sofa {
+  width: 50px;
+  height: 30px;
+  background-color: transparent;
+}
+
+.selected {
+  background-color: green; /* Green when selected */
+}
+
 
 .main.about .company_info{
   width: 50%;

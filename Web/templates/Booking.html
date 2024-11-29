@@ -19,9 +19,6 @@
             <div class="movie_logo">
                 <img src="{{movie_info['img_src']}}" alt="шьп р==аволі(ЩШЛД)">
             </div>
-            <form action="{{ url_for('homepage')}}">
-                <div class="book_button"><button>Придбати квиток</button></div>
-            </form>
         </div>
 
         <div class="base_info">
@@ -35,10 +32,32 @@
                 <p class="value">Львів, пр. Червоної Калини, 81</p>
 
                 <p class="category">Дата:</p>
+                <p class="value">{{date}}</p>
+
+                <p class="category">Час:</p>
+                <p class="value">{{time}}</p>
+
+                <p class="category">Місце:</p>
+                <p class="value">тут буде Дата</p>
+
+                <p class="category">Ряд:</p>
                 <p class="value">тут буде Дата</p>
 
                 <p class="category">Тривалість:</p>
                 <p class="value">{{movie_info['duration']}}  хв</p>
+
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+
+                <p class="category">Вартість:</p>
+                <p class="value">тут буде Дата</p>
+
+                
+                    <input type="hidden" id="selectedSeats" name="selectedSeats" value="">
+                    <div class="book_button"><button type="submit", onclick="submitSeats()">Придбати квиток</button></div>
+                </form>
 
             </div>  
             
@@ -47,6 +66,9 @@
                     <p>Екран</p>
                 </div>
                 <div class="seats" id="seats"></div>
+                <form id="seatForm" action="/book" method="POST">
+                    <div id="seats"></div>
+                </form>
             </div>
         </div>
         <div class="right_menu">
@@ -123,26 +145,62 @@
                 const selectedDate = formattedDate;
                 const selectedHour = specificHour;
                 const url = `/book?date=${selectedDate}&hour=${selectedHour}&film=${filmName}`;
+                const currentUrl = window.location.href;
+                window.location.href = url;
             });
 
             scheduleContainer.appendChild(listItem);
+
         }
+
+// ___________________________________________________________________________________________________________
 
 
         const seatContainer = document.getElementById("seats");
+        const selectedSeats = [];
+        const unavailableSeats = [5, 15, 23, 35, 45, 58, 67, 79];
         const seatPlaces = 120;
+        const seatsPerRow = 10;
+
         for (let i = 1; i <= seatPlaces; i++) {
             const seatItem = document.createElement("div");
             seatItem.classList.add("place");
-            seatContainer.appendChild(seatItem);
+            // seatItem.textContent = i;
 
-            if (i > 112) {                
-                seatItem.classList.add("sofa");
-                if (i === 112){
-                    seatItem.style.backgroundColor = "green";
-                }
+            const row = Math.ceil(i / seatsPerRow);
+
+            if (unavailableSeats.includes(i)) {
+                seatItem.classList.add("unavailable");
+                seatItem.style.backgroundColor = "gray";
+            } else {
+                seatItem.addEventListener("click", () => {
+                    const seatDetails = { seatNumber: i, row: row, cost: row * 10 };
+                    if (!selectedSeats.find(seat => seat.seatNumber === i)) {
+                        seatItem.style.backgroundColor = "green";
+                        selectedSeats.push(seatDetails);
+                    } else {
+                        seatItem.style.backgroundColor = "";
+                        const index = selectedSeats.findIndex(seat => seat.seatNumber === i);
+                        selectedSeats.splice(index, 1);
+                    }
+                    console.log(selectedSeats);
+                });
             }
+
+            seatContainer.appendChild(seatItem);
         }
+
+        const seatForm = document.getElementById("seatForm");
+        const seatInput = document.getElementById("selectedSeats");
+
+        function updateHiddenInput() {
+            seatInput.value = JSON.stringify(selectedSeats);
+            console.log("Form data updated:", seatInput.value);
+}
+
+            window.location.href = url;
+        
+
     </script>
 
 </body>

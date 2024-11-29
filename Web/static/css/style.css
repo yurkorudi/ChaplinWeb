@@ -495,7 +495,14 @@ body {
   align-items: center;
 }
 
-.main.transformers .left_menu .book_button button {
+.main.transformers .base_info .book_button {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.main.transformers .left_menu .book_button button,
+.main.transformers .base_info .book_button button {
   color: white;
   font-size: 20px;
   background-color: transparent;
@@ -506,7 +513,8 @@ body {
   transition: 0.5s;
 }
 
-.main.transformers .left_menu .book_button button:hover {
+.main.transformers .left_menu .book_button button:hover,
+.main.transformers .base_info .book_button button:hover {
   background-color: rgba(128, 0, 0, 1);
   border-color: #000000;
   transform: scale(105%);

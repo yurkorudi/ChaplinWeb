@@ -14,7 +14,7 @@
     <div class="home">
         
 
-    <main class="main transformers">
+    <main class="main movie">
         <div class="left_menu">
             <div class="movie_logo">
                 <img src="{{movie_info['img_src']}}" alt="шьп р==аволі(ЩШЛД)">
@@ -38,10 +38,10 @@
                 <p class="value">{{time}}</p>
 
                 <p class="category">Місце:</p>
-                <p class="value">тут буде Дата</p>
+                <p class="value">14</p>
 
                 <p class="category">Ряд:</p>
-                <p class="value">тут буде Дата</p>
+                <p class="value">1</p>
 
                 <p class="category">Тривалість:</p>
                 <p class="value">{{movie_info['duration']}}  хв</p>
@@ -177,7 +177,7 @@
                     const seatDetails = { seatNumber: i, row: row, cost: row * 10 };
                     if (!selectedSeats.find(seat => seat.seatNumber === i)) {
                         seatItem.style.backgroundColor = "green";
-                        selectedSeats.push(seatDetails);
+                        selectedSeats.push(seatDetails);                        
                     } else {
                         seatItem.style.backgroundColor = "";
                         const index = selectedSeats.findIndex(seat => seat.seatNumber === i);

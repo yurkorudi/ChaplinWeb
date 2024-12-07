@@ -520,7 +520,7 @@ body {
   transform: scale(105%);
 }
 
-.main.transfmovieormers .base_info .movie_short_info {
+.main.movie .base_info .movie_short_info {
   display: grid;
   grid-template-columns: 30% 70%;
   gap: 5px;
@@ -657,6 +657,9 @@ li:active {
   color: rgba(128, 0, 0, 1);
 }
 
+.main.movie.booking .base_info button {
+  margin-bottom: -30px;
+}
 
 .footer.movie {
   margin-top: -100px;
@@ -1154,7 +1157,7 @@ li:active {
     width: 95%;
   }
 
-  .main.tranmoviesformers .base_info .treiler {
+  .main.movies .base_info .treiler {
     width: 95%;
   }
 

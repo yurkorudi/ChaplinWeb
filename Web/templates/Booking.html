@@ -14,7 +14,7 @@
     <div class="home">
         
 
-    <main class="main movie">
+    <main class="main movie booking">
         <div class="left_menu">
             <div class="movie_logo">
                 <img src="{{movie_info['img_src']}}" alt="шьп р==аволі(ЩШЛД)">
@@ -29,37 +29,31 @@
             <div class="movie_short_info">
 
                 <p class="category">Локація:</p>
-                <p class="value">Львів, пр. Червоної Калини, 81</p>
+                <p class="value_location">Львів, пр. Червоної Калини, 81</p>
 
                 <p class="category">Дата:</p>
-                <p class="value">{{date}}</p>
+                <p class="value_date">{{date}}</p>
 
                 <p class="category">Час:</p>
-                <p class="value">{{time}}</p>
+                <p class="value_time">{{time}}</p>
 
                 <p class="category">Місце:</p>
-                <p class="value">14</p>
+                <p class="value_seat">14</p>
 
                 <p class="category">Ряд:</p>
-                <p class="value">1</p>
+                <p class="value_row">1</p>
 
                 <p class="category">Тривалість:</p>
-                <p class="value">{{movie_info['duration']}}  хв</p>
-
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
+                <p class="value_duration">{{movie_info['duration']}}  хв</p>
 
                 <p class="category">Вартість:</p>
-                <p class="value">тут буде Дата</p>
-
-                
-                    <input type="hidden" id="selectedSeats" name="selectedSeats" value="">
-                    <div class="book_button"><button type="submit", onclick="submitSeats()">Придбати квиток</button></div>
-                </form>
+                <p class="value_cost">тут буде Дата</p>               
 
             </div>  
+
+            <form action="" method="post">
+                <div class="book_button"><button type="submit", onclick="submitSeats()">Придбати квиток</button></div>
+            </form>
             
             <div class="seat">
                 <div class="monitor">
@@ -184,6 +178,7 @@
                         selectedSeats.splice(index, 1);
                     }
                     console.log(selectedSeats);
+                    updateHiddenInput();
                 });
             }
 

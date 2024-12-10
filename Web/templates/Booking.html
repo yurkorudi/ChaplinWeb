@@ -1,5 +1,5 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -12,74 +12,75 @@
 
 <body class="fade-in">
     <div class="home">
-        
 
-    <main class="main movie booking">
-        <div class="left_menu">
-            <div class="movie_logo">
-                <img src="{{movie_info['img_src']}}" alt="шьп р==аволі(ЩШЛД)">
-            </div>
-        </div>
 
-        <div class="base_info">
-            <div class="movie_name">
-                <h1>{{movie_info['name']}}</h1>
-            </div>
-
-            <div class="movie_short_info">
-
-                <p class="category">Локація:</p>
-                <p class="value_location">Львів, пр. Червоної Калини, 81</p>
-
-                <p class="category">Дата:</p>
-                <p class="value_date">{{date}}</p>
-
-                <p class="category">Час:</p>
-                <p class="value_time">{{time}}</p>
-
-                <p class="category">Місце:</p>
-                <p class="value_seat">14</p>
-
-                <p class="category">Ряд:</p>
-                <p class="value_row">1</p>
-
-                <p class="category">Тривалість:</p>
-                <p class="value_duration">{{movie_info['duration']}}  хв</p>
-
-                <p class="category">Вартість:</p>
-                <p class="value_cost">тут буде Дата</p>               
-
-            </div>  
-
-            <form action="" method="post">
-                <div class="book_button"><button type="submit", onclick="submitSeats()">Придбати квиток</button></div>
-            </form>
-            
-            <div class="seat">
-                <div class="monitor">
-                    <p>Екран</p>
+        <main class="main movie booking">
+            <div class="left_menu">
+                <div class="movie_logo">
+                    <img src="{{movie_info['img_src']}}" alt="шьп р==аволі(ЩШЛД)">
                 </div>
-                <div class="seats" id="seats"></div>
-                <form id="seatForm" action="/book" method="POST">
-                    <div id="seats"></div>
-                </form>
             </div>
-        </div>
-        <div class="right_menu">
-            <h1>Розклад Сеансів</h1>
-            <ul class="weekdays">
-                <li>Sun</li>
-                <li>Mon</li>
-                <li>Tue</li>
-                <li>Wed</li>
-                <li>Thu</li>
-                <li>Fri</li>
-                <li>Sat</li>
-            </ul>
-            <ul class="schedule" id="schedule">
-            </ul>
-        </div>
-    </main>
+
+            <div class="base_info">
+                <div class="movie_name">
+                    <h1>{{movie_info['name']}}</h1>
+                </div>
+
+                <div class="movie_short_info">
+
+                    <p class="category">Локація:</p>
+                    <p class="value_location">Львів, пр. Червоної Калини, 81</p>
+
+                    <p class="category">Дата:</p>
+                    <p class="value_date"></p>
+
+                    <p class="category">Час:</p>
+                    <p class="value_time"></p>
+
+                    <p class="category">Місце:</p>
+                    <p class="value_seat"></p>
+
+                    <p class="category">Ряд:</p>
+                    <p class="value_row"></p>
+
+                    <p class="category">Тривалість:</p>
+                    <p class="value_duration">{{movie_info['duration']}} хв</p>
+
+                    <p class="category">Вартість:</p>
+                    <p class="value_cost"></p>
+
+                </div>
+
+                <form action="" method="post">
+                    <div class="book_button"><button type="submit" , onclick="submitSeats()">Придбати квиток</button>
+                    </div>
+                </form>
+
+                <div class="seat">
+                    <div class="monitor">
+                        <p>Екран</p>
+                    </div>
+                    <div class="seats" id="seats"></div>
+                    <form id="seatForm" action="/book" method="POST">
+                        <div id="seats"></div>
+                    </form>
+                </div>
+            </div>
+            <div class="right_menu">
+                <h1>Розклад Сеансів</h1>
+                <ul class="weekdays">
+                    <li>Sun</li>
+                    <li>Mon</li>
+                    <li>Tue</li>
+                    <li>Wed</li>
+                    <li>Thu</li>
+                    <li>Fri</li>
+                    <li>Sat</li>
+                </ul>
+                <ul class="schedule" id="schedule">
+                </ul>
+            </div>
+        </main>
 
     </div>
 
@@ -94,6 +95,13 @@
         const hoursForDays = [1, 5, 10, 15, 20];
         const specificHour = "09:00";
         const filmName = "{{ movie_info['name'] }}";
+
+        const selectedDate = document.querySelector('.value_date');
+        const selectedTime = document.querySelector('.value_time');
+        const selectedSeat = document.querySelector('.value_seat');
+        const selectedRow = document.querySelector('.value_row');
+        const selectedCost = document.querySelector('.value_cost');
+
 
         for (let i = 0; i < firstDayOfMonth; i++) {
             const emptyItem = document.createElement("li");
@@ -113,7 +121,7 @@
             timeElement.setAttribute("datetime", formattedDate);
             timeElement.textContent = day;
 
-            listItem.style.backgroundColor = "";  
+            listItem.style.backgroundColor = "";
 
             if (day === today.getDate()) {
                 listItem.classList.add("today");
@@ -125,36 +133,39 @@
                 listItem.innerHTML += ` ${specificHour}`;
             }
 
-
             listItem.addEventListener("click", function () {
                 if (lastClickedItem) {
-                    lastClickedItem.style.backgroundColor = ""; 
+                    lastClickedItem.style.backgroundColor = "";
                 }
-           
-                listItem.style.backgroundColor = "blue"; 
-        
+
+                listItem.style.backgroundColor = "blue";
+
                 lastClickedItem = listItem;
 
-           
-                const selectedDate = formattedDate;
-                const selectedHour = specificHour;
-                const url = `/book?date=${selectedDate}&hour=${selectedHour}&film=${filmName}`;
-                const currentUrl = window.location.href;
-                window.location.href = url;
+                selectedDate.textContent = timeElement.textContent;
+
+                const selectedHour = listItem.textContent.split(' ');
+                if (selectedHour[1] == null) {
+                    selectedTime.textContent = 'no seans for this day';
+                }
+                else {
+                    selectedTime.textContent = selectedHour[1];
+                }
+
             });
 
             scheduleContainer.appendChild(listItem);
 
         }
 
-// ___________________________________________________________________________________________________________
+        // ___________________________________________________________________________________________________________
 
 
         const seatContainer = document.getElementById("seats");
         const selectedSeats = [];
         const unavailableSeats = [5, 15, 23, 35, 45, 58, 67, 79];
         const seatPlaces = 120;
-        const seatsPerRow = 10;
+        const seatsPerRow = 14;
 
         for (let i = 1; i <= seatPlaces; i++) {
             const seatItem = document.createElement("div");
@@ -168,17 +179,30 @@
                 seatItem.style.backgroundColor = "gray";
             } else {
                 seatItem.addEventListener("click", () => {
-                    const seatDetails = { seatNumber: i, row: row, cost: row * 10 };
+                    const seatDetails = { seatNumber: i, row: row, cost: 100 };
                     if (!selectedSeats.find(seat => seat.seatNumber === i)) {
                         seatItem.style.backgroundColor = "green";
-                        selectedSeats.push(seatDetails);                        
+                        selectedSeats.push(seatDetails);
+
                     } else {
                         seatItem.style.backgroundColor = "";
                         const index = selectedSeats.findIndex(seat => seat.seatNumber === i);
                         selectedSeats.splice(index, 1);
                     }
                     console.log(selectedSeats);
+
+                    selectedSeats.sort((a, b) => a.seatNumber - b.seatNumber);
+                    selectedSeat.textContent = selectedSeats.map(seat => seat.seatNumber);
+
+                    selectedRow.textContent = selectedSeats
+                    .map(seat => seat.row)
+                    .filter((value, index, self) => self.indexOf(value) === index);
+
+                    selectedCost.textContent = selectedSeats.reduce((sum, seat) => sum + seat.cost, 0);
+
                     updateHiddenInput();
+
+
                 });
             }
 
@@ -191,10 +215,10 @@
         function updateHiddenInput() {
             seatInput.value = JSON.stringify(selectedSeats);
             console.log("Form data updated:", seatInput.value);
-}
+        }
 
-            window.location.href = url;
-        
+        window.location.href = url;
+
 
     </script>
 

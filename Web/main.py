@@ -222,10 +222,9 @@ def book():
     if request.method == 'POST':
         film_name = request.args.get('movie_name')
         try:
-            data = request.form.get("selectedSeats")  # Retrieve the hidden input data
-            seat_details = json.loads(data)  # Convert JSON string to Python list/dict
+            data = request.form.get("selectedSeats")
+            seat_details = json.loads(data)
 
-            # Example: Process the seat data
             for seat in seat_details:
                 seat_number = seat.get("seatNumber")
                 row = seat.get("row")

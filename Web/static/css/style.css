@@ -870,6 +870,8 @@ li:active {
 
 .main.user .login{
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main.user .registration{
@@ -931,7 +933,7 @@ li:active {
   flex-direction: column;
   justify-content: center;
   width: 50%;
-  padding-right: 30px;
+  /* padding-right: 30px; */
 }
 
 .main.user .login .form input,

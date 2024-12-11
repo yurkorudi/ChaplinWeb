@@ -127,10 +127,27 @@ def add_session(film_id, cinema_id, session_datetime, session_duration):
 
 
 
-def get_sessions():
-    sessions = Session.query.all()
-    return [{"session_id": s.session_id, "film_id": s.film_id, "cinema_id": s.cinema_id,
-             "session_datetime": s.session_datetime, "session_duration": s.session_duration} for s in sessions]
+def get_sessions(film_id=False):
+    if film_id == False:    
+        sessions = Session.query.all()
+        return [{"session_id": s.session_id, "film_id": s.film_id, "cinema_id": s.cinema_id,
+                "session_datetime": s.session_datetime, "session_duration": s.session_duration} for s in sessions]
+
+    else: 
+        sessions = Session.query.filter_by(film_id=film_id).first()
+        if sessions:
+            return{ 
+            "session_id" : sessions.session_id,
+            "film_id" : sessions.film_id,
+            "cinema_id" : sessions.cinema_id,
+            "session_datetime" : sessions.session_datetime,
+            "session_duration" : sessions.session_duration
+            }
+        else:
+            return {"error": f"Session with film_ID '{film_id}' not found."}
+
+
+
 
 def add_film(name, genre, description, release_start_date, release_end_date, director, actors, duration, age, image_id):
     try:
@@ -212,10 +229,13 @@ def add_seat(session_id, row, busy):
         db.session.rollback()
         return jsonify({"error": str(e)}), 500
 
-def get_seats():
-    seats = Seat.query.all()
-    return [{"seat_id": s.seat_id, "session_id": s.session_id, "row": s.row, "busy": s.busy} for s in seats]
-
+def get_seats(session_id = False):
+    if session_id == False:
+        seats = Seat.query.all()
+        return [{"seat_id": s.seat_id, "session_id": s.session_id, "row": s.row, "busy": s.busy} for s in seats]
+    else:
+        seats = Seat.query.filter_by(session_id=session_id)
+        return [{"seat_id": s.seat_id, "session_id": s.session_id, "row": s.row, "busy": s.busy} for s in seats]
 
 def add_ticket(user_phone_number, seat_id, session_id, date_of_purchase=None):
     try:

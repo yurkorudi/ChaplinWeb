@@ -92,9 +92,15 @@
         const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
         const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
 
-        const hoursForDays = [1, 5, 10, 15, 20];
-        const specificHour = "09:00";
-        const filmName = "{{ movie_info['name'] }}";
+        let sessionDate = "{{ movie_info['date_time'] }}";
+        let hoursForDays = sessionDate
+        .slice(1, -1)
+        .replace("datetime.datetime(", "");
+        // .map(Number);
+
+        let specificHour = "09:00";
+        let sessionTime = "{{ movie_info['date_time'] }}";
+
 
         const selectedDate = document.querySelector('.value_date');
         const selectedTime = document.querySelector('.value_time');
@@ -102,7 +108,7 @@
         const selectedRow = document.querySelector('.value_row');
         const selectedCost = document.querySelector('.value_cost');
 
-        selectedTime.textContent = filmName;
+        selectedTime.textContent = hoursForDays;
 
         for (let i = 0; i < firstDayOfMonth; i++) {
             const emptyItem = document.createElement("li");
@@ -164,9 +170,14 @@
 
         const seatContainer = document.getElementById("seats");
         const selectedSeats = [];
-        const unavailableSeats = [5, 15, 23, 35, 45, 58, 67, 79];
         const seatPlaces = 120;
         const seatsPerRow = 14;
+
+        let busySeat = "{{ movie_info['busy_seats'] }}";
+        let unavailableSeats = busySeat
+        .slice(1, -1)
+        .split(',')
+        .map(Number);
 
         for (let i = 1; i <= seatPlaces; i++) {
             const seatItem = document.createElement("div");
@@ -196,8 +207,8 @@
                     selectedSeat.textContent = selectedSeats.map(seat => seat.seatNumber);
 
                     selectedRow.textContent = selectedSeats
-                    .map(seat => seat.row)
-                    .filter((value, index, self) => self.indexOf(value) === index);
+                        .map(seat => seat.row)
+                        .filter((value, index, self) => self.indexOf(value) === index);
 
                     selectedCost.textContent = selectedSeats.reduce((sum, seat) => sum + seat.cost, 0);
 

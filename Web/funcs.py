@@ -134,15 +134,15 @@ def get_sessions(film_id=False):
                 "session_datetime": s.session_datetime, "session_duration": s.session_duration} for s in sessions]
 
     else: 
-        sessions = Session.query.filter_by(film_id=film_id).first()
+        sessions = Session.query.filter_by(film_id=film_id)
         if sessions:
-            return{ 
-            "session_id" : sessions.session_id,
-            "film_id" : sessions.film_id,
-            "cinema_id" : sessions.cinema_id,
-            "session_datetime" : sessions.session_datetime,
-            "session_duration" : sessions.session_duration
-            }
+            return[{ 
+            "session_id" : ss.session_id,
+            "film_id" : ss.film_id,
+            "cinema_id" : ss.cinema_id,
+            "session_datetime" : ss.session_datetime,
+            "session_duration" : ss.session_duration
+            }for ss in sessions]
         else:
             return {"error": f"Session with film_ID '{film_id}' not found."}
 

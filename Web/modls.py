@@ -25,11 +25,6 @@ class Film_obj:
         src = get_images(id=self.data['image_id'])
 
         path = src['path']
-        
-        date_time = ",".join(self.film_dates)
-        print ("___________________________________________________________________")
-        print(date_time)
-        print ("___________________________________________________________________")
 
         self.data.update({'img_src': path})
         self.data.update({'date_time': self.film_dates})

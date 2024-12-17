@@ -92,17 +92,24 @@
         const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
         const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
 
-        let sessionDate = "{{ movie_info['date_time'] }}";
-        let hoursForDays = sessionDate
-        .slice(1, -1)
-        .replace("datetime.datetime(", "");
-        // .map(Number);
-
-        let specificHour = "09:00";
-        var sessionTime = "{{ movie_info['date_time'] }}"
+        var sessionDateTime = "{{ movie_info['date_time'] }}"
         .slice(1, -1)
         .replace(/&#39;/g, " ")
         .split(" , ");
+
+        let hoursForDays = [];
+        let specificHour = [];
+
+        sessionDateTime.forEach((dt) => {
+            hoursForDays.push(new Date(dt).getDate())
+            minutes = new Date(dt).getMinutes();
+            if(minutes < 10){
+                specificHour.push(new Date(dt).getHours() + ":" + minutes + "0")
+            }
+            else{
+                specificHour.push(new Date(dt).getHours() + ":" + minutes)
+            }
+        });
 
 
         const selectedDate = document.querySelector('.value_date');
@@ -110,8 +117,6 @@
         const selectedSeat = document.querySelector('.value_seat');
         const selectedRow = document.querySelector('.value_row');
         const selectedCost = document.querySelector('.value_cost');
-
-        selectedTime.textContent = sessionTime[1];
 
         for (let i = 0; i < firstDayOfMonth; i++) {
             const emptyItem = document.createElement("li");
@@ -140,7 +145,8 @@
             listItem.appendChild(timeElement);
 
             if (hoursForDays.includes(day)) {
-                listItem.innerHTML += ` ${specificHour}`;
+                index = hoursForDays.indexOf(day);
+                listItem.innerHTML += ` ${specificHour[index]}`;
             }
 
             listItem.addEventListener("click", function () {
@@ -152,15 +158,29 @@
 
                 lastClickedItem = listItem;
 
-                selectedDate.textContent = timeElement.textContent;
-
                 const selectedHour = listItem.textContent.split(' ');
-                if (selectedHour[1] == null) {
-                    selectedTime.textContent = 'no seans for this day';
+                minValue = document.querySelector('.value_date');
+                minValue = minValue.textContent.split(' ');
+
+                if (day < today.getDate()){
+                    selectedDate.textContent = today.getDate();
+                    if (minValue[1] == null){
+                        minValue[1] = 'no seans for this day';
+                    }
+                    selectedTime.textContent = minValue[1];
                 }
-                else {
-                    selectedTime.textContent = selectedHour[1];
+                else{
+                    selectedDate.textContent = timeElement.textContent;
+
+                    if (selectedHour[1] == null) {
+                        selectedTime.textContent = 'no seans for this day';
+                    }
+                    else {
+                        selectedTime.textContent = selectedHour[1];
+                    }
                 }
+
+                
 
             });
 
@@ -179,8 +199,9 @@
         let busySeat = "{{ movie_info['busy_seats'] }}";
         let unavailableSeats = busySeat
         .slice(1, -1)
-        .split(',')
-        .map(Number);
+        .split('],');
+
+        selectedTime.textContent = unavailableSeats[0];
 
         for (let i = 1; i <= seatPlaces; i++) {
             const seatItem = document.createElement("div");

@@ -99,7 +99,10 @@
         // .map(Number);
 
         let specificHour = "09:00";
-        let sessionTime = "{{ movie_info['date_time'] }}";
+        var sessionTime = "{{ movie_info['date_time'] }}"
+        .slice(1, -1)
+        .replace(/&#39;/g, " ")
+        .split(" , ");
 
 
         const selectedDate = document.querySelector('.value_date');
@@ -108,7 +111,7 @@
         const selectedRow = document.querySelector('.value_row');
         const selectedCost = document.querySelector('.value_cost');
 
-        selectedTime.textContent = hoursForDays;
+        selectedTime.textContent = sessionTime[1];
 
         for (let i = 0; i < firstDayOfMonth; i++) {
             const emptyItem = document.createElement("li");

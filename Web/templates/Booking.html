@@ -93,9 +93,9 @@
         const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
 
         var sessionDateTime = "{{ movie_info['date_time'] }}"
-        .slice(1, -1)
-        .replace(/&#39;/g, " ")
-        .split(" , ");
+            .slice(1, -1)
+            .replace(/&#39;/g, " ")
+            .split(" , ");
 
         let hoursForDays = [];
         let specificHour = [];
@@ -103,10 +103,10 @@
         sessionDateTime.forEach((dt) => {
             hoursForDays.push(new Date(dt).getDate())
             minutes = new Date(dt).getMinutes();
-            if(minutes < 10){
+            if (minutes < 10) {
                 specificHour.push(new Date(dt).getHours() + ":" + minutes + "0")
             }
-            else{
+            else {
                 specificHour.push(new Date(dt).getHours() + ":" + minutes)
             }
         });
@@ -125,7 +125,7 @@
         }
 
 
-        let lastClickedItem = null;
+        let lastClickedItem;
 
         for (let day = 1; day <= daysInMonth; day++) {
             const date = new Date(currentYear, currentMonth, day);
@@ -162,14 +162,14 @@
                 minValue = document.querySelector('.value_date');
                 minValue = minValue.textContent.split(' ');
 
-                if (day < today.getDate()){
+                if (day < today.getDate()) {
                     selectedDate.textContent = today.getDate();
-                    if (minValue[1] == null){
+                    if (minValue[1] == null) {
                         minValue[1] = 'no seans for this day';
                     }
                     selectedTime.textContent = minValue[1];
                 }
-                else{
+                else {
                     selectedDate.textContent = timeElement.textContent;
 
                     if (selectedHour[1] == null) {
@@ -180,13 +180,14 @@
                     }
                 }
 
-                
+
 
             });
 
             scheduleContainer.appendChild(listItem);
 
         }
+
 
         // ___________________________________________________________________________________________________________
 
@@ -198,10 +199,19 @@
 
         let busySeat = "{{ movie_info['busy_seats'] }}";
         let unavailableSeats = busySeat
-        .slice(1, -1)
-        .split('],');
+            .slice(1, -1)
+            .match(/\d+: \[[^\]]*\]/g);
 
-        selectedTime.textContent = unavailableSeats[0];
+        unavailableSeatsSession = {};
+        unavailableSessionKey = [];
+
+        unavailableSeats.forEach(seats => {
+            const [key, value] = seats.split(": ");
+            const parsedKey = parseInt(key);
+            unavailableSessionKey.push(parsedKey);
+            const parsedValue = value.replace(/\[|\]/g, "").split(", ").map(Number);
+            unavailableSeatsSession[parsedKey] = parsedValue;
+        });
 
         for (let i = 1; i <= seatPlaces; i++) {
             const seatItem = document.createElement("div");
@@ -209,6 +219,13 @@
             // seatItem.textContent = i;
 
             const row = Math.ceil(i / seatsPerRow);
+
+            // unavailableSessionKey.forEach(seatNum => {
+            //     lastDate = Number(lastClickedItem.textContent.split(' ')[0]);
+            //     if (seatNum == lastDate) {
+            //         unavailableSeats = unavailableSeatsSession[seatNum];
+            //     }
+            // });
 
             if (unavailableSeats.includes(i)) {
                 seatItem.classList.add("unavailable");

@@ -1,4 +1,5 @@
 from funcs import *
+from datetime import *
 
 class Film_obj:
     def __init__(self, name):
@@ -14,11 +15,16 @@ class Film_obj:
             #словником відповідну ід сесії дату і зробити busy_seats словником в якому передаються всі 
             # заброньовані місця відповідно до певного ід
             self.seats = get_seats(session_id = g['session_id'])
-            id = g['session_id']
+            id = g['session_datetime']
+            id = id.day
             for s in self.seats:
                 if id not in self.busy_seats:
                     self.busy_seats[id] = []
                 self.busy_seats[id].append(s['seat_id'])
+                
+            print ("___________________________________________________________________")
+            print(id)
+            print ("___________________________________________________________________")
             print ("___________________________________________________________________")
             print(g['session_datetime'])
             print ("___________________________________________________________________")

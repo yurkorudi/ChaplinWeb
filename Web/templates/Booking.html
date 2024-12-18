@@ -125,7 +125,7 @@
         }
 
 
-        let lastClickedItem;
+        let lastClickedItem = null;
 
         for (let day = 1; day <= daysInMonth; day++) {
             const date = new Date(currentYear, currentMonth, day);
@@ -154,13 +154,15 @@
                     lastClickedItem.style.backgroundColor = "";
                 }
 
-                listItem.style.backgroundColor = "blue";
+                listItem.style.backgroundColor = "gray";
 
                 lastClickedItem = listItem;
+                bookSeat(day);
 
                 const selectedHour = listItem.textContent.split(' ');
                 minValue = document.querySelector('.value_date');
                 minValue = minValue.textContent.split(' ');
+                
 
                 if (day < today.getDate()) {
                     selectedDate.textContent = today.getDate();
@@ -213,19 +215,25 @@
             unavailableSeatsSession[parsedKey] = parsedValue;
         });
 
+        function bookSeat(chosenDay) {
+            unavailableSessionKey.forEach(day => {
+                if (chosenDay == day) {
+                    unavailableSeats = unavailableSeatsSession[chosenDay];
+                    selectedRow.textContent = unavailableSeats;
+                }
+                else {
+                    selectedRow.textContent = chosenDay;
+                }
+            });
+
+
+        }
+
         for (let i = 1; i <= seatPlaces; i++) {
             const seatItem = document.createElement("div");
             seatItem.classList.add("place");
-            // seatItem.textContent = i;
 
             const row = Math.ceil(i / seatsPerRow);
-
-            // unavailableSessionKey.forEach(seatNum => {
-            //     lastDate = Number(lastClickedItem.textContent.split(' ')[0]);
-            //     if (seatNum == lastDate) {
-            //         unavailableSeats = unavailableSeatsSession[seatNum];
-            //     }
-            // });
 
             if (unavailableSeats.includes(i)) {
                 seatItem.classList.add("unavailable");

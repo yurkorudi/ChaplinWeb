@@ -11,7 +11,7 @@
 </head>
 
 <body class="fade-in">
-    <div class="home">
+    <div class="home booking">
 
 
         <main class="main movie booking">
@@ -157,12 +157,13 @@
                 listItem.style.backgroundColor = "gray";
 
                 lastClickedItem = listItem;
+                removeAllSeats();
                 bookSeat(day);
 
                 const selectedHour = listItem.textContent.split(' ');
                 minValue = document.querySelector('.value_date');
                 minValue = minValue.textContent.split(' ');
-                
+
 
                 if (day < today.getDate()) {
                     selectedDate.textContent = today.getDate();
@@ -216,59 +217,58 @@
         });
 
         function bookSeat(chosenDay) {
-            unavailableSessionKey.forEach(day => {
-                if (chosenDay == day) {
-                    unavailableSeats = unavailableSeatsSession[chosenDay];
-                    selectedRow.textContent = unavailableSeats;
+            unavailableSeats = unavailableSeatsSession[chosenDay];
+
+            for (let i = 1; i <= seatPlaces; i++) {
+                const seatItem = document.createElement("div");
+                seatItem.classList.add("place");
+
+                const row = Math.ceil(i / seatsPerRow);
+
+                if (unavailableSeats.includes(i)) {
+                    seatItem.classList.add("unavailable");
+                    seatItem.style.backgroundColor = "gray";
+                } else {
+                    seatItem.addEventListener("click", () => {
+                        const seatDetails = { seatNumber: i, row: row, cost: 100 };
+                        if (!selectedSeats.find(seat => seat.seatNumber === i)) {
+                            seatItem.style.backgroundColor = "green";
+                            selectedSeats.push(seatDetails);
+
+                        } else {
+                            seatItem.style.backgroundColor = "";
+                            const index = selectedSeats.findIndex(seat => seat.seatNumber === i);
+                            selectedSeats.splice(index, 1);
+                        }
+                        console.log(selectedSeats);
+
+                        selectedSeats.sort((a, b) => a.seatNumber - b.seatNumber);
+                        selectedSeat.textContent = selectedSeats.map(seat => seat.seatNumber);
+
+                        selectedRow.textContent = selectedSeats
+                            .map(seat => seat.row)
+                            .filter((value, index, self) => self.indexOf(value) === index);
+
+                        selectedCost.textContent = selectedSeats.reduce((sum, seat) => sum + seat.cost, 0);
+
+                        updateHiddenInput();
+
+
+                    });
                 }
-                else {
-                    selectedRow.textContent = chosenDay;
-                }
-            });
 
-
-        }
-
-        for (let i = 1; i <= seatPlaces; i++) {
-            const seatItem = document.createElement("div");
-            seatItem.classList.add("place");
-
-            const row = Math.ceil(i / seatsPerRow);
-
-            if (unavailableSeats.includes(i)) {
-                seatItem.classList.add("unavailable");
-                seatItem.style.backgroundColor = "gray";
-            } else {
-                seatItem.addEventListener("click", () => {
-                    const seatDetails = { seatNumber: i, row: row, cost: 100 };
-                    if (!selectedSeats.find(seat => seat.seatNumber === i)) {
-                        seatItem.style.backgroundColor = "green";
-                        selectedSeats.push(seatDetails);
-
-                    } else {
-                        seatItem.style.backgroundColor = "";
-                        const index = selectedSeats.findIndex(seat => seat.seatNumber === i);
-                        selectedSeats.splice(index, 1);
-                    }
-                    console.log(selectedSeats);
-
-                    selectedSeats.sort((a, b) => a.seatNumber - b.seatNumber);
-                    selectedSeat.textContent = selectedSeats.map(seat => seat.seatNumber);
-
-                    selectedRow.textContent = selectedSeats
-                        .map(seat => seat.row)
-                        .filter((value, index, self) => self.indexOf(value) === index);
-
-                    selectedCost.textContent = selectedSeats.reduce((sum, seat) => sum + seat.cost, 0);
-
-                    updateHiddenInput();
-
-
-                });
+                seatContainer.appendChild(seatItem);
             }
-
-            seatContainer.appendChild(seatItem);
         }
+
+        function removeAllSeats() {
+            const divsToRemove = document.querySelectorAll('div.place');
+            divsToRemove.forEach((div) => {
+                div.remove();
+            });
+        }
+
+
 
         const seatForm = document.getElementById("seatForm");
         const seatInput = document.getElementById("selectedSeats");
